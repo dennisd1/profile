@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9network’s</title>
+<base href="http://www.demo2server.in/sites/core/9network/">
+<link href="http://www.demo2server.in/sites/core/9network/images/small-logo.png" rel="shortcut icon">
+
+<!-- Bootstrap -->
+<link href="http://www.demo2server.in/sites/core/9network/css/style.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/bootstrap.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/font-awesome.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/bootstrap-select.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/jquery-ui.css" rel="stylesheet" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery.min.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery-ui.min.js"></script>
+
+<script src="http://www.demo2server.in/sites/core/9network/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://www.demo2server.in/sites/core/9network/js/ie10-viewport-bug-workaround.js"></script>
+<!--jquery validation files-->
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery.validate.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/additional-methods.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/bootstrap-select.js"></script>
+
+
+<script type="text/javascript">
+	var rs=jQuery.noConflict();
+	rs(function(){
+		if (rs(".top_search").hasClass("s_fild")){
+			rs(".s_fild").autocomplete({
+				minLength: 2,
+				source: function (request, response) {
+					rs.ajax({
+						url: "ajax/search-ajax.php",
+						dataType: "json",
+						html: true,
+						data: {
+							term: request.term,
+							fun: "getProduct",
+							cat_id:rs("#main-search-category").val()
+						},
+						success: function (data) {
+							response(data);
+						}
+					});
+				},
+				html: true,
+				select: function (event, ui) {
+					rs(".s_fild").val(ui.item.first_name);
+	//						$("#search_param").val(ui.item.id);
+					return false;
+				}
+			}).data("ui-autocomplete")._renderItem = function (ul, item) {
+				return rs("<li></li>")
+				.data("item.autocomplete", item)
+				.append("<a href='#' target='_blank'><h5>"+item.first_name+"</h5></a>")
+				.appendTo(ul);
+			};
+		}
+	});
+	$=rs.noConflict();
+	var base_path = 'http://www.demo2server.in/sites/core/9network/';
+	var login_id = '89';
+</script>
+<noscript><meta http-equiv="refresh" content="0; URL=http://www.demo2server.in/sites/core/9network/index.php?mode=logout"></noscript>
+
+</head>
+<body >
+
+<header>
+    <!-- navigation 1 start -->
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="http://www.demo2server.in/sites/core/9network/home/"><img src="http://www.demo2server.in/sites/core/9network/images/logo.png" ></a> </div>
+      <div class="top_search">
+        <form class="navbar-form" name="search_form" method="get" action="http://www.demo2server.in/sites/core/9network/search.php">
+          <div style="display:inline;" class="form-group">
+            <div class="input_groupss">
+              <!--<div class="input-group-btn">
+					<button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+					   <span class="fa fa-list"> <b class="caret"></b></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">People</a></li>
+						<li><a href="">Jobs</a></li>
+						<li><a href="#">Companies</a></li>
+					</ul></div>-->
+              <select name="type" id="main-search-category" class=" selectpicker group_left">
+                <option class="all" value="all" data-li-styled-dropdown-class="all"><i class="fa fa-search"></i>All</option>
+                <option class="people" value="people" data-li-styled-dropdown-class="people">People</option>
+                <option class="jobs" value="jobs" data-li-styled-dropdown-class="jobs">Jobs</option>
+                <option class="companies" value="companie" data-li-styled-dropdown-class="companies">Companies</option>
+                <!--<option class="groups" value="groups" data-li-styled-dropdown-class="groups">Groups</option>-->
+                <option class="edu" value="edu" data-li-styled-dropdown-class="edu">Universities</option>
+                <!--<option class="inbox" value="inbox" data-li-styled-dropdown-class="inbox">Inbox</option>-->
+                <!--<option class="content" value="content" data-li-styled-dropdown-class="content">Posts</option>-->
+              </select>
+			  <script>$("#main-search-category").val("")</script>
+              <input type="text" name="keywords" value="" placeholder="Search for people, jobs, companies, and more..." class="form-control  group_mid s_fild" required>
+              <input type="submit" class="btn btn-default group_right" value="Search">
+              <!--<a href="#" class="btn btn-default input-group-addon">Search </a>-->
+            </div>
+            <!--<a href="#">Advanced</a>--> </div>
+        </form>
+      </div>
+      <div class="top_right">
+        <ul class="top_profile">
+          <li><a href="http://www.demo2server.in/sites/core/9network/messages.php"> <i class="fa fa-envelope-o"></i>  </a>
+            <ul class="messageBox">
+              <li class="pNone"><span class="head">
+                <h3>
+					<a href="http://www.demo2server.in/sites/core/9network/messages.php">Message (0) <i class="fa fa-caret-right"></i></a>
+					<a class="see-all" href="http://www.demo2server.in/sites/core/9network/compose/"><i class="fa fa-edit"></i> </a>
+				</h3>
+                </span> </li>
+								<!-- <li>
+                <div class="u_pic"><a href="#"><img alt="" src="http://www.demo2server.in/sites/core/9network/images/avatar-mini.jpg"></a></div>
+                <div class="msg_list">
+                  <div class="date"> Jan 22 </div>
+                  <span class="participants">Demo username</span> <span class="subject">Demo username invites...</span>
+                  <p class="preview  not-empty">I would like to invite you to join my group on LinkedIn. -Gajendra </p>
+                  <ul class="inbox-actions">
+                    <li><a href="#" class="reply">Reply</a></li>
+                     <li><a href="#" class="forward">Forward</a></li>
+								 <li> <a href="#" class="archive">Archive</a></li>
+                    <li><a href="#" class="delete">Delete</a></li>
+                  </ul>
+                </div>
+                <div class="clr"></div>
+              </li>
+              <li>
+                <div class="u_pic"><a href="#"><img alt="" src="http://www.demo2server.in/sites/core/9network/images/avatar-mini.jpg"></a></div>
+                <div class="msg_list">
+                  <div class="date"> Jan 22 </div>
+                  <span class="participants">Demo username</span> <span class="subject">Demo username invites...</span>
+                  <p class="preview  not-empty">I would like to invite you to join my group on LinkedIn. -Gajendra </p>
+                  <ul class="inbox-actions">
+                    <li><a href="#" class="reply">Reply</a></li>
+                     <li><a href="#" class="forward">Forward</a></li>
+								 <li> <a href="#" class="archive">Archive</a></li>
+                    <li><a href="#" class="delete">Delete</a></li>
+                  </ul>
+                </div>
+                <div class="clr"></div>
+              </li>-->
+            </ul>
+          </li>
+		  <li class="notification_bell"><a href="javascript:void(0)"> <i class="fa fa-bell-o"></i>  </a>
+			  <ul class="notiBox">
+		 <li class="pNone"><span class="head">
+                <h3><a href="javascript:void(0)">Notifications <i class="fa fa-caret-right"></i></a></h3>
+                </span></li>
+				<!--<span class="load_notification" style="display: none;"><i class="fa fa-spinner fa-spin"></i></span>-->
+				<li class="load_notification" style="text-align: center; display: none;"><i class="fa fa-spinner fa-spin"></i></li>
+				<div class="add_notification"></div>
+				 </ul>
+		            </li>
+		  <li><a href="javascript:void(0)"> <i class="fa fa-plus add_plus"></i> <i class="fa fa-user"></i>  </a>
+			            </li>
+          <li><a href="javascript:void(0);" class="circle">
+                        <img alt="Denyse Doe" src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg">
+                        </a>
+            <ul class="hoverBox">
+              <li class="pNone"><span class="head">
+                <h3><a href="javascript:void(0);">Account & Settings <i class="fa fa-caret-right"></i></a></h3>
+                </span></li>
+              <li> <span class="u_pic"><a href="http://www.demo2server.in/sites/core/9network/profile/">
+                                <img id="userthumbs" alt="Denyse Doe" src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg">
+                                </a></span> <span class="u_name"><a href="http://www.demo2server.in/sites/core/9network/profile/">Denyse Doe</a></span> <span class="u_out"><a href="?mode=logout">Sign Out</a></span> </li>
+<!--              <li> <span class="u_i"><a href="javascript:void(0)"><i class="fa fa-linkedin-square"></i></a></span> <span class="u_name"><a href="javascript:void(0)"> Account: Basic </a></span> <span class="u_out"><a href="javascript:void(0)"> Try Premium </a></span> </li>
+              <li> <span class="u_i"><a href="javascript:void(0)"><i class="fa fa-briefcase"></i></a></span> <span class="u_name"><a href="javascript:void(0)">Job Posting</a></span> <span class="u_out"><a href="javascript:void(0)">Manage</a></span> </li>
+              <li> <span class="u_i"><a href="javascript:void(0)"><i class="fa fa-globe"></i></a></span> <span class="u_name"><a href="javascript:void(0)">Language</a></span> <span class="u_out"><a href="javascript:void(0)">Change</a></span> </li>-->
+              <li> <span class="u_i"><a href="javascript:void(0)"><i class="fa fa-lock"></i></a></span> <span class="u_name"><a href="http://www.demo2server.in/sites/core/9network/settings/">Privacy & Settings</a></span> <span class="u_out"><a href="http://www.demo2server.in/sites/core/9network/settings/">Manage</a></span> </li>
+<!--              <li> <span class="u_i"><a href="javascript:void(0)"><i class="fa fa-info-circle"></i></a></span> <span class="u_name"><a href="javascript:void(0)">Help Center</a></span> <span class="u_out"><a href="javascript:void(0)">Get Help</a></span> </li>-->
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <!-- navigation 1 end -->
+  <div class="sub_header">
+    <div class="container">
+      <div class="row">
+        <div class=" col-md-12">
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav newMeu">
+              <li><a href="http://www.demo2server.in/sites/core/9network/home/">Home </a></li>
+              <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="http://www.demo2server.in/sites/core/9network/profile/"> Edit Profile </a></li>
+                  <li><a href="who-view.php"> Who's Viewed Your Profile </a></li>
+                  <li><a href="my-update.php"> Your Updates </a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Connections <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="http://www.demo2server.in/sites/core/9network/connections/"> Connections </a></li>
+<!--                  <li><a href="javascript:void(0)"> Keep in Touch </a></li>
+                  <li><a href="javascript:void(0)"> Add Connections </a></li>-->
+				                    <li><a href="http://www.demo2server.in/sites/core/9network/students-and-alumni/?id=OQ=="> Find Alumni </a></li>
+				                  </ul>
+              </li>
+              <!--<li><a href="http://www.demo2server.in/sites/core/9network/jobs.php">Jobs </a></li>-->
+              <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Interests <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="http://www.demo2server.in/sites/core/9network/company/">Companies</a></li>
+<!--                  <li><a href="javascript:void(0)">Groups</a></li>
+                  <li><a href="javascript:void(0)">Pulse</a></li>
+                  <li><a href="javascript:void(0)">Education</a></li>-->
+                </ul>
+              </li>
+            </ul>
+<!--            <ul class="nav navbar-nav  navbar-right newMeu">
+              <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Business Services <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)">Post a Job</a></li>
+                  <li><a href="javascript:void(0)">Talent Solutions </a></li>
+                  <li><a href="javascript:void(0)">Advertise</a></li>
+                  <li><a href="javascript:void(0)">Sales Solutions</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0)">Try Premium for free</a></li>
+            </ul>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </header>
+<noscript>
+<div class="alert alert-danger">
+<p>To use the new 9Network Profile, you need to use a JavaScript-enabled browser.</p>
+</div>
+</noscript>
+<input id="alwaysFetch" type="hidden" />
+<script>
+    setTimeout(function () {
+        var el = document.getElementById('alwaysFetch');
+        el.value = el.value ? location.reload() : true;
+    }, 0);
+</script>
+<script>
+ jQuery(document).ready(function () {
+	jQuery(document).on('keydown','.check_numeric', function (event) {
+			// Allow: backspace, delete, tab,escape, and enter // dot, event.keyCode == 110 || //F5, || event.keyCode == 116
+			if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13  ||
+				// Allow: Ctrl+A
+					(event.keyCode == 65 && event.ctrlKey === true) ||
+					// Allow: home, end, left, right
+						(event.keyCode >= 35 && event.keyCode <= 39)) {
+					// let it happen, don't do anything
+					return;
+			} else {
+				// Ensure that it is a number and stop the keypress
+				if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+					event.preventDefault();
+				}
+			}
+		});
+	});
+</script><script type="text/javascript">
+    function acceptInvitation(userid, loginid) {
+        $.ajax({
+            url: 'http://www.demo2server.in/sites/core/9network/ajax/section_ajax.php',
+            data: "post_url=acceptinvite&userid=" + userid + "&loginid=" + loginid,
+            dataType: "json",
+            cache: false,
+            type: "POST",
+            success: function (dataform) {
+                window.location.href = "http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=";
+                            }
+                        });
+                    }
+</script>
+
+<div id="modal" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Send Denyse Doe a message</span> <span class="modal_close"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login">
+            <form>
+                <label>To</label>
+                <input type="text" name="to" id="to" />
+                <br />
+                <label>Subject</label>
+                <input type="text" name="subject" id="subject" />
+                <br />
+                <label>Message</label>
+                <textarea name="message" id="message" cols="52" rows="5"></textarea>
+                <br />
+                <div class="action_btns">
+                    <div class="one_half modal_close"><a href="#" class="btn back_btn"><i class="fa fa fa-times"></i> Cancel</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Send Message</a></div>
+                    <div class="clr"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<div id="modal2" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Find references</span> <span class="modal_close2"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="find_references">
+            <h3>Get the real story on working with Denyse Doe</h3>
+            <span>286 people can give you feedback on Denyse's work</span>
+            <ul>
+                <li>2 are connected to you</li>
+                <li>284 can be contacted directly via 9network's InMail messages</li>
+                <li>They worked together at codespur software pvt. limited, EAST and 1 other companies </li>
+            </ul>
+            <div class="clr"></div>
+            <div class="one_half last"><a href="http://www.demo2server.in/sites/core/9network/" class="btn btn_red">Get Started</a></div>
+            <div class="clr"></div>
+        </div>
+    </section>
+</div>
+<div id="modal3" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close3"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal4" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close4"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal5" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close5"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal6" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close6"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal7" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close7"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal8" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close8"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<div id="modal9" class="popupContainer" style="display:none;">
+    <header class="popupHeader"> <span class="header_title">Link disabled while previewing</span> <span class="modal_close9"><i class="fa fa-times"></i></span> </header>
+    <section class="popupBody">
+        <div class="user_login"> <span>You are viewing your profile as someone else.</span>
+            <div class="view_buuton"> <a class="btn btn-primary btn-sm" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" id="">Return to View Profile As</a> <a class="btn btn-primary2 btn-sm" href="http://www.demo2server.in/sites/core/9network/profile/" id="">Edit my profile</a> </div>
+        </div>
+    </section>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-12">
+                <div class="row">
+                    <div class=" col-md-8">
+                        <div class="job_posting">
+                            <div class="profile-picture">
+                                <a href="javascript:void(0)">
+                                        <img class="orignal" alt="Denyse Doe" src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg">
+                                        <span class="zoom"><i class="fa fa-search-plus"></i></span>
+                                </a>
+                            </div>
+                            <div class="profile-overview">
+                                <div class="profile-overview-content">
+                                    <div class="masthead">
+                                        <div class="account-icons">
+                                            <span>1</span><sub>st</sub>
+
+                                        </div>
+                                        <h1>Denyse Doe</h1>
+                                        <div class="profile-card ">
+                                            <p class="title">Archbishop</p>
+                                        </div>
+                                        <ul class="editable-item">
+                                            <li><a name="location" href="javascript:void(0)">Brazil </a></li>
+                                            <li><a title="Utilities" name="industry" href="javascript:void(0)">Utilities</a></li>
+                                        </ul>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="profile-card">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th> <span class="edit-tools"> <a href="javascript:void(0)">Current</a> </span></th>
+                                                    <td><ol>
+                                                                                                                                <li> <span class=""><strong><a href="javascript:void(0)"> Google </a></strong></span></li>
+                                                                </ol></td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span class="edit-tools"> <a href="javascript:void(0)">Previous</a> </span></th>
+                                                    <td>
+                                                        <ol><li>
+                                                                                                                                        <span class=""><strong><a href="javascript:void(0)"> deneme</a></strong></span>
+                                                                            <span class=""><strong><a href="javascript:void(0)"> Google me</a></strong></span>
+                                                                            <span class=""><strong><a href="javascript:void(0)"> Google me</a></strong></span>
+                                                                            <span class=""><strong><a href="javascript:void(0)"> Google me</a></strong></span>
+                                                                            <span class=""><strong><a href="javascript:void(0)"> Testing</a></strong></span>
+                                                                </li></ol>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th> <a href="javascript:void(0)">Education</a> </th>
+                                                    <td>
+                                                        <ol>
+                                                                <li><a href="javascript:void(0)"></a></li>
+                                                                <li><a href="javascript:void(0)"></a></li>
+                                                        </ol>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                    <div class="profile-aux" style="display:inline">
+
+                                    <!--------- NOW FRIEND ---------------->
+                                        <div class="btn-group"> <a id="modal_trigger3" href="http://www.demo2server.in/sites/core/9network/messages/" class="btn btn-primary btn-sm">Send a message</a>
+                                            <div class="btn-group">
+                                                <button data-hover="dropdown" data-toggle="dropdown" class="btn btn-primary btn-sm dropdown-toggle" aria-expanded="false">
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="javascript:void(0)">Suggest an update</a></li>
+                                                    <li><a href="javascript:void(0)">Recommend</a></li>
+                                                    <!--<li><a id="modal_trigger2" href="#modal2">Endorse</a></li>-->
+                                                    <li class="divider"></li>
+                                                    <li><a href="http://www.demo2server.in/sites/core/9network/compose.php?userid=ODk=">Share profile</a></li>
+                                                    <li><a href="javascript:void(0)">Save to PDF</a></li>
+
+                                                    <!--													<li><a id="modal_trigger9" href="#modal9">Block or report</a></li>-->
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    <div class="member-connections">
+                                        <strong><a class="connections-link" >10</a></strong> connections
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="clr"></div>
+                            <div class="profile-actions">
+                                <ul class="profile-card-extras">
+                                        <li> <span class="activity">Not Connected</span> </li>
+                                </ul>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="job_posting">
+                            <div class="exTbs">
+                                <!---Tabs----->
+                                <div class="">
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-star"></i> Relationship</a></li>
+                                                                                    </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab1">
+                                                <div class="tbsBdy">
+                                                    <div class="span8">
+                                                        <div class="o_plus"><a href="#"><i class="fa fa-plus"></i></a></div>
+                                                        <div class="tabbable tabs-left">
+                                                            <ul class="nav nav-tabs">
+                                                                <li class="active"><a href="#tab3" data-toggle="tab"><i class="fa fa-file-photo-o"></i> Note</a></li>
+                                                                <li><a href="#tab4" data-toggle="tab"><i class="fa fa-bell"></i> Reminder</a></li>
+                                                                <li><a href="#tab5" data-toggle="tab"><i class="fa fa-fa fa-chain"></i> How you met</a></li>
+                                                                <li><a href="javascript:void(0)" aria-expanded="false" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-tag"></i> Tag</a>
+                                                                    <ul role="menu" class="dropdown-menu">
+                                                                        <li><a href="javascript:void(0)">
+                                                                                <label>
+                                                                                    <input type="checkbox" id="relationship-tag-item-li_9489611">
+                                                                                    friends</label>
+                                                                            </a></li>
+                                                                        <li><a href="javascript:void(0)">
+                                                                                <label>
+                                                                                    <input type="checkbox" id="relationship-tag-item-li_9489611">
+                                                                                    friends</label>
+                                                                            </a></li>
+                                                                        <li class="divider"></li>
+                                                                        <li><a href="javascript:void(0)"><i class="fa fa-plus"></i> Share profile</a></li>
+                                                                        <li><a href="javascript:void(0)"><i class="fa fa-cog"></i> Save to PDF</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="tab3">
+                                                                    <div class="intb">
+                                                                        <textarea class="note-add-text form-control" placeholder="Add note here"></textarea>
+                                                                        <div class="annotation-actions"> <a class="btn btn-default btn-bb" href="javascript:void(0)">Save</a> <a class="btn btn-default buy-credits" href="#">Cancel</a> <i class="fa fa-lock"></i> <span class="info">This information is only visible to you.</span> </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="tab4">
+                                                                    <div class="intb">
+                                                                        <textarea class="note-add-text form-control" placeholder="What should we remind you about?"></textarea>
+                                                                        <div class="follow-up-time">
+                                                                            <label>
+                                                                                <input type="radio" checked="" value="day"  name="follow-up-time">
+                                                                                In 1 day</label>
+                                                                            <label>
+                                                                                <input type="radio" value="week" name="follow-up-time">
+                                                                                In 1 week</label>
+                                                                            <label>
+                                                                                <input type="radio" value="month" name="follow-up-time">
+                                                                                In 1 month</label>
+                                                                            <label>
+                                                                                <input type="radio" value="recurring" name="follow-up-time">
+                                                                                Recurring </label>
+                                                                        </div>
+                                                                        <div class="annotation-actions"> <a class="btn btn-default btn-bb" href="javascript:void(0)">Save</a> <a class="btn btn-default buy-credits" href="javascript:void(0)">Cancel</a> <i class="fa fa-lock"></i> <span class="info">This information is only visible to you.</span> </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="tab5">
+                                                                    <div class="intb">
+                                                                        <textarea class="note-add-text form-control" placeholder="How, when, and where did you meet?"></textarea>
+                                                                        <input name=""  class="form-control fcfc" type="text" placeholder="Who introduced you?">
+                                                                        <div class="annotation-actions"> <a class="btn btn-default btn-bb" href="javascript:void(0)">Save</a> <a class="btn btn-default buy-credits" href="javascript:void(0)">Cancel</a> <i class="fa fa-lock"></i> <span class="info">This information is only visible to you.</span> </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="tab6">
+                                                                    <p>&nbsp;</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="span9">
+                                                        <div class="o_plus2"><a href="javascript:void(0)"><i class="fa fa-user-plus"></i></a></div>
+                                                        <div class="details_d">
+                                                            <h4>Connected</h4>
+                                                            <div class="item-info grey-txt"> <i class="fa fa-lock"></i> 30/11/-0001</div>
+                                                        </div>
+                                                        <div class="timestamp">30-11--0001 at 12:00 AM</div>
+                                                        <div class="clr"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab2">
+                                                <div class="tbsBdy">
+                                                    <div class="more-info">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <table class="contact-info-table ">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th>Name</th>
+                                                                            <td><div class="editable-item" id="relationship-name">
+                                                                                    <div class="contact-info-text" >Denyse Doe</div>
+                                                                                </div></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Email</th>
+                                                                            <td><div class="editable-item">
+                                                                                    <div class="contact-info-text">
+                                                                                        <ul>
+                                                                                            <li class="contact-field"><a href="javascript:void(0)">demo@demo.com</a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div></td>
+                                                                        </tr>
+                                                                            <tr >
+                                                                                <th>Birthday</th>
+                                                                                <td><div class="editable-item" >
+                                                                                        <div class="contact-info-text"> 04/0/1940 </div>
+                                                                                    </div></td>
+                                                                            </tr>
+                                                                                                                                            </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <table class="second-contact-table">
+                                                                    <tbody>
+                                                                                                                                                        <tr>
+                                                                                <th>Phone </th>
+                                                                                <td>1234567&nbsp;(home) </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Address </th>
+                                                                                <td >testing, test</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Location </th>
+                                                                                <td>Brazil</td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tbsBdy ob">
+                                                    <table class="contact-internet">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th style="width:20%"><div class="wrapper">
+                                                                        <img src="http://www.demo2server.in/sites/core/9network/images/small-logo.png"> 9network
+<!--															<i class="fa fa-linkedin-square"></i> Linkedin-->
+                                                                    </div></th>
+                                                                <td><div class="editable-item">
+                                                                        <div>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=">
+http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk= </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div></td>
+                                                            </tr>
+                                                            <tr style="z-index: 100;">
+                                                                <th><div class="wrapper"><img src="http://www.demo2server.in/sites/core/9network/images/small-logo.png"> Website</div></th>
+                                                                <td width="100%"><div class="editable-item" id="relationship-sites"><span data-li-type="sites" class="edit-tools icon edit"></span>
+                                                                        <div id="relationship-sites-view">
+                                                                            <ul>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+//									(function ($) {
+//										fakewaffle.responsiveTabs(['xs', 'sm']);
+//									})(jQuery);
+                                </script>
+                                <!---End Tabs----->
+                            </div>
+                        </div>
+                            <div class="job_posting">
+                                <div class="job_title">Background</div>
+                                <div class="section-company">
+                                    <!------------------------ Summary Section ------------------------>
+                                                                            <h2><i class=" fa fa-file-text"></i> Summary</h2>
+                                        <div class="summ_ary"><p class="description">Опытный пользователь</p></div>
+                                        <div class="opn_bdr"></div>
+                                    
+                                    <!------------------------ Experience Section ------------------------>
+                                                                            <h2><i class=" fa fa-file-text-o"></i> Experience</h2>
+                                                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)">Ingénieur</a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">deneme</a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>September 2016 - December 2016  (0 years 2 months)</time>
+                                                    <span class="locality">140 Princes Highway,  Виктория</span></span></div>
+                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)">ed</a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">Google me</a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>February 2016 - June 2016  (0 years 4 months)</time>
+                                                    <span class="locality">, </span></span></div>
+                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)">Директор</a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">Google me</a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>November 1997 - December 2004  (7 years 0 months)</time>
+                                                    <span class="locality">, </span></span></div>
+                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)"></a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">Google me</a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>November -0001 - Present  (2015 years 1 months)</time>
+                                                    <span class="locality">, </span></span></div>
+                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)">Pastor</a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">Google </a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>March 2010 - Present  (6 years 9 months)</time>
+                                                    <span class="locality">Pennsylvania, </span></span></div>
+                                                    <div class="h4_h5" >
+                                                <h4><a title="Learn more about this title" href="javascript:void(0)">Pastor</a></h4>
+                                                <h5><a title="Find others who have worked at this company" name="company" href="javascript:void(0)">Testing</a></h5>
+                                                <span class="experience-date-locale">
+                                                    <time>March 2005 - March 2010  (5 years 0 months)</time>
+                                                    <span class="locality">Addison,  United States</span></span></div>
+                                                <!--<div class="xpand_tbs">
+                                                                                          <div class="panel-group" id="accordion">
+                                                                                                <div class="panel panel-default">
+                                                                                                  <div class="panel-heading">
+                                                                                                        <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1 project</a> </h4>
+                                                                                                  </div>
+                                                                                                  <div id="collapseOne" class="panel-collapse collapse ">
+                                                                                                        <div class="panel-body">
+                                                                                                          <h5>Online Student Information and Enrollment System, NIELIT</h5>
+                                                                                                          <p>The Online Student Information and Enrollment Management System is the application software designed to help the students on their admission to and registration at NIELIT. This is an on-line web based computerized system which manages the Online...<a href="#">View <i class="fa fa-caret-down"></i></a></p>
+                                                                                                        </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                                <div class="panel panel-default">
+                                                                                                  <div class="panel-heading">
+                                                                                                        <h4 class="panel-title"> <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen"> 2 recommendations</a> </h4>
+                                                                                                  </div>
+                                                                                                  <div id="collapseTen" class="panel-collapse collapse in">
+                                                                                                        <div class="panel-body">
+                                                                                                          <ul class="associated-endorsements">
+                                                                                                                <li>
+                                                                                                                  <div class="hgroup"> <a class="associated-photo" href="#"><img alt="Neeraj Joshi" src="images/0f65b46.jpg" class="lazy-load"></a>
+                                                                                                                        <div class="inD">
+                                                                                                                          <h5><span class=""><strong><a href="#">Neeraj Joshi</a></strong></span></h5>
+                                                                                                                          <h6>Project Manager at Investis</h6>
+                                                                                                                        </div>
+                                                                                                                        <div class="clr"></div>
+                                                                                                                        <p class="ltr_ltr"><span>I know Nitesh since last 6-7 years. Go-getter man with excellent technical skills. I had a chance to work with Nitesh on...</span><a href="#">View</a></p>
+                                                                                                                  </div>
+                                                                                                                </li>
+                                                                                                                <li>
+                                                                                                                  <div class="hgroup"> <a class="associated-photo" href="#"><img alt="Neeraj Joshi" src="images/3fb7ea4.jpg" class="lazy-load"></a>
+                                                                                                                        <div class="inD">
+                                                                                                                          <h5><span class=""><strong><a href="#">Kailash Pareek</a></strong></span></h5>
+                                                                                                                          <h6>Indepedent IT and ERP Consultant</h6>
+                                                                                                                        </div>
+                                                                                                                        <div class="clr"></div>
+                                                                                                                        <p class="ltr_ltr"><span>Nitesh had worked with me shortly at ESPL when he joined as programmer. He was a fast learner and very soon became a good...</span><a href="#">View</a></p>
+                                                                                                                  </div>
+                                                                                                                </li>
+                                                                                                          </ul>
+                                                                                                        </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                          </div>
+                                                                                        </div>-->
+
+                                        <div class="opn_bdr"></div>
+                                                                        <!------------------------ Projects Section ------------------------>
+                                                                            <h2><i class=" fa fa-bookmark"></i> Projects</h2>
+                                                                                    <div class="h4_h5">
+                                                <h4><a title="Online Student Information and Enrollment System, NIELIT" href="http://dzdfz">Un projet <i class="fa fa-arrow-right"></i></a></h4>
+                                                <span class="projects-date">
+                                                    <time>March 2016 - April 2016</time>
+                                                </span>
+                                                <p class="summary-field-show-more">"r"r"r"r</p>
+                                            </div>
+                                            <div class="team_member">
+
+                                                <span class="teammember">1                                                        team member
+                                                                                                            </span>
+                                                <ul>
+                                                                                                                    <li><a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" class="associated-photo">
+                                                                                    <img src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg" width="50" />
+                                                                                                            </a>
+                                                            <h5 class="associated-name"><a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=">Denyse Doe</a></h5><h6 class="associated-headline">Archbishop</h6></li>
+                                                                                                <div class="clr"></div>
+                                                </ul>
+                                            </div>
+                                                                                    <div class="h4_h5">
+                                                <h4><a title="Online Student Information and Enrollment System, NIELIT" href="http://aiesec.ru">AIESEC CEO <i class="fa fa-arrow-right"></i></a></h4>
+                                                <span class="projects-date">
+                                                    <time>March 2013 - July 2013</time>
+                                                </span>
+                                                <p class="summary-field-show-more">Tesy</p>
+                                            </div>
+                                            <div class="team_member">
+
+                                                <span class="teammember">1                                                        team member
+                                                                                                            </span>
+                                                <ul>
+                                                                                                                    <li><a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=" class="associated-photo">
+                                                                                    <img src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg" width="50" />
+                                                                                                            </a>
+                                                            <h5 class="associated-name"><a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=ODk=">Denyse Doe</a></h5><h6 class="associated-headline">Archbishop</h6></li>
+                                                                                                <div class="clr"></div>
+                                                </ul>
+                                            </div>
+                                                                                <div class="opn_bdr"></div>
+                                                                        <!------------------------ Courses Section ------------------------>
+                                                                                <h2><i class=" fa fa-book"></i> Courses</h2>
+                                                    <div class="h4_h5">
+                                                                                                <h4><a title="Hitesh Shrimali, adasdads" href="#"> Hitesh Shrimali, adasdads </a></h4>
+                                                            <ul class="courses-listing">
+                                                    <li>Sssssdd </li>
+                                                </ul>
+                                            </div>
+                                                                                        <div class="opn_bdr"></div>
+                                                                                <!------------------------ Skills Section ------------------------>
+                                                                                    <h2><i class=" fa fa-paint-brush"></i> Skills</h2>
+                                        <div class="profile-skills">
+                                            <h5>Top Skills</h5>
+                                            <ul class="skills-section">
+                                                                                                                                                                                                                                                <li class="endorse-item has-endorsements endorsable"> <span class="skill-pill"> <a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"> <span data-count="13" class="num-endorsements497">0</span></a> <span class="endorse-item-name"> <a class="endorse-item-name-text" title="Search for CABLE" href="javascript:void(0);">CABLE</a></span></span>
+                                                                                                                                <div class="clr"></div>
+                                                        </li>
+                                                                                                                                            <li class="endorse-item has-endorsements endorsable"> <span class="skill-pill"> <a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"> <span data-count="13" class="num-endorsements498">0</span></a> <span class="endorse-item-name"> <a class="endorse-item-name-text" title="Search for TESTING" href="javascript:void(0);">TESTING</a></span></span>
+                                                                                                                                <div class="clr"></div>
+                                                        </li>
+                                                                                                                                            <li class="endorse-item has-endorsements endorsable"> <span class="skill-pill"> <a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"> <span data-count="13" class="num-endorsements504">0</span></a> <span class="endorse-item-name"> <a class="endorse-item-name-text" title="Search for УПРАВЛЕНИЕ ПЕРСОНАЛОМ" href="javascript:void(0);">УПРАВЛЕНИЕ</a></span></span>
+                                                                                                                                <div class="clr"></div>
+                                                        </li>
+                                                                                                                                            <li class="endorse-item has-endorsements endorsable"> <span class="skill-pill"> <a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"> <span data-count="13" class="num-endorsements505">0</span></a> <span class="endorse-item-name"> <a class="endorse-item-name-text" title="Search for SQL" href="javascript:void(0);">SQL</a></span></span>
+                                                                                                                                <div class="clr"></div>
+                                                        </li>
+                                                                                                                                            <li class="endorse-item has-endorsements endorsable"> <span class="skill-pill"> <a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"> <span data-count="13" class="num-endorsements506">0</span></a> <span class="endorse-item-name"> <a class="endorse-item-name-text" title="Search for JAVA" href="javascript:void(0);">JAVA</a></span></span>
+                                                                                                                                <div class="clr"></div>
+                                                        </li>
+                                                                </ul>
+                                        </div>
+                                        <!--<div class="compact_view">
+                                                                                          <h5>Nitesh Kumar also knows about...</h5>
+                                                                                          <ul class="skills-section compact-view">
+                                                                                                <li><span class="skill-pill"><a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"><span data-count="13" class="num-endorsements">3</span></a><span class="endorse-item-name"><a class="endorse-item-name-text" title="Search for .NET" href="/vsearch/f?keywords=%2ENET&amp;trk=profile-skill-section">WCF</a></span></span> <span class="single_plus"><a href="#"><i class="fa fa-plus"></i></a></span> </li>
+                                                                                                <li><span class="skill-pill"><a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"><span data-count="13" class="num-endorsements">3</span></a><span class="endorse-item-name"><a class="endorse-item-name-text" title="Search for .NET" href="/vsearch/f?keywords=%2ENET&amp;trk=profile-skill-section">Web Services</a></span></span> <span class="single_plus"><a href="#"><i class="fa fa-plus"></i></a></span> </li>
+                                                                                                <li><span class="skill-pill"><a title="See endorsers" role="button" href="javascript:void(0)" class="endorse-count"><span data-count="13" class="num-endorsements">3</span></a><span class="endorse-item-name"><a class="endorse-item-name-text" title="Search for .NET" href="/vsearch/f?keywords=%2ENET&amp;trk=profile-skill-section">IIS</a></span></span> <span class="single_plus"><a href="#"><i class="fa fa-plus"></i></a></span> </li>
+                                                                                          </ul>
+                                                                                          <div class="clr"></div>
+                                                                                        </div>-->
+                                        <div class="opn_bdr"></div>
+                                                                        <!------------------------ Education Section ------------------------>
+
+                                                                            <h2><i class=" fa fa-graduation-cap"></i> Education</h2>
+                                                                                    <div class="h4_h5">
+                                                <h4><a href="javascript:void(0)" title="University of Port Harcourt, Rivers State">University of Port Harcourt, Rivers State</a></h4>
+                                                <h5><span class="degree">Bachelor's Degree, </span><span class="major"><a title="Explore this field of study" href="javascript:void(0)">Information Technology, First Class</a></span></h5>
+                                                <span class="education-date">
+                                                    <time>2009</time>
+                                                    <time> &ndash; 2014</time>
+                                                </span>
+                                                <!--<p dir="ltr" class="summary-field-show-more">PGDCA, MCA</p>-->
+                                            </div>
+                                                    <div class="h4_h5">
+                                                <h4><a href="javascript:void(0)" title="Hitesh Shrimali, adasdads">Hitesh Shrimali, adasdads</a></h4>
+                                                <h5><span class="degree">Doctor of Philosophy (Ph.D.), </span><span class="major"><a title="Explore this field of study" href="javascript:void(0)">Labor and Industrial Relations, 33</a></span></h5>
+                                                <span class="education-date">
+                                                    <time>2009</time>
+                                                    <time> &ndash; 2012</time>
+                                                </span>
+                                                <!--<p dir="ltr" class="summary-field-show-more">PGDCA, MCA</p>-->
+                                            </div>
+                                                <div class="xpand_tbs">
+                                            <div class="panel-group" id="accordion2">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#1_collapseOne">1 course</a> </h4>
+                                                    </div>
+                                                    <div id="1_collapseOne" class="panel-collapse collapse ">
+                                                        <div class="panel-body">
+                                                            <ul class="courses-listing">
+                                                                <li>MCA </li>
+                                                            </ul>
+                                                            <p><a href="#background-courses">See more <i class="fa fa-chevron-down"></i></a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="opn_bdr"></div>
+                                        <!------------------------ Additional Info Section ------------------------>
+
+                                            <div class="edit-default">
+                                            <h3>Additional Info</h3>
+                                            <ul class="lul">
+                                                <li>
+                                                    <h4>Personal Details</h4>
+                                                                <table class="additional-info-listing">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">Birthday</th>
+                                                                    <td>April 0, 1940</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">Marital Status</th>
+                                                                    <td>Single</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                                                        </li>
+                                            </ul>
+                                        </div>
+                                        <div class="opn_bdr"></div>
+                                                                        <!------------------------ Organizations Section ------------------------>
+                                                                            <h2><i class="fa fa-shirtsinbulk"></i> Organizations</h2>
+                                                                                    <div class="h4_h5">
+                                                <h4><a title="ec">ec</a></h4>
+                                                <p> <a title="Find users with this keyword" href="javascript:void(0)">Google me</a></p>
+                                            </div>
+                                                <!--Language,Volunteer, Volunteer opportunities, Honor & Award, Test Scores, Publications, Certifications, Interests, Advice for Contacting, Following-->
+                                </div>
+                            </div>
+                        <!--<div class="job_posting">
+                                <div class="job_title">Recommendations</div>
+                                <div class="side_list"><span class="tt">Received (2) <i class="fa fa-caret-right"></i></span>
+                                        <ul>
+                                                <li><a href="#">All Received (2)</a></li>
+                                                <li><a href="#">Team Leader (2) <span>E-Connect Solutions Private Ltd, Udaipur, Rajasthan</span></a></li>
+                                        </ul>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="opn_bdr"></div>
+                                <div class="write-endorsement">
+                                        <div class="im"><img width="60" height="60" src="http://www.demo2server.in/sites/core/9network/images/ghost_person_100x100_v1.png" alt="" class="endorsement-picture"></div>
+                                        <div class="endorse-user">
+                                                <p>HR, would you like to recommend Nitesh Kumar?</p>
+                                                <a href="#">Recommend Nitesh Kumar <span class="fa fa-caret-right"></span></a></div>
+                                        <div class="clr"></div>
+                                </div>
+                                <div class="section-company sc">
+                                        <div class="h4_h5">
+                                                <h4>Team Leader</h4>
+                                                <p> E-Connect Solutions Private Ltd, Udaipur, Rajasthan</p>
+                                        </div>
+                                        <div class="endorsement-full">
+                                                <div class="ef_img"><a href="#"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Neeraj Joshi, Certified Scrum Master (CSM)"></a></div>
+                                                <div class="endorsement-info">
+                                                        <h5><span><a href="#">Neeraj Joshi, Certified Scrum Master (CSM)</a></span></h5>
+                                                        <h6>Project Manager at Investis</h6>
+                                                        <blockquote class="bl_ck"><span class="fa fa-quote-left"></span>
+                                                                <p>I know Nitesh since last 6-7 years. Go-getter man with excellent technical skills. I had a chance to work with Nitesh on several projects when I was working at e-Connect. He understands the requirements very well and try to deliver the solution within time with highest quality. He posses excellent interpersonal skills which makes him a good team member to work with. I...<a href="#">more</a></p>
+                                                        </blockquote>
+                                                        <span class="endorsement-date">March 19, 2015, Neeraj managed Nitesh Kumar at E-Connect Solutions Private Ltd, Udaipur, Rajasthan</span> </div>
+                                        </div>
+                                        <div class="endorsement-full">
+                                                <div class="ef_img"><a href="#"><img src="http://www.demo2server.in/sites/core/9network/images/3fb7ea4.jpg" alt="Neeraj Joshi, Certified Scrum Master (CSM)"></a></div>
+                                                <div class="endorsement-info">
+                                                        <h5><span><a href="#">Kailash Pareek</a></span></h5>
+                                                        <h6>Indepedent IT and ERP Consultant</h6>
+                                                        <blockquote class="bl_ck"><span class="fa fa-quote-left"></span>
+                                                                <p>Nitesh had worked with me shortly at ESPL when he joined as programmer. He was a fast learner and very soon became a good and depedendable programmer on the projects. One can depend on his quality and punctuality of the delivery. </p>
+                                                                <p>It is hearty to know that he has climbed the ladder by his sheer hard work and has become a team lead in a short period of couple of years. ... <a href="#">more</a></p>
+                                                        </blockquote>
+                                                        <span class="endorsement-date">December 25, 2012, Kailash managed Nitesh Kumar indirectly at E-Connect Solutions Private Ltd, Udaipur, Rajasthan</span> </div>
+                                        </div>
+                                </div>
+                        </div>-->
+                                <div class="job_posting">
+                                    <ul class="connections-nav">
+                                        <li><a href="javascript:void(0)">All (10)</a></li>
+
+                                        <li>
+                                            <div class="job_title">Connections</div>
+                                            <!-- <form class="form-search form-horizontal pull-right" id="custom-search-form">
+                                                    <div class="input-append span12">
+                                                            <input type="text" placeholder="Search" class="search-query mac-style">
+                                                            <button class="btn" type="submit"><i class="icon-search"></i></button>
+                                                    </div>
+                                            </form>-->
+                                        </li>
+                                    </ul>
+                                    <div class="clr"></div>
+                                    <div class="section-company sc">
+                                        <ul class="cardstack-container">
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDMz">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/433/jose1479504333-thumb.jpg" alt="Rajesh Salunke">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDMz" class="connections-name">Rajesh Salunke</a><abbr class="degree-icon " title="Rajesh Salunke is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">Manager</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=NDMz" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">2</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDMw">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/430/Pavan Mamidi1479351713-thumb.jpg" alt="Navin Ag">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDMw" class="connections-name">Navin Ag</a><abbr class="degree-icon " title="Navin Ag is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">Partner</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=NDMw" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDA5">
+                        <img alt="Vikram K" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png" >
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDA5" class="connections-name">Vikram K</a><abbr class="degree-icon " title="Vikram K is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">Webdeveloper</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=NDA5" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDA2">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/406/t1477312584-thumb.png" alt="Pascal Tuyishime">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=NDA2" class="connections-name">Pascal Tuyishime</a><abbr class="degree-icon " title="Pascal Tuyishime is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title"></p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=NDA2" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MzYw">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/360/1512521474178767-thumb.png" alt="CCHRIs GGmeella">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MzYw" class="connections-name">CCHRIs GGmeella</a><abbr class="degree-icon " title="CCHRIs GGmeella is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">Developer</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=MzYw" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MzUy">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/352/black_logo1473929482-thumb.jpg" alt="Roman Didych">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MzUy" class="connections-name">Roman Didych</a><abbr class="degree-icon " title="Roman Didych is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">AIESEC CEO</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=MzUy" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">3</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=Mjcw">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/270/10361343_976778792340809_6111670234468489582_n1468269808-thumb.jpg" alt="Benjamin Meyers">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=Mjcw" class="connections-name">Benjamin Meyers</a><abbr class="degree-icon " title="Benjamin Meyers is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title"></p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=Mjcw" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTMx">
+                        <img alt="Ade Adekoya" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png" >
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTMx" class="connections-name">Ade Adekoya</a><abbr class="degree-icon " title="Ade Adekoya is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">CEO</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=MTMx" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">1</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTc4">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/178/canoe_water_nature_2216111460027492-thumb.jpg" alt="Demo Tester">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTc4" class="connections-name">Demo Tester</a><abbr class="degree-icon " title="Demo Tester is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">architect</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=MTc4" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">2</span> -->
+                                                    </div>
+                                                </li>
+                                                        <li>
+                                                    <div class="li_pic">
+                                                        <a class="connections-photo" href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTY5">
+                        <img src="http://www.demo2server.in/sites/core/9network/uploads/users/169/IMG_64271455185165-thumb.JPG" alt="Mubashar Aslam">
+                                                                    </a>
+                                                    </div>
+                                                    <div class="li_det">
+                                                        <a href="http://www.demo2server.in/sites/core/9network/profile-view/?id=MTY5" class="connections-name">Mubashar Aslam</a><abbr class="degree-icon " title="Mubashar Aslam is a 2nd degree contact" aria-hidden="true">1<sup>nd</sup></abbr>
+                                                        <p class="connections-title">CTO</p>
+<!--                                                        <a href="http://www.demo2server.in/sites/core/9network/invite.php?userid=MTY5" name="_inviteLink" class="connect">Connect</a> <span class="common-connections">2</span> -->
+                                                    </div>
+                                                </li>
+                                                </ul>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                            <div class="job_posting">
+                            <div class="job_title">Groups</div>
+                            <div class="section-company">
+                                <ul class="edit-collapse-module">
+                                    <li>
+                                        <img width="100" height="50" alt="CMMI Adopters" src="http://www.demo2server.in/sites/core/9network/images/102cc0d.png">
+                                        <a class="group-link" href="javascript:void(0)">CMMI Adopters</a>
+                                        <p class="groups-stats">3,445 members</p>
+                                        <a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Join</a>
+                                    </li>
+                                    <li>
+                                        <img width="100" height="50" alt="CMMI Adopters" src="http://www.demo2server.in/sites/core/9network/images/3e15c05.png">
+                                        <a class="group-link" href="javascript:void(0)">Computer Society of I...</a>
+                                        <p class="groups-stats">121 members</p>
+                                        <a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Join</a>
+                                    </li>
+                                    <li>
+                                        <img width="100" height="50" alt="CMMI Adopters" src="http://www.demo2server.in/sites/core/9network/images/1c66f48.png">
+                                        <a class="group-link" href="javascript:void(0)">Udaipur IT professionals...</a>
+                                        <p class="groups-stats">254 members</p>
+                                        <a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Join</a>
+                                    </li>
+                                    <li>
+                                        <img width="100" height="50" alt="CMMI Adopters" src="http://www.demo2server.in/sites/core/9network/images/1dbd77a.png">
+                                        <a class="group-link" href="javascript:void(0)">CMMI - Capability Mat...</a>
+                                        <p class="groups-stats">1,460 members</p>
+                                        <a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Join</a>
+                                    </li>
+                                    <li>
+                                        <img width="100" height="50" alt="CMMI Adopters" src="http://www.demo2server.in/sites/core/9network/images/1540f41.png">
+                                        <a class="group-link" href="javascript:void(0)">ASP .Net Experts</a>
+                                        <p class="groups-stats">1,108 members</p>
+                                        <a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Join</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                                                                <div class="job_posting">
+                                <div class="job_title">Following</div>
+                                <div class="section-company" id='company_'>
+                                    <ul class="edit-collapse-module">
+                                                                                            <li>
+                                                <a class="group-link" href="http://www.demo2server.in/sites/core/9network/company-info/?id='MzQ='">
+                                                    <img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/no_Image50x50.png">
+                                                </a>
+                                                <a class="group-link" href="http://www.demo2server.in/sites/core/9network/company-info/?id='MzQ='">
+        Helix</a>
+                                                <p class="groups-stats">Accounting</p>
+                                                <!--<a href="javascript:void(0)" class="j_join"><i class="fa fa-plus"></i> Follow</a>-->
+                                            </li>
+                                        </ul>
+                                </div>
+                            </div>
+                    </div>
+                    <div class=" col-md-4">
+                        <div class="sideBx">
+                            
+
+<h3>People Also Viewed</h3>
+<ul class="people_view">
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDY5">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDY5">monica fernandis</a></h4>
+						<p>Marketing</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDMz">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/uploads/users/433/jose1479504333-thumb.jpg">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDMz">rajesh salunke</a></h4>
+						<p>Manager</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDMw">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/uploads/users/430/Pavan Mamidi1479351713-thumb.jpg">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDMw">navin ag</a></h4>
+						<p>Partner</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDIz">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDIz">Mohamed Kiswani</a></h4>
+						<p></p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDA5">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDA5">vikram k</a></h4>
+						<p>Webdeveloper</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDA2">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/uploads/users/406/t1477312584-thumb.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDA2">Pascal Tuyishime</a></h4>
+						<p></p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=NDA1">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=NDA1">Murat AY</a></h4>
+						<p>Job Titl</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=MQ==">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/uploads/users/1/IMG_20150704_2051161455618901-thumb.jpg">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=MQ==">sourabh Singh</a></h4>
+						<p>Web Developer</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=Mjcw">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/uploads/users/270/10361343_976778792340809_6111670234468489582_n1468269808-thumb.jpg">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=Mjcw">Benjamin Meyers</a></h4>
+						<p></p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<li>
+		<div class="pull-left">
+			<a href="profile-view/?id=MzY2">
+											<img width="50" height="50" src="http://www.demo2server.in/sites/core/9network/images/ghost_person.png">
+						</a>
+					</div>
+		<div class="pull-left left_can">
+						<h4 class="company-name"><a href="profile-view/?id=MzY2">stalin castillo</a></h4>
+						<p>asd</p>
+					</div>
+		<div class="clr"></div>
+	</li>
+		<div class="clr"></div>
+</ul>
+                            <!--<div class="opn_bdr"></div>-->
+<!--                            <h4>In Common with Nitesh Kumar</h4>
+                            <div class="in-common">
+                                <div class="dot_name"><span><img src="http://www.demo2server.in/sites/core/9network/images/dots.jpg"/></span> Nitesh Kumar</div>
+                                <div class="dot-base">
+                                    <div class="big_o">
+                                        <h1>5</h1>
+                                    </div>
+                                    <div class="left_o"><img src="http://www.demo2server.in/sites/core/9network/images/ghost_person_100x100_v1.png" ></div>
+                                    <div class="right_o"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" ></div>
+                                    <div class="o_txt">Skills & Expertise</div>
+                                    <div class="bottom_o">
+                                        <h2>1</h2>
+                                    </div>
+                                    <div class="o_txt2">Location</div>
+                                </div>
+                            </div>-->
+<!--                            <div class="opn_bdr"></div>
+                            <h4>People Similar to Nitesh Kumar</h4>
+                            <div class="sm_c">
+                                <div id="Carousel" class="carousel slide">
+
+                                     Carousel items 
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="row">
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                            </div>
+                                            .row
+                                        </div>
+                                        .item
+
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                            </div>
+                                            .row
+                                        </div>
+                                        .item
+
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                                <div class="col-md-3"><a href="javascript:void(0)" class="thumbnail"><img src="http://www.demo2server.in/sites/core/9network/images/0f65b46.jpg" alt="Image" style="max-width:100%;"></a></div>
+                                            </div>
+                                            .row
+                                        </div>
+                                        .item
+                                        <div class="">
+                                            <div class="thmb_text"><a href="javascript:void(0)">Pawan Kumar</a><abbr class="degree-icon " title="Pawan Kumar is a 2nd degree contact" aria-hidden="true">2<sup>nd</sup></abbr></div>
+                                            <p class="take-action-headline" title="Lead Engineer">Lead Engineer</p>
+                                            <div class="take-action"><a href="javascript:void(0)" name="_inviteLink" class="connect">Connect</a></div>
+                                        </div>
+                                    </div>
+                                    .carousel-inner
+                                    <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a> <a data-slide="next" href="#Carousel" class="right carousel-control">›</a> </div>
+                                .Carousel
+
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal Block or report -->
+
+<div class="modal fade mdl" id="block_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Block or report this person</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form name="viewedUser" method="post">
+                            <div class="dialog-content">
+                                <div class="alert-container" id="BlockModalAlert"></div>
+                                <div class="modalIdentity">
+
+                                                                                    <img class="orignal" alt="Mubashar Aslam" src="http://www.demo2server.in/sites/core/9network/uploads/users/89/annikova1482348258-thumb.jpg">
+
+                                    <div class="modalIdentity-body">
+                                        <h3 class="modalIdentity-name">
+Mubashar Aslam<!--												<span class="a11y-headline">
+                                            CTO                                                </span>-->
+<!--												<span class="fp-degree-icon">
+                                                        <abbr title="Sourabh is a 2nd degree contact"><span class="network-degree">2<sup>nd</sup></span></abbr>
+                                                </span>-->
+                                        </h3>
+                                        <p class="modalIdentity-headline">
+CTO                                        </p>
+                                        <dl>
+                                            <dt class="modalIdentity-caption">Location</dt>
+                                            <dd class="modalIdentity-value">
+Brazil                                            </dd>
+                                            <dd class="modalIdentity-value modalIdentity-value--separator">|</dd>
+                                            <dt class="modalIdentity-caption">Utilities</dt>
+                                            <!--												<dd class="modalIdentity-value">
+Utilities                                                                                                                                            </dd>-->
+                                        </dl>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li id="BlockModalStep1" class="BlockModal-step visible">
+                                        <fieldset class="BlockModal-info">
+                                            <legend class="BlockModal-formLegend">Block this person</legend>
+                                            <input type="checkbox" class="BlockModal-checkbox" id="BlockModal_BlockMember" value="true" name="blockMember">
+                                            <label for="BlockModal_BlockMember"><strong>Block</strong> Sourabh Singh so that:</label>
+                                            <ul class="BlockModal-list">
+                                                <li>You won't be able to access each other's profiles on 9network</li>
+                                                <li>You won't be able to message each other on 9network</li>
+                                                <li>If you're connected, you won't be connected anymore</li>
+                                            </ul>
+                                            <p class="BlockModal-copy">
+                                                You can read more about blocking before you agree on the next page.
+                                            </p>
+                                        </fieldset>
+                                        <fieldset class="BlockModal-info">
+                                            <legend class="BlockModal-formLegend">Report this person</legend>
+                                            <input type="checkbox" class="BlockModal-checkbox BlockModal-checkbox--hasSubFields" id="BlockModal_ReportMember" value="true" name="reportMember">
+                                            <label for="BlockModal_ReportMember"><strong>Report</strong> Sourabh Singh so that:</label>
+                                            <p class="BlockModal-copy">
+                                                This person will be submitted for review. We'll look for inappropriate behavior or violations of our Terms of Use. Choose this option if you think this member's behavior is bad for the 9network community.
+                                            </p>
+                                            <div class="BlockModal-subFields " style="display:none;">
+                                                <label for="categoryParam-profileFlagForm">Flag profile as: <span class="a11y-hidden">Required</span><abbr aria-hidden="true" class="required" title="Required">*</abbr></label>
+                                                <div class="BlockModal-selectWrapper">
+                                                    <div class="BlockModal-select">
+                                                        <select id="categoryParam-profileFlagForm" name="categoryParam">
+                                                            <option selected="" value="">Choose...</option><option value="ADV">an advertisement</option><option value="CRM">copyrighted material</option><option value="PIC">inappropriate picture</option><option value="CON">inappropriate content</option><option value="MSR">misrepresentation</option><option value="OLD">out of date</option><option value="OTH">other</option></select>
+                                                        <span aria-hidden="true" class="arrow">
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label for="descParam-profileFlagForm">Details</label>
+                                                <label class="label-ghost" for="descParam-profileFlagForm" id="control_gen_26">What would you like the team at 9network to know?</label>
+                                                <script class="li-control" type="text/javascript+initialized" id="controlinit-http-12224-exec-15247917-1">LI.Controls.addControl('control-http-12224-exec-15247917-1','GhostLabel',{'showLabel':true});</script>
+                                                <textarea id="descParam-profileFlagForm" name="descParam" placeholder="What would you like the team at 9network to know?"></textarea>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="BlockModal-actions disabled">
+                                            <legend class="BlockModal-formLegend"></legend>
+                                            <div class="main-actions">
+                                                <input type="submit" class="btn btn-primary btn-bb" name="view_user" value="Save changes" id="view_user">
+                                                <span>or</span>
+                                                <input type="reset" class="cncl" value="Cancel" name="reset">
+                                            </div>
+                                        </fieldset>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#BlockModal_ReportMember").click(function () {
+        if ($(this).is(":checked")) {
+            $(".BlockModal-subFields ").show(300);
+
+        } else {
+            $(".BlockModal-subFields ").hide(200);
+        }
+
+    });
+    $(".BlockModal-checkbox").click(function () {
+        if ($(this).is(":checked")) {
+            $(".BlockModal-actions").removeClass("disabled");
+        } else {
+            $(".BlockModal-actions").addClass("disabled");
+        }
+    });
+</script>
+<!-- end popup-->
+<footer class="footer footer_loginbg ">
+    <div class="container">
+    <div class="row">
+            </div>
+      <div class=" col-md-3">
+        <div class="footer_logo"> <img src="http://www.demo2server.in/sites/core/9network/images/logo.png">
+          <p>© 2014. All rights reserved.</p>
+        </div>
+      </div>
+      <div class=" col-md-9">
+        <div class="foot_menu"> <a href="javascript:void(0)">Help Center</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=about">About</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=press">Press</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=blog">Blog</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=careers">Careers</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Advertising"> Advertising</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=talent">Talent Solutions</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=small">Small Business</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Mobile">Mobile</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Developers">Developers</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Language">Language</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=User">User Agreement</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Privacy">Privacy Policy</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Community">Community Guidelines </a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Cookie">Cookie Policy</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Copyright">Copyright Policy</a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- -->
+<!--<! Profile Strength Circle-->
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/js_020"></script>
+<!--<script type="text/javascript" src="js/js_013"></script>-->
+<!--<script type="text/javascript" src="js/js_011"></script>-->
+
+<!--<! End Profile Strength Circle-->
+
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/jquery.leanModal.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://www.demo2server.in/sites/core/9network/css/leanModal.css" />
+
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/css/jquery.magnific-popup.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://www.demo2server.in/sites/core/9network/css/magnific-popup.css" />
+
+<script type="text/javascript">
+function saveendorse(skillid,userid,status){
+
+	$.ajax({
+		type: "POST",
+		url: "http://www.demo2server.in/sites/core/9network/ajax/section_ajax.php",
+		data: 'post_url=endrose&userid=' + userid + '&skillid=' + skillid + '&status=' + status,
+		success: function(data)
+		{
+			if (status == 1)
+			{
+				var getendorse = $('.num-endorsements' + skillid).html();
+				getendorse = (parseInt(getendorse) + 1);
+				if (getendorse <= 0)
+					getendorse = 0;
+					$('.num-endorsements' + skillid).html(getendorse);
+					$('#removeendrose' + skillid).show();
+					$('#removeendrose-text' + skillid).show();
+					$('#saveendrose' + skillid).hide();
+					$('#saveendrose-text' + skillid).hide();
+					$('#enduser' + skillid).show();
+			}
+		}
+	});
+}
+function removeendorse(skillid,userid,status){
+
+	$.ajax({
+		type: "POST",
+		url: "http://www.demo2server.in/sites/core/9network/ajax/section_ajax.php",
+		data: 'post_url=endrose&userid=' + userid + '&skillid=' + skillid + '&status=' + status,
+		success: function(data)
+		{
+			if (status == 0)
+			{
+				var getendorse = $('.num-endorsements' + skillid).html();
+				getendorse = (parseInt(getendorse) - 1);
+				$('.num-endorsements' + skillid).html(getendorse);
+				$('#removeendrose' + skillid).hide();
+				$('#removeendrose-text' + skillid).hide();
+				$('#saveendrose' + skillid).show();
+				$('#enduser' + skillid).hide();
+				$('#removeuser' + skillid).hide();
+
+			}
+		}
+	});
+}
+
+$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+$("#modal_trigger2").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close2" });
+$("#modal_trigger3").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close3" });
+$("#modal_trigger4").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close4" });
+$("#modal_trigger5").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close5" });
+$("#modal_trigger6").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close6" });
+$("#modal_trigger7").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close7" });
+$("#modal_trigger8").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close8" });
+$("#modal_trigger9").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close9" });
+</script>
+
+<!--<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>-->
+
+<link rel="stylesheet" media="all" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/popup_box.css" />
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/popup.js"></script>
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/dobPicker.min.js"></script>
+<link rel="stylesheet" media="all" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/bootstrap-wysihtml5.css" />
+<!--<link rel="stylesheet" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/bootstrap-wysihtml5.css" />-->
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/bootstrap3-wysihtml5.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/mynotification.js"></script>
+</body>
+</html>
