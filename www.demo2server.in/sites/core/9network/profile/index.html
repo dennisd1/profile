@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9network’s</title>
+<base href="http://www.demo2server.in/sites/core/9network/">
+<link href="http://www.demo2server.in/sites/core/9network/images/small-logo.png" rel="shortcut icon">
+
+<!-- Bootstrap -->
+<link href="http://www.demo2server.in/sites/core/9network/css/style.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/bootstrap.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/font-awesome.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/bootstrap-select.css" rel="stylesheet">
+<link href="http://www.demo2server.in/sites/core/9network/css/jquery-ui.css" rel="stylesheet" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery.min.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery-ui.min.js"></script>
+
+<script src="http://www.demo2server.in/sites/core/9network/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://www.demo2server.in/sites/core/9network/js/ie10-viewport-bug-workaround.js"></script>
+<!--jquery validation files-->
+<script src="http://www.demo2server.in/sites/core/9network/js/jquery.validate.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/additional-methods.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/bootstrap-select.js"></script>
+
+
+<script type="text/javascript">
+	var rs=jQuery.noConflict();
+	rs(function(){
+		if (rs(".top_search").hasClass("s_fild")){
+			rs(".s_fild").autocomplete({
+				minLength: 2,
+				source: function (request, response) {
+					rs.ajax({
+						url: "ajax/search-ajax.php",
+						dataType: "json",
+						html: true,
+						data: {
+							term: request.term,
+							fun: "getProduct",
+							cat_id:rs("#main-search-category").val()
+						},
+						success: function (data) {
+							response(data);
+						}
+					});
+				},
+				html: true,
+				select: function (event, ui) {
+					rs(".s_fild").val(ui.item.first_name);
+	//						$("#search_param").val(ui.item.id);
+					return false;
+				}
+			}).data("ui-autocomplete")._renderItem = function (ul, item) {
+				return rs("<li></li>")
+				.data("item.autocomplete", item)
+				.append("<a href='#' target='_blank'><h5>"+item.first_name+"</h5></a>")
+				.appendTo(ul);
+			};
+		}
+	});
+	$=rs.noConflict();
+	var base_path = 'http://www.demo2server.in/sites/core/9network/';
+	var login_id = '0';
+</script>
+<noscript><meta http-equiv="refresh" content="0; URL=http://www.demo2server.in/sites/core/9network/index.php?mode=logout"></noscript>
+
+</head>
+<body >
+
+<header>
+  
+  <!-- navigation 1 start -->
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="http://www.demo2server.in/sites/core/9network/"><img src="http://www.demo2server.in/sites/core/9network/images/logo.png" ></a> </div>
+      <div class="navbar-collapse collapse">
+        <!-- my insertion starts here -->
+        <form class="navbar-form navbar-right" action="http://www.demo2server.in/sites/core/9network/login.php" id="login" method="post" name="login" enctype="multipart/form-data">
+          <div class="col-lg-5 cl_5">
+            <div class="form-group">
+              <p>Email address</p>
+              <input type="text" class="form-control nwForm" placeholder="Email" id="login_email" name="login_email" required>
+            </div>
+          </div>
+          <div class="col-lg-5 cl_5">
+            <div class="form-group">
+              <p>Password</p>
+              <input type="password" name="password" id="password" class="form-control nwForm" placeholder="Password" required>
+              <label class="f_got"><a href="http://www.demo2server.in/sites/core/9network/forgetpassword.php">Forgot your password?</a></label>
+            </div>
+          </div>
+          <div class="col-lg-2 cl_5">
+            <div class="form-group">
+              <p>&nbsp;</p>
+              <input name="sign_in" type="submit" value="Sign In" class="btn btn-primary sky_btn">
+            </div>
+          </div>
+        </form>
+        <!-- my insertion ends here -->
+      </div>
+    </div>
+  </div>
+  <!-- navigation 1 end -->
+
+  </header>
+<noscript>
+<div class="alert alert-danger">
+<p>To use the new 9Network Profile, you need to use a JavaScript-enabled browser.</p>
+</div>
+</noscript>
+<input id="alwaysFetch" type="hidden" />
+<script>
+    setTimeout(function () {
+        var el = document.getElementById('alwaysFetch');
+        el.value = el.value ? location.reload() : true;
+    }, 0);
+</script>
+<script>
+ jQuery(document).ready(function () {
+	jQuery(document).on('keydown','.check_numeric', function (event) {
+			// Allow: backspace, delete, tab,escape, and enter // dot, event.keyCode == 110 || //F5, || event.keyCode == 116
+			if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13  ||
+				// Allow: Ctrl+A
+					(event.keyCode == 65 && event.ctrlKey === true) ||
+					// Allow: home, end, left, right
+						(event.keyCode >= 35 && event.keyCode <= 39)) {
+					// let it happen, don't do anything
+					return;
+			} else {
+				// Ensure that it is a number and stop the keypress
+				if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+					event.preventDefault();
+				}
+			}
+		});
+	});
+</script><script type="text/javascript">
+    jQuery(function ($) {
+
+        $('#registration').validate({
+            ignore: ":hidden",
+            rules: {
+                first_name: "required",
+                last_name: "required",
+                email: {
+                    required: true,
+                    email: true,
+                    legalemail1: true,
+                },
+                pass: {
+                    required: true,
+                    minlength: 6
+                },
+                Cpass: {
+                    equalTo: "#pass",
+                    minlength: 6
+                },
+            },
+            messages: {
+                first_name: "Please enter your first name. ",
+                last_name: "Please enter your last name.",
+                email: {
+                    required: "Please enter your email address. ",
+                    email: "Please enter a valid email address.",
+                },
+                pass: {
+                    required: "Please enter your password.",
+                    minlength: "Password must be 6 characters or more.",
+                },
+                Cpass: {
+                    equalTo: "Verification password must match password.",
+                    minlength: "Your password must be at least 6 characters long."},
+            }
+        });
+    });
+
+    $.validator.addMethod("legalemail1", function (vin) {
+        var emailaddress = jQuery("#email").val();
+        erroremail = false;
+        if (emailaddress) {
+            jQuery.ajax({
+                type: 'post',
+                async: false,
+                url: 'http://www.demo2server.in/sites/core/9network/ajax/check-email.php',
+                data: {
+                    emailaddress: emailaddress
+                },
+                success: function (result) {
+                    if (result == 'success') {
+                        jQuery(".error").text("");
+                        erroremail = true;
+                    } else if (result == 'error') {
+                        erroremail = false;
+                    }
+                }
+            });
+        }
+        return erroremail;
+    }, "E-mail address already exists.");
+</script>
+<section>
+    
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-12">
+                <div class="center_title"><h1>Join a largest professional network.</h1></div>
+            </div>
+
+            <div class=" col-md-6">
+                <ul class="collage_photo">
+                    <li><a href="javascript:void(0)"><img src="images/col-p1.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p2.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p3.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p4.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p5.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p6.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p7.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p8.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/col-p9.jpg"></a></li>
+                </ul>
+            </div>
+            <div class=" col-md-6">
+                <div class="home_form">
+                    <h2>Get started – it’s free.</h2>
+                    <p>Registration takes less than 2 minutes.</p>
+
+                    <form method="post" id="registration" name="registration" enctype="multipart/form-data">
+                        <div class="hom_row">
+                            <div class="half_input"><input name="first_name" type="text" class="form-control" placeholder="First Name" required></div>
+                            <div class="half_input2"><input name="last_name" type="text" class="form-control" placeholder="Last Name" required></div>
+                            <div class="clr"></div>
+                        </div>
+
+                        <div class="hom_row">
+                            <input name="email" id="email" type="email" class="form-control" placeholder="Email Address" required>
+                            <!--<label id="email_error" class="error" style="display: none;"></label>-->
+                        </div>
+                        <div class="hom_row">
+                            <input name="pass" id="pass" type="password" class="form-control" placeholder="New Password" required>
+                        </div>
+                        <div class="hom_row">
+                            <input name="Cpass" type="password" class="form-control" placeholder="Confirm Password" >
+                        </div>
+
+                        <div class="hom_row">
+                            <p>By clicking Join Now, you agree to 9network's User Agreement,
+                                <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Privacy">Privacy Policy</a> and <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Cookie">Cookie Policy</a>.</p>
+                        </div>
+                        <div class="hom_row">
+                            <input name="join_now" type="submit" value="Join Now" class="btn btn-primary dark_blue">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+            <div class=" col-md-12">
+        <div class="nine_network">9network's member directory: <span>a b c d e f g h i j k l m n o p q r s t u v w x y z</span> more Browse members by country.</div>
+              </div>
+      <div class=" col-md-3">
+        <div class="footer_logo"> <img src="http://www.demo2server.in/sites/core/9network/images/logo.png">
+          <p>© 2014. All rights reserved.</p>
+        </div>
+      </div>
+      <div class=" col-md-9">
+        <div class="foot_menu"> <a href="javascript:void(0)">Help Center</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=about">About</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=press">Press</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=blog">Blog</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=careers">Careers</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Advertising"> Advertising</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=talent">Talent Solutions</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=small">Small Business</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Mobile">Mobile</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Developers">Developers</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Language">Language</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=User">User Agreement</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Privacy">Privacy Policy</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Community">Community Guidelines </a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Cookie">Cookie Policy</a> <a href="http://www.demo2server.in/sites/core/9network/page.php?name=Copyright">Copyright Policy</a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- -->
+<!--<! Profile Strength Circle-->
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/js_020"></script>
+<!--<script type="text/javascript" src="js/js_013"></script>-->
+<!--<script type="text/javascript" src="js/js_011"></script>-->
+
+<!--<! End Profile Strength Circle-->
+
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/jquery.leanModal.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://www.demo2server.in/sites/core/9network/css/leanModal.css" />
+
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/css/jquery.magnific-popup.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://www.demo2server.in/sites/core/9network/css/magnific-popup.css" />
+
+<script type="text/javascript">
+function saveendorse(skillid,userid,status){
+
+	$.ajax({
+		type: "POST",
+		url: "http://www.demo2server.in/sites/core/9network/ajax/section_ajax.php",
+		data: 'post_url=endrose&userid=' + userid + '&skillid=' + skillid + '&status=' + status,
+		success: function(data)
+		{
+			if (status == 1)
+			{
+				var getendorse = $('.num-endorsements' + skillid).html();
+				getendorse = (parseInt(getendorse) + 1);
+				if (getendorse <= 0)
+					getendorse = 0;
+					$('.num-endorsements' + skillid).html(getendorse);
+					$('#removeendrose' + skillid).show();
+					$('#removeendrose-text' + skillid).show();
+					$('#saveendrose' + skillid).hide();
+					$('#saveendrose-text' + skillid).hide();
+					$('#enduser' + skillid).show();
+			}
+		}
+	});
+}
+function removeendorse(skillid,userid,status){
+
+	$.ajax({
+		type: "POST",
+		url: "http://www.demo2server.in/sites/core/9network/ajax/section_ajax.php",
+		data: 'post_url=endrose&userid=' + userid + '&skillid=' + skillid + '&status=' + status,
+		success: function(data)
+		{
+			if (status == 0)
+			{
+				var getendorse = $('.num-endorsements' + skillid).html();
+				getendorse = (parseInt(getendorse) - 1);
+				$('.num-endorsements' + skillid).html(getendorse);
+				$('#removeendrose' + skillid).hide();
+				$('#removeendrose-text' + skillid).hide();
+				$('#saveendrose' + skillid).show();
+				$('#enduser' + skillid).hide();
+				$('#removeuser' + skillid).hide();
+
+			}
+		}
+	});
+}
+
+$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+$("#modal_trigger2").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close2" });
+$("#modal_trigger3").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close3" });
+$("#modal_trigger4").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close4" });
+$("#modal_trigger5").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close5" });
+$("#modal_trigger6").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close6" });
+$("#modal_trigger7").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close7" });
+$("#modal_trigger8").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close8" });
+$("#modal_trigger9").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close9" });
+</script>
+
+<!--<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>-->
+
+<link rel="stylesheet" media="all" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/popup_box.css" />
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/popup.js"></script>
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/dobPicker.min.js"></script>
+<link rel="stylesheet" media="all" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/bootstrap-wysihtml5.css" />
+<!--<link rel="stylesheet" type="text/css" href="http://www.demo2server.in/sites/core/9network/css/bootstrap-wysihtml5.css" />-->
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="http://www.demo2server.in/sites/core/9network/js/bootstrap3-wysihtml5.js"></script>
+<script src="http://www.demo2server.in/sites/core/9network/js/mynotification.js"></script>
+</body>
+</html>

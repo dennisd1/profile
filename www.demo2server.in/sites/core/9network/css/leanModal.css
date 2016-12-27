@@ -1,0 +1,60 @@
+#lean_overlay {
+    position: fixed;
+    z-index:1000;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+.popupContainer{
+	position:absolute;
+	width:550px;
+	height: auto;
+	left:45%;
+	top:80px;
+	background: #FFF;
+}
+
+.popupContainer .btn {padding:10px 20px; background: #F4F4F2;}
+.popupContainer .btn_red {background: #ED6347; color: #FFF;}
+
+.popupContainer .btn:hover {background: #E4E4E2;}
+.popupContainer .btn_red:hover {background: #C12B05;}
+
+.popupContainer a.btn {color:#666; text-align: center; text-decoration: none;}
+.popupContainer a.btn_red {color: #FFF;}
+
+.popupContainer .one_half {width:18%; display: block; float:left;}
+.popupContainer .one_half.last {width:45%; margin-left:5%;}
+
+/* Popup Styles*/
+.popupHeader {font-size:16px; }
+.popupHeader {background:#F4F4F2; position:relative; padding:10px 20px; border-bottom:1px solid #DDD; font-weight:bold;}
+.popupHeader .modal_close {position: absolute; right: 0; top:0; padding:10px 15px; background:#E4E4E2; cursor: pointer; color:#aaa; font-size:16px;}
+.popupHeader .modal_close2 {position: absolute; right: 0; top:0; padding:10px 15px; background:#E4E4E2; cursor: pointer; color:#aaa; font-size:16px;}
+
+.popupBody {padding:20px;}
+
+.action_btns { margin:10px 0; }
+
+.popupContainer .view_buuton a.btn-primary {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  color: #fff;
+}
+.popupContainer .view_buuton a.btn-primary2 {
+  border:1px solid #a7a7a7;
+}
+.popupBody .user_login span{ margin-bottom:10px; display:inline-block}
+/* User Login Form */
+.user_login label {display: block; margin-bottom:5px;}
+.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.user_login input[type="checkbox"] {float:left; margin-right:5px;}
+.user_login input[type="checkbox"]+label {float:left;}
+.user_login textarea { width:461px;}
+.user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+
