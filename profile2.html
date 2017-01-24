@@ -6,46 +6,16 @@
     </head>
     <body>
 
-    <button id="cartoonsBtn">Cartoons</button>
-    <button id="dramaBtn">Drama</button>
-
-    <ul id="movieList"></ul>
+   <div id="container"></div>
 
     <script>
-    var markup = "<li><b>${Name}</b> (${ReleaseYear})</li>";
-
+    
+     var json = '[{"name":"Hydrogen","number":"1","symbol":"H","weight":"1.00794"},{"name":"Helium","number":2,"symbol":"He","weight":4.002602},{"name":"Lithium","number":3,"symbol":"Li","weight":6.941},{"name":"Beryllium","number":4,"symbol":"Be","weight":9.012182},{"name":"Boron","number":5,"symbol":"B","weight":10.811}]';
+    
     /* Compile the markup as a named template */
     $.template( "movieTemplate", markup );
 
-    function getMovies( genre, skip, top ) {
-      $.ajax({
-        dataType: "jsonp",
-        url: "http://odata.netflix.com/Catalog/Genres('" + genre
-        + "')/Titles?$format=json&$skip="
-        + skip + "&$top=" + top,
-        jsonp: "$callback",
-        success: function( data ) {
-          /* Get the movies array from the data */
-          var movies = data.d;
-
-          /* Remove current set of movie template items */
-          $( "#movieList" ).empty();
-
-          /* Render the template items for each movie
-          and insert the template items into the "movieList" */
-          $.tmpl( "movieTemplate", movies )
-          .appendTo( "#movieList" );
-        }
-      });
-    }
-
-    $( "#cartoonsBtn" ).click( function() {
-      getMovies( "Cartoons", 0, 6 );
-    });
-
-    $( "#dramaBtn" ).click( function() {
-      getMovies( "Drama", 0, 6 );
-    });
+    var json = '[{"name":"Hydrogen","number":"1","symbol":"H","weight":"1.00794"},{"name":"Helium","number":2,"symbol":"He","weight":4.002602},{"name":"Lithium","number":3,"symbol":"Li","weight":6.941},{"name":"Beryllium","number":4,"symbol":"Be","weight":9.012182},{"name":"Boron","number":5,"symbol":"B","weight":10.811}]';
 
     </script>
 
