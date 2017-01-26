@@ -241,10 +241,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-            $('[contenteditable]').on("click", function(){
-   $(this).css('background', 'gainsboro'); 
-
-});
+        $('[contenteditable]').on("click", function(){ //select all content editable documents
+                $(this).css('background', 'LightGrey'); //set colour
+                var markup = document.documentElement.innerHTML; //save all file
+                console.log(markup);
+        });
     </script>
     <script src="js/scripts.js"></script>
 
