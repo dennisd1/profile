@@ -32,10 +32,10 @@
             </div>
         </div>
         <a class="fixed-contact" href="mailto:your.email@gmail.com">
-            <div class="ui right floated primary button">
+            <div class="ui right floated primary button" id="edit">
                 <i class="left mail icon"></i>
                 <span class="hide-from-mobile">
-                    Get in Touch
+                    Редактировать
                     <i class="right chevron icon"></i>
                 </span>
             </div>
@@ -244,8 +244,8 @@
         $('[contenteditable]').on("click", function(){ //select all content editable documents
                 $(this).css('background', 'LightGrey'); //set colour
              });
-         $('[data-section]').on("click", function(){ //select all content editable documents
-                $(this).css('background', 'Green'); //set colour
+         $('[edit]').on("click", function(){ //select all content editable documents
+                $('[data-section]').css('background', 'Green'); //set colour
              });   
     </script>
     <script src="js/scripts.js"></script>
