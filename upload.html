@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style>
+			#files {
+				width: 200px;
+				list-style: none;
+				margin: 1em auto;
+				padding: 0;
+			}
+			#files li {
+				padding: 10px;
+				border-bottom: 1px solid #EEE;
+				min-height: 50px;
+			}
+			#files span {
+			}
+			#files img {
+				max-width: 100px;
+			}
+			#files a {
+				margin: 5px;
+				float: right;
+				color: #C00;
+				cursor: pointer;
+				background: #FEE;
+				padding: 5px;
+				border-radius: 5px;
+			}
+		</style>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript">
+		
+			function LocalFileCollection() {
+				
+				var files;
+				try {
+					files = JSON.parse(window.localStorage.getItem("files"));
+				} catch(ex) {
+					console.err("There was an error", files, window.localStorage);
+				}
+				if(!files) {
+					files = [];	
+				}
+				
+				this.add = function(src) {
+					files.push(src);
+					this.save();	
+				};
+				
+				this.all = function() {
+					return files;		
+				};
+				
+				this.remove = function(src) {
+					for(var i = 0; i < files.length; ++i) {
+						if(files[i] === src)
+							files.splice(i, 1);	
+					}
+					this.save();
+				};
+				
+				this.save = function() {
+					window.localStorage.setItem("files", JSON.stringify(files));		
+				}
+					
+			}
+		
+			var lfc = new LocalFileCollection();
+		
+			function retrieveFiles() {
+				return lfc.all();
+			}
+		
+			function storeFiles() {
+				lfc.save();
+			}
+			
+			function renderFiles() {
+				var files = retrieveFiles();
+				var ul = $("#files").empty();
+				for(var i = 0; i < files.length; ++i) {
+					var li = $("<li><span><img/></span><a>Delete</a></li>");
+					li.find("img").attr("src", files[i]);
+					ul.append(li);
+				}
+			}
+		
+			$(function() {
+				
+				renderFiles();
+				
+				$("#file").on("change", function() {
+					var files = $(this).prop("files");
+					var reader = new FileReader();
+					var current = 0;
+					
+					reader.onload = function(e) {
+						lfc.add(e.target.result);
+						renderFiles();
+						if(current < files.length)
+							reader.readAsDataURL(files[current ++]);
+					}
+					
+					reader.readAsDataURL(files[current ++]);
+				});
+				
+				$("#files").on("click", "a", function() {
+					lfc.remove($(this).parent("li").find("img").attr("src"));
+					renderFiles();
+				});
+				
+				$("form").on("submit", function() {
+					console.log("Sending files", lfc.all());
+					return false;
+				});
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<form action="?e=upload" method="post" enctype="multipart/form-data">
+			<div class="content">
+				<label>Choose images to upload</label>
+				<input type="file" id="file" multiple="multiple"/>
+			</div>
+			<ul id="files"> </ul>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
