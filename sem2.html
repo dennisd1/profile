@@ -127,7 +127,7 @@
 
                 <div class="ui divided items">
 
-                    <div class="item">
+                    <div class="item" data-section="1">
                         <div class="content">
                             <div class="ui right floated primary">
                                 <i class="right calendar icon"></i>
@@ -174,7 +174,7 @@
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item" data-section="2">
                         <div class="content">
                             <div class="ui right floated primary">
                                 <i class="right calendar icon"></i>
@@ -243,9 +243,10 @@
     <script>
         $('[contenteditable]').on("click", function(){ //select all content editable documents
                 $(this).css('background', 'LightGrey'); //set colour
-                var markup = document.documentElement.innerHTML; //save all file
-                console.log(markup);
-        });
+             });
+         $('[data-section]').on("click", function(){ //select all content editable documents
+                $(this).css('background', 'Green'); //set colour
+             });   
     </script>
     <script src="js/scripts.js"></script>
 
