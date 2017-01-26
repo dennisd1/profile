@@ -31,7 +31,7 @@
                 <a href="mailto:your.email@gmail.com" >your.email@gmail.com</a>
             </div>
         </div>
-            <div class="ui right floated primary button" id="edit">
+            <div class="ui right floated primary button" data-action="edit">
                 <i class="left mail icon"></i>
                 <span class="hide-from-mobile">
                     Редактировать
@@ -242,7 +242,7 @@
         $('[contenteditable]').on("click", function(){ //select all content editable documents
                 $(this).css('background', 'LightGrey'); //set colour
              });
-         $('[edit]').on("click", function(){ //select all content editable documents
+         $('[data-action="edit"]').on("click", function(){ //select all content editable documents
                 $('[data-section]').css('background', 'Green'); //set colour
              });   
     </script>
