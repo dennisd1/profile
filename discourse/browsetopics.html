@@ -17,9 +17,9 @@
                         $( "#edit" ).click(function() {
                            $('.regular').toggle();
                          });
-                          $( "#edit" ).click(function() {    
-                          
-                         });
+                          $('[data-action="edit"]').on("click", function(){ //select all content editable documents
+                                $(this).css('background', 'LightGrey'); //set colour
+                          });
                     });
 
             } 
