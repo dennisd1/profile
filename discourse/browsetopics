@@ -1,0 +1,54 @@
+<!--http://community.yoch.tv/admin/customize/css_html/34/head-tag-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"/>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js">-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet">
+
+
+
+<script type="text/discourse-plugin" version="0.4">
+        
+        
+        api.onPageChange((url, title) => {
+            console.log('the page changed to: ' + url + ' and title ' + title);
+            if(url.indexOf("/t/") >= 0){
+                console.log("топик");
+                console.log(url);
+                var regex = new RegExp("/([1-9][0-9]*)");
+                var substr = url.match(regex);
+                console.log(substr[1]);
+                rawurl = "http://community.yoch.tv/raw/"+substr[1];
+                console.log(rawurl);
+                $.get(rawurl, function(data){
+                        $('.regular').hide();
+                        $('#infosection').html(data);
+                        $('#infosection').append("<h1>Редактировать</h1>");
+                        $('#infosection').append("<button id='edit' class='ui primary button'>Follow</button>");
+                        var DOM = document.querySelectorAll(".ui");
+                        console.log( DOM );
+                        $( "#edit" ).click(function() {
+                          console.log( "clicked" );
+                           $('.regular').toggle();
+                         });
+                    });
+
+            } 
+                else if (url.indexOf("/preferences/about-me") >= 0){
+                    console.log("это раздел обо мне");
+                    $('.user-main').empty();
+                    let currentUser = api.getCurrentUser();
+                    $.get("http://community.yoch.tv/raw/34", function(data){
+                        $('#infosection').html(data);
+                    });
+                    
+                }
+
+                else {
+                    $.get("http://community.yoch.tv/raw/17", function(data){
+                        $('#infosection').empty();
+                    });
+                }
+            
+            });
+        
+        
+</script>
