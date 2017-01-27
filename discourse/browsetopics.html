@@ -7,25 +7,17 @@
         api.onPageChange((url, title) => {
             console.log('the page changed to: ' + url + ' and title ' + title);
             if(url.indexOf("/t/") >= 0){
-                console.log("топик");
-                console.log(url);
                 var regex = new RegExp("/([1-9][0-9]*)");
                 var substr = url.match(regex);
-                console.log(substr[1]);
                 rawurl = "http://community.yoch.tv/raw/"+substr[1];
-                console.log(rawurl);
                 $.get(rawurl, function(data){
-                        $('.regular').hide();
+                        <!--$('.regular').hide();-->
                         $('#infosection').html(data);
                         $('#infosection').append("<h1>Редактировать</h1>");
-                        $('#infosection').append("<button id='edit' class='ui primary button'>Follow</button>");
-                        var DOM = document.querySelectorAll(".ui");
-                        console.log( DOM );
                         $( "#edit" ).click(function() {
-                          console.log( "clicked" );
                            $('.regular').toggle();
                          });
-                          $( "#edit" ).click(function() {    //
+                          $( "#edit" ).click(function() {    
                           
                          });
                     });
