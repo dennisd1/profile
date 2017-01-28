@@ -253,7 +253,7 @@
     <script>
         $('[contenteditable]' ).hover(
           function() {
-            $( this ).append( $( "<span> ***</span>" ) );
+            $( this ).addClass('fa fa-arrow-right');
           }, function() {
             $( this ).find( "span:last" ).remove();
           }
