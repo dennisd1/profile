@@ -253,7 +253,7 @@
     <script>
         $('[contenteditable]' ).hover(
           function() {
-            $( this ).append("<p>редактировать</p>");
+            $( this ).html("<i class="pencil icon"></i>");
           }, function() {
             $( this ).find( "p:last" ).remove();
           }
