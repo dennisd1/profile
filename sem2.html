@@ -253,9 +253,9 @@
     <script>
         $('[contenteditable]' ).hover(
           function() {
-            $( this ).prepend("<p>&#9998</p>");
+            $( this ).prepend("<span>&#9998</span>");
           }, function() {
-            $( this ).find( "p:last" ).remove();
+            $( this ).find( "span:last" ).remove();
           }
         );
         </script>
