@@ -248,7 +248,8 @@
     </script>
     <script>
        $('.ui.dropdown').dropdown();
-       $("p").attr("contentEditable", true);
+       $("p").attr("contentEditable", true); //set p as editable
+       $('[data-editable]').attr("contentEditable", true); 
        
         $('[contenteditable]' ).hover(
           function() {
