@@ -251,11 +251,11 @@
              });   
     </script>
     <script>
-        $( "li" ).hover(
+        $('[contenteditable]' ).hover(
           function() {
-            $( this ).append( $( "<span> ***</span>" ) );
+            $( this ).append( $( "<i class="pencil icon"></i>" ) );
           }, function() {
-            $( this ).find( "span:last" ).remove();
+            $( this ).find( "i:last" ).remove();
           }
         );
         </script>
