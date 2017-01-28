@@ -244,7 +244,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         $('[contenteditable]').on("click", function(){ //select all content editable documents
-                $(this).css('background', 'LightGrey'); //set colour
+                $(this).css('background', 'LightGrey');
+                $( this ).find( "span:last" ).remove();//remove pencil
              });
          $('[data-action="edit"]').on("click", function(){ //select all content editable documents
                 $('[data-section]').append('<input type="button" value="new button"/>'); //set colour
