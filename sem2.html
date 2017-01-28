@@ -244,7 +244,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         $('[contenteditable]').on("click", function(){ //select all content editable documents
-                $(this).css('background', 'LightGrey');
+                //$(this).css('background', 'LightGrey');
                 $( this ).find( "span:last" ).remove();//remove pencil
              });
          $('[data-action="edit"]').on("click", function(){ //select all content editable documents
@@ -254,10 +254,10 @@
     <script>
         $('[contenteditable]' ).hover(
           function() {
-            $( this ).prepend("<span>&#9998</span>");
+            $( this ).append("<span>&#128393</span>");
           }, function() {
             $( this ).find( "span:last" ).remove();
-            $(this).css('background', 'White');
+            //$(this).css('background', 'White');
           }
         );
         </script>
