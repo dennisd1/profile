@@ -250,6 +250,14 @@
                 $('[data-section]').append('<input type="button" value="new button"/>'); //set colour
              });   
     </script>
-    <script src="js/scripts.js"></script>
+    <script>
+        $( "li" ).hover(
+          function() {
+            $( this ).append( $( "<span> ***</span>" ) );
+          }, function() {
+            $( this ).find( "span:last" ).remove();
+          }
+        );
+        </script>
 
 </div>
