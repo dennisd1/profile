@@ -37,6 +37,14 @@
               </div>
             </div>
           </div>
+   
+            <div class="ui message">
+              <i class="close icon"></i>
+              <div class="header">
+                Добро пожаловать!
+              </div>
+              <p>This is a special notification which you can dismiss if you're bored with it.</p>
+            </div>
 
     <main class="ui page grid">
         <div class="row">
@@ -248,6 +256,10 @@
     </script>
     <script>
        $('.ui.dropdown').dropdown();
+       $('.message .close').on('click', function() {
+            $(this).closest('.message').transition('fade');
+        });
+       //content editables
        $("p").attr("contentEditable", true); //set p as editable
        $("span").attr("contentEditable", true);
        $("li").attr("contentEditable", true);
