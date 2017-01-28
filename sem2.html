@@ -27,7 +27,7 @@
         </div>
         <div class="ui blue buttons">
               <div class="ui button">Профиль</div>
-              <div class="ui simple floating dropdown icon button">
+              <div class="ui floating dropdown icon button">
                 <i class="dropdown icon"></i>
                 <div class="menu">
                   <div class="item" data-value="drop">Drop</div>
@@ -247,6 +247,8 @@
              });   
     </script>
     <script>
+       $('.ui.dropdown').dropdown();
+       
         $('[contenteditable]' ).hover(
           function() {
             $( this ).append("<span>&#128393</span>");
