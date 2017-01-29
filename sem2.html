@@ -63,6 +63,13 @@
 
                 <h1 class="ui medium header">Strengths (short titles with icon - general areas of focus)</h1>
                 <div class="ui divider"></div>
+               <h4>Select2 - Tagging</h4>
+                 <select class="taggingSelect2" multiple="true">
+                 <option value="Lamborghini">Банкротства</option>
+                 <option value="Bugatti">Недвижимость</option>
+                 <option value="Ferrari">Государственная и муниципальная собственность</option>
+                 </select>
+               <div class="ui divider"></div>
 
                 <div class="ui three column grid">
                     <div class="row strengths">
@@ -257,9 +264,13 @@
              });   
     </script>
     <script>
-       $('.ui.dropdown').dropdown();
+       $('.ui.dropdown').dropdown();                                                                     //activate dropdown
        $('.message .close').on('click', function() {
             $(this).closest('.message').transition('fade');
+        });
+       $(".taggingSelect2").select2({
+        placeholder: "Your tags",                                                                        //placeholder for tags
+        tags: true
         });
        //content editables
        $("p").attr("contentEditable", true); //set p as editable
