@@ -270,17 +270,14 @@
    //<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>                 //select 2 for tagging
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
     <script>
-        $('[contenteditable]').on("click", function(){ //select all content editable documents
+        $('[data-editable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
                 console.log(html);
                 localStorage.setItem('LShtml', html);
            //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
              });
-         $('[data-action="edit"]').on("click", function(){ //select all content editable documents
-                $('[data-section]').append('<input type="button" value="new button"/>'); //set colour
-             });   
-    </script>
+        </script>
     <script>
        $('.ui.dropdown').dropdown();                                                                     //activate dropdown
        $('.message .close').on('click', function() {
