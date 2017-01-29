@@ -271,7 +271,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
     <script>
         $('[contenteditable]').on("click", function(){ //select all content editable documents
-                //$(this).css('background', 'LightGrey');
+                html = document.documentElement.innerHTML;
+                localStorage.setItem('LShtml', html);
+           //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
              });
          $('[data-action="edit"]').on("click", function(){ //select all content editable documents
