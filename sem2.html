@@ -272,6 +272,7 @@
     <script>
         $('[contenteditable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
+                console.log(html);
                 localStorage.setItem('LShtml', html);
            //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
