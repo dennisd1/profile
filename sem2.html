@@ -11,6 +11,21 @@
 
    <main class="ui page grid">
     <div class="ui left aligned container">
+       <!-- This wraps the whole cropper -->
+            <div id="image-cropper">
+              <!-- This is where the preview image is displayed -->
+              <div class="cropit-preview"></div>
+
+              <!-- This range input controls zoom -->
+              <!-- You can add additional elements here, e.g. the image icons -->
+              <input type="range" class="cropit-image-zoom-input" />
+
+              <!-- This is where user selects new image -->
+              <input type="file" class="cropit-image-input" />
+
+              <!-- The cropit- classes above are needed
+                   so cropit can identify these elements -->
+            </div>
         <p></p>
         <p></p>
         <h1 class="headline" contenteditable="true">
@@ -267,9 +282,20 @@
     -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   //<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>                 //select 2 for tagging
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropit/0.5.1/jquery.cropit.js"></script>
     <script>
+             $('#image-cropper').cropit();
+
+            // In the demos I'm passing in an imageState option
+            // so it renders an image by default:
+            // $('#image-cropper').cropit({ imageState: { src: { imageSrc } } });
+
+            // Exporting cropped image
+             $('.download-btn').click(function() {
+             var imageData = $('#image-cropper').cropit('export');
+              window.open(imageData);
+              });
         $('[data-editable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
                 console.log(html);
