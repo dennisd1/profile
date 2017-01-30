@@ -14,19 +14,15 @@
        <p></p>
         <p></p>
        <!-- This wraps the whole cropper -->
-            <div id="image-cropper">
-              <!-- This is where the preview image is displayed -->
+           <div id="image-cropper">
               <div class="cropit-preview"></div>
 
-              <!-- This range input controls zoom -->
-              <!-- You can add additional elements here, e.g. the image icons -->
               <input type="range" class="cropit-image-zoom-input" />
 
-              <!-- This is where user selects new image -->
+              <!-- The actual file input will be hidden -->
               <input type="file" class="cropit-image-input" />
-
-              <!-- The cropit- classes above are needed
-                   so cropit can identify these elements -->
+              <!-- And clicking on this button will open up select file dialog -->
+              <div class="select-image-btn">Select new image</div>
             </div>
         
         <h1 class="headline" contenteditable="true">
@@ -288,15 +284,11 @@
     <script>
              $('#image-cropper').cropit();
 
-            // In the demos I'm passing in an imageState option
-            // so it renders an image by default:
-            // $('#image-cropper').cropit({ imageState: { src: { imageSrc } } });
-
-            // Exporting cropped image
-             $('.download-btn').click(function() {
-             var imageData = $('#image-cropper').cropit('export');
-              window.open(imageData);
-              });
+                           // When user clicks select image button,
+               // open select file dialog programmatically
+               $('.select-image-btn').click(function() {
+                 $('.cropit-image-input').click();
+               });
         $('[data-editable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
                 console.log(html);
