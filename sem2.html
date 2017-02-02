@@ -14,17 +14,7 @@
     <div class="ui left aligned container">
        <p></p>
         <p></p>
-       <!-- This wraps the whole cropper -->
-           <div id="image-cropper">
-              <div class="cropit-preview"></div>
-
-              <input type="range" class="cropit-image-zoom-input" />
-
-              <!-- The actual file input will be hidden -->
-              <input type="file" class="cropit-image-input" />
-              <!-- And clicking on this button will open up select file dialog -->
-              <div class="select-image-btn">Select new image</div>
-            </div>
+     
         
         <h1 class="headline" contenteditable="true">
             John Doe
@@ -73,11 +63,42 @@
                     I possess a deep understanding of [multilayered software architecture]. 
                     I specialize in [network operations and network security], and enjoy working with [emerging technologies].  
                 </p>
-
-                <h1 class="ui medium header">Strengths (short titles with icon - general areas of focus)</h1>
+                    <h1 class="ui medium header">Статистика</h1>
+                        <select name="skills" multiple="" class="ui fluid dropdown">
+                             <input type="hidden" name="user">
+                                   <i class="dropdown icon"></i>
+                                   <div class="default text">Select Friend</div>
+                                   <div class="menu">
+                                     <div class="item" data-value="jenny">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                                       Jenny Hess
+                                     </div>
+                                     <div class="item" data-value="elliot">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
+                                       Elliot Fu
+                                     </div>
+                                     <div class="item" data-value="stevie">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/stevie.jpg">
+                                       Stevie Feliciano
+                                     </div>
+                                     <div class="item" data-value="christian">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                                       Christian
+                                     </div>
+                                     <div class="item" data-value="matt">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/matt.jpg">
+                                       Matt
+                                     </div>
+                                     <div class="item" data-value="justen">
+                                       <img class="ui mini avatar image" src="http://semantic-ui.com/images/avatar/small/justen.jpg">
+                                       Justen Kitsune
+                                     </div>
+                                   </div>
+                              </select>
                 <div class="ui divider"></div>
-                       <select name="skills" multiple="" class="ui fluid dropdown">
-                             <option value="">Skills</option>
+                <h1 class="ui medium header">Навыки</h1>
+                        <select name="skills" multiple="" class="ui fluid dropdown">
+                             <option value="">Навыки</option>
                            <option value="angular">Angular</option>
                            <option value="css">CSS</option>
                            <option value="design">Graphic Design</option>
