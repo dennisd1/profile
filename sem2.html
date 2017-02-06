@@ -314,6 +314,7 @@
        
        $('[data-editable]').on("input", function(){ //select all content editable documents
                // html = document.documentElement.innerHTML;
+               $(this).attr("data-edited", true);
                setTimeout(function() {
                    console.log("saved");
                    //localStorage.setItem('LShtml', html);
