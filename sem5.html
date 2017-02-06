@@ -11,10 +11,9 @@
        });
     }
        else {
-           str = localStorage.getItem('u1234567-eliseev');
+           //str = localStorage.getItem('u1234567-eliseev');
            console.log('existing');
-           html = $.parseHTML(str);
-        div = $('#infosection').append( html );
+           div = $('#infosection').html (localStorage.getItem('u1234567-eliseev'));
          console.log(div);
        }
        
