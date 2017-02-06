@@ -1,27 +1,22 @@
 <head>
-   
-
-    
-   
 
 </head>
 <body>
-
+<div id="infosection"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
 
    
     <script>
-             //$('#image-cropper').cropit();
-//
-  //                         // When user clicks select image button,
-               // open select file dialog programmatically
-    //           $('.select-image-btn').click(function() {
-    //             $('.cropit-image-input').click();
-   //            });
-      
-       
+    var url=localStorage.getItem('font')
+    if (url == NULL){
+       $.get("http://community.yoch.tv/raw/25", function(data){
+                        $('#infosection').html(data);
+       }
+       else {
+      alert( 'А вот и неправильно!' ); // любое значение, кроме 2011
+      }
        $('[data-editable]').on("input", function(){ //select all content editable documents
                // html = document.documentElement.innerHTML;
                $(this).data( "data-edited", true );
