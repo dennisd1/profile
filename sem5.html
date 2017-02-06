@@ -4,48 +4,18 @@
 <body>
 <div id="infosection"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
-
-   
-    <script>
-    var url=localStorage.getItem('font')
-    if (url == NULL){
-       $.get("http://community.yoch.tv/raw/25", function(data){
+       
+<script>
+    var url=localStorage.getItem('u1234567-eliseev')
+    if (url === null){
+        console.log("null");
+       $.get("http://lovelyvisit.com/sem2.html", function(data){
                         $('#infosection').html(data);
        }
        else {
-      alert( 'А вот и неправильно!' ); // любое значение, кроме 2011
+       $.get("http://lovelyvisit.com/u1234567-eliseev", function(data){
+                        $('#infosection').html(data);
       }
-       $('[data-editable]').on("input", function(){ //select all content editable documents
-               // html = document.documentElement.innerHTML;
-               $(this).data( "data-edited", true );
-               setTimeout(function() {
-                   console.log("saved");
-                   //localStorage.setItem('LShtml', html);
-                   }.bind(this), 5000);  //not that often
-           //$(this).css('background', 'LightGrey');
-                //$( this ).find( "span:last" ).remove();//remove pencil
-             });
-        </script>
-    <script>
-       $('.ui.dropdown').dropdown();                                                                     //activate dropdown
-       $('.message .close').on('click', function() {
-            $(this).closest('.message').transition('fade');
-        });
-       //content editables
-       $("p").attr("contentEditable", true); //set p as editable
-       $("span").attr("contentEditable", true);
-       //$("li").attr("contentEditable", true);  //blocked for select
-       $('[data-editable]').attr("contentEditable", true); 
        
-        $('[contenteditable]' ).hover(
-          function() {
-            $( this ).append("<span>&#128393</span>");
-          }, function() {
-            $( this ).find( "span:last" ).remove();
-           }
-        );
-        </script>
-
-</body>
+</script>
+   
