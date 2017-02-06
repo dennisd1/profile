@@ -310,13 +310,12 @@
     //           $('.select-image-btn').click(function() {
     //             $('.cropit-image-input').click();
    //            });
-        $('[data-editable]').on("input",($.debounce function(e) {
-    console.log("It works!"); },300));
+      
        
-       //$('[data-editable]').on("input", function(){ //select all content editable documents
-         //       html = document.documentElement.innerHTML;
-          //      console.log(html);
-          //      localStorage.setItem('LShtml', html);
+       $('[data-editable]').on("input", function(){ //select all content editable documents
+                html = document.documentElement.innerHTML;
+                console.log("saved");
+                localStorage.setItem('LShtml', html);
            //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
              });
