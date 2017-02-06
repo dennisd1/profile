@@ -9,7 +9,7 @@
     var url=localStorage.getItem('u1234567-eliseev');
     if (url === null){
         console.log("null");
-       $.get("http://lovelyvisit.com/sem2.html", function(data){
+       $.get("http://lovelyvisit.com/template", function(data){
                         $('#infosection').html(data);
        });
     }
