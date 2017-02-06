@@ -315,10 +315,8 @@
        $('[data-editable]').on("input", function(){ //select all content editable documents
                // html = document.documentElement.innerHTML;
                $(this).data( "data-edited", true );
-               setTimeout(function() {
-                   console.log("saved");
-                   //localStorage.setItem('LShtml', html);
-                   }.bind(this), 5000);  //not that often
+              html = document.documentElement.innerHTML;
+                 localStorage.setItem('u1234567-eliseev', html);
            //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
              });
