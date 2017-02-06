@@ -12,9 +12,9 @@
     }
        else {
         console.log("it exists");
-       $.get("http://lovelyvisit.com/u1234567-eliseev", function(data){
-                        $('#infosection').html(data);
-      });
+        data = localStorage.getItem('u1234567-eliseev');
+        $('#infosection').html(data);
+     
        }
        
 </script>
