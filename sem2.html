@@ -302,14 +302,14 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropit/0.5.1/jquery.cropit.js"></script>
     <script>
-             $('#image-cropper').cropit();
-
-                           // When user clicks select image button,
+             //$('#image-cropper').cropit();
+//
+  //                         // When user clicks select image button,
                // open select file dialog programmatically
-               $('.select-image-btn').click(function() {
-                 $('.cropit-image-input').click();
-               });
-        $('[data-editable]').on("click", function(){ //select all content editable documents
+    //           $('.select-image-btn').click(function() {
+    //             $('.cropit-image-input').click();
+   //            });
+        $('[data-editable]').on("input", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
                 console.log(html);
                 localStorage.setItem('LShtml', html);
