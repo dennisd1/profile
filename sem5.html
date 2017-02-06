@@ -7,14 +7,14 @@
     if (url === null){
         console.log("null");
        $.get("http://lovelyvisit.com/template", function(data){
-                        $('#infosection').txt(data);
+                        $('#infosection').html(data);
        });
     }
        else {
         console.log("it exists");
         data = localStorage.getItem('u1234567-eliseev');
            console.log(data);
-        $('#infosection').html(data);
+        $('#infosection').txt(data);
      
        }
        
