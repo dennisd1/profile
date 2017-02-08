@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css">
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
 
    <main class="ui page grid">
@@ -146,11 +147,15 @@
                 <!--collapsible-->
                    
                    <div class="ui medium header"  data-collapsible="true">
-                     <legend class="majorpointslegend">Expand</legend>
+                     <legend class="majorpointslegend">Try collapsible legend</legend>
                      <i class="dropdown icon"></i>
                        Try  collapsible 
-                     </div>
-                    </div>
+                            <div class="hiders" style="display:none" >
+                                   <ul>
+                                   <li>Список</li>
+                                   <li></li>
+                                    </ul>
+                            </div>
                     </div>
                <!--end collapsible-->
                       
@@ -304,7 +309,9 @@
         );
            
            //content collapsible
-           
+           $('[data-collapsible="true"]').click(function(){
+           $(this).find('.hiders').toggle();
+              });
         </script>
 
 
