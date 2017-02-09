@@ -7,14 +7,17 @@
        
        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
+          $.getJSON("http://lovelyvisit.com/template", function(data){
+                        console.log(data);
+       });
 // $( "#tags" ).autocomplete({
  //     source: function( request, response ) {
-        $.ajax( {
-          url: "http://lovelyvisit.com/d-industries.html",
-          dataType: "json",
-          data: data,
-          success: function( data ) {
-                 console.log(data);
+ //       $.ajax( {
+  //        url: "http://lovelyvisit.com/d-industries.html",
+   //       dataType: "json",
+ //         data: data,
+  //        success: function( data ) {
+ //                console.log(data);
                 // response( data );
           }
         } );
