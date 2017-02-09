@@ -313,7 +313,7 @@
         );
            $('[data-editable]').on('input', function() {       //change status
                console.log($(this));
-              $(this).data('editable','edited');     
+              $(this).attr('data-editable','edited');     
            });
            
            //content collapsible
