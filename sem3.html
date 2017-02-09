@@ -4,6 +4,7 @@
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
 
+
    <main class="ui page grid">
     <div class="ui left aligned container">
        <p></p>
@@ -20,6 +21,7 @@
             <div class="spaced">
                 <a tel="1234567890">123.456.7890</a><br>
                 <a href="mailto:your.email@gmail.com" >your.email@gmail.com</a>
+                <input id="address" name="address" type="text" size="100"/> //address datata
             </div>
         </div>
         <div class="ui blue buttons">
@@ -314,4 +316,16 @@
               });
         </script>
 
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/16.10/js/jquery.suggestions.min.js"></script>
+<script type="text/javascript">
+    $("#address").suggestions({
+        serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+        token: "5ef98f5781a106962077fb18109095f9f11ebac1 ",
+        type: "ADDRESS",
+        count: 5,
+        /* Вызывается, когда пользователь выбирает одну из подсказок */
+        onSelect: function(suggestion) {
+            console.log(suggestion);
+        }
+    });
+</script>
