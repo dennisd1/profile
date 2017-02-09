@@ -311,6 +311,10 @@
             $( this ).find( "span:last" ).remove();
            }
         );
+           $('[data-editable]').on('input', function() {       \\change status
+               console.log($(this));
+              $(this).data('editable',edited);     
+           });
            
            //content collapsible
           $('[data-collapsible="true"]').click(function(){
