@@ -1,0 +1,333 @@
+<!-- http://codepen.io/vladimirgordienko/pen/QNVmNo -->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Надежные букмекерские конторы, прогнозы на спорт и другое на нашем сайте | TopBets PRO</title>
+    <meta name="description" content="TopBets PRO это надежный портал о беттинге, надежных букмекерских конторах и который предоставляет бесплатные прогнозы на лучшие спортивные события." />
+    <meta name="keywords" content="подбор букмекерской конторы, ставки, онлайн кредит, обменник webmoney, бонус, азы ставок, команда, стратегии, акции, беттинг" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="http://topbetspro.com/" />
+    <link rel="stylesheet" type="text/css" class="ui" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" />
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://topbetspro.com/static/styles/styles.css' rel='stylesheet' type='text/css'>
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://topbetspro.com/" />
+    <meta property="og:site_name" content="TopBets PRO" />
+    <!--meta property="og:image" content="http://topbetspro.com/static/images/topbetspro.png" /-->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@topbetspro" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- meta name="twitter:image" content="http://topbetspro.com/static/images/topbetspro.png" /-->
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="ui inverted blue vertical segment" style="background-color: #333333!important; padding: 0.2em; 0">
+        <div class="ui container" style="font-family: 'PT Sans', sans-serif!important; font-size:13px; text-align: right;">
+          <a rel="nofollow" rel="noreferrer"href="#" style="color: white; font-size: 16px; padding-right: 3px; font-family: 'PT Sans Narrow'; text-transform: uppercase;">Bars</a> | 
+          <a rel="nofollow" rel="noreferrer"href="" style="color: white;"><i class="sign out icon"></i>Выход</a> | 05:45, 05 Июня 2016 
+          <div class="ui dropdown">
+            <i class="settings icon" style="padding-left:5px"></i>
+            <div class="menu">
+              <div class="item">
+                <i class="dropdown icon"></i>
+                Часовой пояс
+                <div class="menu">
+                  <div class="item">Киев (+2 ГМТ)</div>
+                  <div class="item">Москва (+3 ГМТ)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Заголовок -->
+      <header class="masterhead">
+        <div style="color: white; font-size: 2rem; text-shadow: 1px 1px 0px rgba(25, 25, 25, 1); display: table-cell;text-align:left;vertical-align:middle;">
+          <div class="ui grid container">
+            <p>TopBets<sup>&nbsp;pro</sup></p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Меню -->
+      <div class="ui inverted blue vertical segment" style="padding: 0;">
+        <div class="ui container">
+          <div class="ui blue borderless inverted stackable menu">
+            <a rel="nofollow" rel="noreferrer"href="/" class="item">
+              ГЛАВНАЯ
+            </a>
+            <div class="ui simple dropdown item">БУКМЕКЕРСКИЕ КОНТОРЫ
+              <div class="menu">
+
+                <a rel="nofollow" rel="noreferrer"href="/bukmekerskiye-kontory/?rating=rejting-vysoty-kojefficientov" class="item" title="Рейтинг высоты коэффициентов">Рейтинг высоты коэффициентов</a>
+                <a rel="nofollow" rel="noreferrer"href="/bukmekerskiye-kontory/?rating=rejting-rospisi" class="item" title="Рейтинг росписи">Рейтинг росписи</a>
+                <a rel="nofollow" rel="noreferrer"href="/bukmekerskiye-kontory/?rating=rejting-stavok-live" class="item" title="Рейтинг ставок Live">Рейтинг ставок Live</a>
+              </div>
+            </div>
+            <div class="ui simple dropdown item">БОНУСЫ И АКЦИИ
+              <div class="menu">
+                <a rel="nofollow" rel="noreferrer"href="/bonusy/" class="item" title="Приветственные бонусы">Приветственные бонусы</a>
+                <a rel="nofollow" rel="noreferrer"href="/akcii/" class="item" title="Акции">Акции</a>
+              </div>
+            </div>
+            <div class="ui simple dropdown item">АНОНСЫ
+              <div class="menu">
+                <a rel="nofollow" rel="noreferrer"href="/anonsy/football/" class="item" title="Футбол">Футбол</a>
+                <a rel="nofollow" rel="noreferrer"href="/anonsy/basketball/" class="item" title="Баскетбол">Баскетбол</a>
+                <a rel="nofollow" rel="noreferrer"href="/anonsy/tennis/" class="item" title="Теннис">Теннис</a>
+                <a rel="nofollow" rel="noreferrer"href="/anonsy/darts/" class="item" title="Дартс">Дартс</a>
+              </div>
+            </div>
+
+            <div class="ui simple dropdown item">БЕТТИНГ
+              <div class="menu">
+                <a rel="nofollow" rel="noreferrer"href="/betting/strategii/" class="item" title="Стратегии">Стратегии</a>
+                <a rel="nofollow" rel="noreferrer"href="/betting/nachinajushhemu-bettoru/" class="item" title="Начинающему беттору">Начинающему беттору</a>
+                <a rel="nofollow" rel="noreferrer"href="/betting/podbor-bukmekerskoj-kontory/" class="item" title="Подбор букмекерской конторы">Подбор букмекерской конторы</a>
+              </div>
+            </div>
+            <div class="ui simple dropdown item">ВАЛЮТНЫЕ ОПЕРАЦИИ
+              <div class="menu">
+                <a rel="nofollow" rel="noreferrer"href="/obmennyye-punkty/" class="item" title="Обмен электронных валют">Обмен электронных валют</a>
+                <a rel="nofollow" rel="noreferrer"href="/mikrokredity/" class="item" title="Микро кредиты">Микро кредиты</a>
+                <a rel="nofollow" rel="noreferrer"href="/webmoney-kredity/" class="item" title="WebMoney кредиты">WebMoney кредиты</a>
+              </div>
+            </div>
+            <div class="ui simple dropdown item">КОНТАКТЫ
+              <div class="menu">
+                <a rel="nofollow" rel="noreferrer"href="/sotrudnichestvo/" class="item" title="Сотрудничество">Сотрудничество</a>
+                <a rel="nofollow" rel="noreferrer"href="/sluzhba-podderzhki/" class="item" title="Служба поддержки">Служба поддержки</a>
+                <a rel="nofollow" rel="noreferrer"href="/about-us/" class="item" title="О нас">О нас</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="ui mobile stackable grid container">
+        <div class="doubling eleven wide column">
+          <div class="ui main segment">
+
+            <div style="font-family: 'PT Sans'; font-size: 18px; color: white; border: solid 1px grey; padding: 7px; background-color: #49A2A2; border-radius: 3px">
+              <i class="configure icon"></i>Мои настройки
+            </div>
+            <table class="ui very basic table">
+              <tbody>
+                <tr>
+                  <td class="collapsing">
+                    <img src="http://cs619928.vk.me/v619928061/3dbf/h7UUJYZW5M4.jpg" class="ui tiny rounded image" style="margin: auto; border: 1px solid #CCCCCC;">
+                  </td>
+                  <td style="font-family: 'PT Sans Narrow'; vertical-align:top">
+                    <div class="ui list">
+                      <div class="item">
+                        <div class="content" style="font-size:16px; font-weight: bold;">
+                          BARS
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="content">
+                          Эксперт
+                        </div>
+                      </div>
+                      <div class="ui divider"></div>
+                      <div class="item">
+                        <div class="content">
+                          Баланс: 10300
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="content">
+                          Рейтинг: 6
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="content">
+                          Дата регистрации: 05 апреля 2016
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <form class="ui form">
+              <label style="font-family: 'PT Sans Narrow'; font-size: 15px; font-weight: bold;">Имя *</label>
+              <div class="field">
+                <input type="text">
+              </div>
+              <label style="font-family: 'PT Sans Narrow'; font-size: 15px; font-weight: bold;">E-mail *</label>
+              <div class="field">
+                <input type="text">
+              </div>
+              <label style="font-family: 'PT Sans Narrow'; font-size: 15px; font-weight: bold;">Пароль</label>
+              <div class="field">
+                <input id="id_password" type="password" />
+              </div>
+              <label style="font-family: 'PT Sans Narrow'; font-size: 15px; font-weight: bold;">Подтвердить пароль</label>
+              <div class="field">
+                <input id="id_password" type="password" />
+              </div>
+              <label style="font-family: 'PT Sans Narrow'; font-size: 15px; font-weight: bold;">Дата рождения</label>
+              <div class="three fields">
+                <div class="field">
+                  <select class="ui fluid search dropdown">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select>
+                  </select>
+              </div>
+              <div class="field">
+                <select class="ui fluid search dropdown">
+                  <option value=""></option>
+                  <option value="1">Январь</option>
+                  <option value="2">Февраль</option>
+                  <option value="3">Март</option>
+                  <option value="4">Апрель</option>
+                  <option value="5">Май</option>
+                  <option value="6">Июнь</option>
+                  <option value="7">Июль</option>
+                  <option value="8">Август</option>
+                  <option value="9">Сентбрь</option>
+                  <option value="10">Октябрь</option>
+                  <option value="11">Ноябрь</option>
+                  <option value="12">Декабрь</option>
+                </select>
+              </div>
+              <div class="field">
+                <input type="text" maxlength="4">
+              </div>
+              </div>
+            <div class="field">
+              <label style="font-family: 'PT Sans Narrow'; font-size: 14px; font-weight: bold;">О себе</label>
+              <textarea rows="3"></textarea>
+            </div>	  
+            <button class="ui mini button" type="submit">Сохранить изменения</button>
+            </form>
+        </div>
+        </div>
+      <div class="doubling five wide column">
+
+        <!-- Личный кабинет. Меню -->
+        <section class="ui main segment">
+
+          <div style="font-family: 'PT Sans'; font-size: 18px; color: white; border: solid 1px grey; padding: 7px; background-color: #49A2A2; border-radius: 3px">
+            <i class="user icon"></i>Личный кабинет
+          </div>
+          <div class="ui relaxed list">
+            <div class="item">
+              <i class="large add square icon"></i>
+              <div class="content" style="vertical-align: middle">
+                <a rel="nofollow" rel="noreferrer"href="#" style="font-family: 'PT Sans Narrow'; font-size: 18px;">Добавить прогноз</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large configure icon"></i>
+              <div class="content" style="vertical-align: middle">
+                <a rel="nofollow" rel="noreferrer"href="#" style="font-family: 'PT Sans Narrow'; font-size: 18px;  font-weight: bold;">Мои настройки</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large bar chart icon"></i>
+              <div class="content" style="vertical-align: middle">
+                <a rel="nofollow" rel="noreferrer"href="#" style="font-family: 'PT Sans Narrow'; font-size: 18px;">Статистика</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large star icon"></i>
+              <div class="content" style="vertical-align: middle">
+                <a rel="nofollow" rel="noreferrer"href="#" style="font-family: 'PT Sans Narrow'; font-size: 18px;">Мои прогнозы</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      </main>
+    <div class="push"></div>
+    </div>
+  <footer class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="row">
+          <div class="column">
+            <h4 class="ui inverted header" style="margin-bottom: 0">Мы в социальных сетях</h4>
+            <div class="ui horizontal list">
+              <div class="item" style="margin: 0">
+                <div class="content">
+                  <a rel="nofollow" rel="noreferrer"href="https://vk.com/topbetspro" target="_blank" style="color: #f5f5f5;" title="Мы в Вконтакте" rel="nofollow"><i class="large vk icon"></i></a>
+                </div>
+              </div>
+              <div class="item" style="margin: 0">
+                <div class="content">
+                  <a rel="nofollow" rel="noreferrer"href="https://www.facebook.com/groups/topbetspro/" target="_blank" style="color: #f5f5f5;" title="Мы в Фейсбуке" rel="nofollow"><i class="large facebook icon"></i></a>
+                </div>
+              </div>
+              <div class="item" style="margin: 0">
+                <div class="content">
+                  <a rel="nofollow" rel="noreferrer"href="https://twitter.com/topbetspro" target="_blank" style="color: #f5f5f5;" title="Мы в Твитере" rel="nofollow"><i class="large twitter icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <p><span style="color: #999999">Создано командой TopBets PRO © 2015</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+
+  </body>
+
+</html>
