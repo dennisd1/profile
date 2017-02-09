@@ -8,7 +8,8 @@
        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
           $.getJSON("http://lovelyvisit.com/d-industries.html", function(data){
-          console.log(data.Object.Object.industries);
+                var Obj = JSON.parse(data);
+                 console.log(Obj);
                       });
 // $( "#tags" ).autocomplete({
  //     source: function( request, response ) {
