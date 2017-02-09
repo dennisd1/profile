@@ -9,9 +9,9 @@
   <script>
  $( "#tags" ).autocomplete({
       source: function( request, response ) {
-        $.ajax( {
+        $.get( {
           url: "http://lovelyvisit.com/d-industries.html",
-          dataType: "json",
+          dataType: json,
           data: {
             term: request.term
           },
