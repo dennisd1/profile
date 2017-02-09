@@ -304,7 +304,7 @@
        //$("li").attr("contentEditable", true);  //blocked for select
        $('[data-editable]').attr("contentEditable", true); 
        
-        $('[contenteditable]' ).hover(
+        $('[data-editable]' ).hover(
           function() {
             $( this ).append("<span>&#128393</span>");
           }, function() {
@@ -315,6 +315,7 @@
                console.log($(this));
               $(this).attr({'data-editable':'edited', 'data-author':author});     
            });
+           
            
            //content collapsible
           $('[data-collapsible="true"]').click(function(){
