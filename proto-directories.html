@@ -13,9 +13,7 @@
             type: 'GET',
             url: 'http://lovelyvisit.com/d-industries.html',
             dataType: "json",
-            data: function () {
-                term: request.term;
-            },
+            data: { term: request.term },
             success: function (data) {
                 console.log(data);
                    // I have no idea what this response and map is good for
