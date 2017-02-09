@@ -7,35 +7,29 @@
        
        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
+  $( "#tags" ).autocomplete({
+    source: function (request, response) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://lovelyvisit.com/d-industries.html',
+            dataType: "json",
+            data: function () {
+                term: request.term;
+            },
+            success: function (data) {
+                console.log(data);
+                   // I have no idea what this response and map is good for
+                response($.map(data, function(item) {
+                    return {
+                        label: item.full_name,
+                        value: item.player_id
+                    };
+                }));
+            },
+        });
+    },
+    minLength: 3,
+    delay: 500
   </script>
 </head>
 <body>
