@@ -154,7 +154,7 @@
                            <button class="ui secondary basic button">Добавить</button>
                            
                            </span>
-                            <div class="hiders" style="display:none" >
+                            <div class="hiders" data-hidable="tohide" style="display:none" >
                                    <ul>
                                    <li>Список</li>
                                    <li></li>
@@ -284,6 +284,10 @@
 
     <script>
         var author = 'authorname';
+           
+        $( document ).ready(function() {
+              $('[data-editable="edited"]').
+              });
 
         $('[data-editable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
@@ -320,7 +324,7 @@
            //content collapsible
           $('[data-collapsible="true"]').click(function(){
                  console.log($(this));
-           $(this).next('.hiders').toggle();                        
+           $(this).next('[data-hidable]').toggle();                        
               });
         </script>
 
