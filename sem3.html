@@ -286,8 +286,8 @@
            
 
         $('[data-editable]').on("click", function(){ //select all content editable documents
-                html = document.documentElement.innerHTML;
-                console.log(html);
+                //html = document.documentElement.innerHTML;
+                //console.log(html);
                 localStorage.setItem('LShtml', html);
            //$(this).css('background', 'LightGrey');
                 //$( this ).find( "span:last" ).remove();//remove pencil
@@ -311,7 +311,7 @@
             $( this ).find( "span:last" ).remove();
            }
         );
-           $('[data-editable]').on('input', function() {       \\change status
+           $('[data-editable]').on('input', function() {       //change status
                console.log($(this));
               $(this).data('editable',edited);     
            });
