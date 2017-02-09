@@ -147,8 +147,8 @@
                 </ul>
 
                 <!--collapsible-->
-                    <h1 class="ui medium header"  data-collapsible="true">
-                         <span>
+                    <h1 class="ui medium header">
+                         <span data-collapsible="true">
                            Разворачиваемая секция
                                  <i class="dropdown icon"></i>
                            <button class="ui secondary basic button">Добавить</button>
@@ -313,8 +313,8 @@
         );
            
            //content collapsible
-           $('.icon.dropdown').click(function(){           //$('[data-collapsible="true"]').click(function(){
-           $(this).find('.hiders').toggle();                        // $(this).find('.hiders').toggle();
+          $('[data-collapsible="true"]').click(function(){
+           $(this).find('.hiders').toggle();                        
               });
         </script>
 
