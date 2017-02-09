@@ -283,7 +283,7 @@
 
 
     <script>
-           
+        var author = 'authorname';
 
         $('[data-editable]').on("click", function(){ //select all content editable documents
                 html = document.documentElement.innerHTML;
@@ -313,7 +313,7 @@
         );
            $('[data-editable]').on('input', function() {       //change status
                console.log($(this));
-              $(this).attr('data-editable','edited');     
+              $(this).attr({'data-editable':'edited', 'data-author':author});     
            });
            
            //content collapsible
