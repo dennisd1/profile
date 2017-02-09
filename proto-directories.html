@@ -9,14 +9,13 @@
   <script>
  $( "#tags" ).autocomplete({
       source: function( request, response ) {
-        $.get( {
+        $.ajax( {
           url: "http://lovelyvisit.com/d-industries.html",
-          dataType: json,
-          data: {
-            term: request.term
-          },
+          dataType: "json",
+          data: data,
           success: function( data ) {
-            response( data );
+                 console.log(data);
+                 response( data );
           }
         } );
       },
