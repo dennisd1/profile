@@ -58,6 +58,10 @@
               .paddingbottom {
               padding-bottom: 30px;
               }
+              [data-editable=true]:empty:before{
+                content: attr(placeholder);
+                display: block; /* For Firefox */
+              }
        </style>
 
 <div class="ui left aligned container">
@@ -293,7 +297,7 @@
                               </div>
                               <div class="row">
                                    <div class="two wide column">
-                                           <div class="graylegend">1994</div> 
+                                           <div class="graylegend" data-editable="true" placeholder="Год окончания...">1994</div> 
                                     </div>
                                     <div class="fourteen wide column">      
                                            <div class="listtitles">Московский государственный областной педагогический университет</div>   
