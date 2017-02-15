@@ -231,7 +231,7 @@
                   </a>     
                </div>
           </div>
-          <div class="row">
+          <div class="row" data-appendable="true">
               <div class="six wide column">
                 <div class="listtitles" data-editable="true">Структурирование сложной корпоративной сделки</div>
                 <div class="graylegend bluebottom paddingbottom" data-editable="true">2010</div> 
@@ -343,4 +343,6 @@
             $( this ).find( "span:last" ).remove();
            }
         );
+          $('[data-appendable]' ).append( <div class="ui basic button">Добавить</div>);
+           
         </script>
