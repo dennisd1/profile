@@ -294,7 +294,7 @@
        <div class="ui divider"></div> 
        <h1 class="sectiontitle">Образование</h1>
                         <div class="ui two column grid" data-appendable="true">
-                             <div class="row" data-template="true">
+                             <div class="row">
                                    <div class="two wide column">
                                           <div class="graylegend">2000</div>                                                                                                          
                                    </div>
@@ -312,7 +312,7 @@
                                           <div class="normaltext" data-editable="true">Исторический, Преподаватель истории, права и общественно политических дисциплин</div>
                                      </div>
                                </div>
-                                 <div class="row" data-template="true">
+                                 <div class="row" data-template="true"> <!--style="display: none;-->
                                    <div class="two wide column">
                                            <div class="graylegend" data-editable="true" placeholder="Год окончания"></div> 
                                     </div>
@@ -374,6 +374,7 @@
                    //console.log($parent);
             //$('.appendme').append($(event.target).parent('[data-template]'));
                    $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').css( "background", "red" );
         });
            
         </script>
