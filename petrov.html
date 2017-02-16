@@ -313,6 +313,7 @@
                                      </div>
                                </div>  
                        </div>
+       <div class="appendme">Клон:</div>
    </div>
  
     
@@ -362,7 +363,7 @@
             var $parent = $(event.target).parent('[data-appendable]');
                    console.log($clone);
                    console.log($parent);
-            $parent.append($clone);
+            $('.appendme').append($clone);
         });
            
         </script>
