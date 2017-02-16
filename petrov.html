@@ -350,9 +350,9 @@
           $('[data-appendable]').after('<button class="ui right floated basic button addbutton">Добавить</button>');
             $('.addbutton').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
-             var $clone = $(this).closest('[data-template]');
+             var clone = $(this).closest('[data-template]');
             var $parent = $(this).closest('[data-appendable]');
-                   console.log($clone);
+                   console.log(clone);
                    console.log($parent);
             $parent.append($clone);
         });
