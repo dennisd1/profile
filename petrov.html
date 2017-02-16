@@ -358,13 +358,7 @@
        //$("li").attr("contentEditable", true);  //blocked for select
        $('[data-editable]').attr("contentEditable", true); 
        
-        $('[data-editable]' ).hover(
-          function() {
-            $( this ).append("<span>&#128393</span>");
-          }, function() {
-            $( this ).find( "span:last" ).remove();
-           }
-        );
+
           $('[data-appendable]').after('<button class="grayaction">Добавить</button>');
             $('.grayaction').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
@@ -378,4 +372,11 @@
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone().appendTo( $(this).prev( '[data-appendable]' ));
             });
            
+            $('[data-editable]' ).hover(    //should be at the end of all scripts
+          function() {
+            $( this ).append("<span>&#128393</span>");
+          }, function() {
+            $( this ).find( "span:last" ).remove();
+           }
+        );
         </script>
