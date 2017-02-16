@@ -358,8 +358,8 @@
           $('[data-appendable]').after('<button class="grayaction">Добавить</button>');
             $('.addbutton').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
-             var $clone = $(event.target).closest('[data-template]');
-            var $parent = $(event.target).closest('[data-appendable]');
+             var $clone = $(event.target).parent('[data-template]');
+            var $parent = $(event.target).parent('[data-appendable]');
                    console.log($clone);
                    console.log($parent);
             $parent.append($clone);
