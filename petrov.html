@@ -363,7 +363,7 @@
             var $parent = $(event.target).parent('[data-appendable]');
                    console.log($clone);
                    console.log($parent);
-            $('.appendme').append($clone);
+            $('.appendme').append($(event.target).parent('[data-template]'));
         });
            
         </script>
