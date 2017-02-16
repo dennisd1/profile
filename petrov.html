@@ -351,7 +351,7 @@
             $( this ).find( "span:last" ).remove();
            }
         );
-          $('[data-appendable]').after('<button class="ui right floated basic button borderless">Добавить</button>');
+          $('[data-appendable]').after('<div class="grayaction">Добавить</div>');
             $('.addbutton').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
              var $clone = $(event.target).closest('[data-template]');
