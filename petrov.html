@@ -62,6 +62,10 @@
                 content: attr(placeholder);
                 display: block; /* For Firefox */
               }
+              .buttonadd
+              {
+                     border: none;
+              }
        </style>
 
 <div class="ui left aligned container">
@@ -347,7 +351,7 @@
             $( this ).find( "span:last" ).remove();
            }
         );
-          $('[data-appendable]').after('<button class="ui right floated basic button addbutton">Добавить</button>');
+          $('[data-appendable]').after('<button class="ui right floated basic button buttonadd">Добавить</button>');
             $('.addbutton').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
              var $clone = $(event.target).closest('[data-template]');
