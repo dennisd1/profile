@@ -286,7 +286,7 @@
        <div class="ui divider"></div> 
        <h1 class="sectiontitle">Образование</h1>
                         <div class="ui two column grid" data-appendable="true">
-                             <div class="row">
+                             <div class="row" data-template="true">
                                    <div class="two wide column">
                                           <div class="graylegend">2000</div>                                                                                                          
                                    </div>
@@ -348,5 +348,9 @@
            }
         );
           $('[data-appendable]').after('<button class="ui right floated basic button addbutton">Добавить</button>');
+            $('.addbutton').on('click', function() {
+            var $clone = $(this).closest('[data-template]').clone();      
+            console.log(clone);
+        });
            
         </script>
