@@ -62,7 +62,7 @@
                 content: attr(placeholder);
                 display: block; /* For Firefox */
               }
-              .graybutton
+              .graybuttonadd
               {
                      color: #8e939b ;
                      position:relative;
@@ -359,8 +359,8 @@
        $('[data-editable]').attr("contentEditable", true); 
        
 
-          $('[data-appendable]').after('<button class="graybutton" data-remove="true">Удалить</button> <button class="graybutton add" data-add="true">Добавить</button>');
-            $('.graybutton.add').on('click', function() {
+          $('[data-appendable]').after('<button class="graybutton" data-remove="true">Удалить</button> <button class="graybuttonadd" data-add="true">Добавить</button>');
+            $('.graybuttonadd').on('click', function() {
             //var $clone = $(this).closest('[data-template]').clone();
              //var $clone = $(event.target).parent('[data-template]');
             //var $parent = $(event.target).parent('[data-appendable]');
