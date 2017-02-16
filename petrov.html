@@ -372,11 +372,16 @@
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' ));
             });
            
-            $('[data-editable]' ).hover(    //should be at the end of all scripts
+            $('[data-editable]' ).hover(    
           function() {
             $( this ).append("<span>&#128393</span>");
           }, function() {
             $( this ).find( "span:last" ).remove();
+           }
+        );
+           
+           $('[data-editable]').on('click', function() {
+              $( this ).find( "span:last" ).remove();
            }
         );
         </script>
