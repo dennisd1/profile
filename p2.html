@@ -365,7 +365,7 @@
                    //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
                   });
            
-           $('[data-editable]').one("mouseover", function() {
+           $('[data-block]').one("mouseover", function() {
                   $(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
            });
           
