@@ -352,13 +352,7 @@
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
            
-           $('.graybuttonremove').on('click', function() {
-                    //   $(this).parents('[data-block]').remove();
-                  //$(this).prev('[data-block]').css( "background", "yellow" );
-                  console.log("I am clicked");
-                  $(this).css( "color", "yellow" );
-            });
-           
+          
             $('[data-editable]' ).hover(    
           function() {
             $(this).append("<span>&#128393</span>");
@@ -371,6 +365,13 @@
             //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
            }
         );
+          
+                 $('.graybuttonremove').on('click', function() {
+                    //   $(this).parents('[data-block]').remove();
+                  //$(this).prev('[data-block]').css( "background", "yellow" );
+                  console.log("I am clicked");
+                  $(this).css( "color", "yellow" );
+            });
            
            $('[data-editable]').on('click', function() {
               //$( this ).find( "span:last" ).remove();                 //lets pen remain
