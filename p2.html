@@ -344,6 +344,10 @@
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
            
+           $('[data-remove]').on('click', function() {
+                       $(this).parents('[data-block]').remove();
+            });
+           
             $('[data-editable]' ).hover(    
           function() {
             $(this).append("<span>&#128393</span>");
