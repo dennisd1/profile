@@ -345,7 +345,8 @@
             });
            
            $('[data-remove]').on('click', function() {
-                       $(this).parents('[data-block]').remove();
+                    //   $(this).parents('[data-block]').remove();
+                  $(this).parents('[data-block]').css( "background", "yellow" );
             });
            
             $('[data-editable]' ).hover(    
