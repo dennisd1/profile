@@ -58,16 +58,12 @@
               .paddingbottom {
               padding-bottom: 30px;
               }
-              [data-editable=true]:empty:before{                             /* Start CSS for placeholders */
+              .placeholdervisible [data-editable=true]:empty:before{                             /* Start CSS for placeholders */
                 content: attr(placeholder);
                 display: block; /* For Firefox */
               }
-              .placeholdervisible
-              {                                                                 
-                content: attr(placeholder);
-                display: block; 
-              }
-               .placeholderinvisible
+             
+              .placeholderinvisible
               {                                                                 
                 content: attr(placeholder);
                 display: none; 
