@@ -58,10 +58,21 @@
               .paddingbottom {
               padding-bottom: 30px;
               }
-              [data-editable=true]:empty:before{
+              [data-editable=true]:empty:before{                             /* Start CSS for placeholders */
                 content: attr(placeholder);
                 display: block; /* For Firefox */
               }
+              .placeholdervisible
+              {                                                                 
+                content: attr(placeholder);
+                display: block; 
+              }
+               .placeholderinvisible
+              {                                                                 
+                content: attr(placeholder);
+                display: none; 
+              }
+                                                                      /* End of CSS for placeholders */
               .graybuttonadd
               {
                      color: #8e939b ;
