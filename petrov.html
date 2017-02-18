@@ -58,15 +58,15 @@
               .paddingbottom {
               padding-bottom: 30px;
               }
-              .placeholdervisible [data-editable=true]:empty:before{                             /* Start CSS for placeholders */
+             [data-editable=true]:empty:before{                             /* Start CSS for placeholders */
                 content: attr(placeholder);
                 display: block; /* For Firefox */
               }
              
               .placeholderinvisible
               {                                                                 
-                content: attr(placeholder);
-                display: none; 
+                content: "";
+                display: block; 
               }
                                                                       /* End of CSS for placeholders */
               .graybuttonadd
@@ -384,7 +384,7 @@
             $( this ).append("<span>&#128393</span>");
           }, function() {
             $( this ).find( "span:last" ).remove();
-            $( this ).addClass("placeholdervisible"); 
+            //$( this ).addClass("placeholdervisible"); 
            }
         );
            
