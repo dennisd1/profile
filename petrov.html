@@ -388,12 +388,13 @@
             $( this ).append("<span>&#128393</span>");
           }, function() {
             $( this ).find( "span:last" ).remove();
+            $( this ).addClass("placeholdervisible"); 
            }
         );
            
            $('[data-editable]').on('click', function() {
               $( this ).find( "span:last" ).remove();
-              $( this ).attr( "placeholder", "I am clicked" ); //вопрос
+              $( this ).addClass("placeholderinvisible");           //вопрос
            }
         );
         </script>
