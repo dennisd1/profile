@@ -366,7 +366,8 @@
                   });
            
            $('[data-block]').one("mouseover", function() {
-                  $(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  $(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
            });
           
                  $( document ).on( 'click','.graybuttonremove', function() {
