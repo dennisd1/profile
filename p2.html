@@ -295,7 +295,7 @@
                                           <div class="normaltext" data-editable="true">Исторический, Преподаватель истории, права и общественно политических дисциплин</div>
                                      </div>
                                </div>
-                                 <div class="row" data-template="true"> <!--style="display: none;-->
+                                 <div class="row" data-template="true" data-block="true"> 
                                    <div class="two wide column">
                                            <div class="graylegend" data-editable="true" placeholder="Год окончания">Год окончания</div> 
                                     </div>
@@ -319,10 +319,9 @@
                $(this).data( "data-edited", true );
               html = document.documentElement.innerHTML;
                  localStorage.setItem('u1234567-eliseev', html);
-           //$(this).css('background', 'LightGrey');
-                //$( this ).find( "span:last" ).remove();//remove pencil
              });
         </script>
+
     <script>
        $('.ui.dropdown').dropdown();                                                                     //activate dropdown
        $('.message .close').on('click', function() {
@@ -333,7 +332,7 @@
        $("span").attr("contentEditable", true);
        //$("li").attr("contentEditable", true);  //blocked for select
        $('[data-editable]').attr("contentEditable", true); 
-        $('[data-template]').hide(); 
+       $('[data-template]').hide(); 
        
 
           $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
@@ -348,13 +347,15 @@
             $('[data-editable]' ).hover(    
           function() {
             $( this ).append("<span>&#128393</span>");
+            $(this).prev( '[data-block]' ).after( '<button class="graybuttonadd" data-remove="true">Удалить</button>');
+                 
           }, function() {
             $( this ).find( "span:last" ).remove();
            }
         );
            
            $('[data-editable]').on('click', function() {
-              //$( this ).find( "span:last" ).remove();                 //timeout to set
+              //$( this ).find( "span:last" ).remove();                 //lets pen remain
            }
         );
         </script>
