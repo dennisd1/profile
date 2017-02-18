@@ -352,7 +352,8 @@
                  
           }, function() {
             $( this ).find( "span:last" ).remove();
-            $(this).parents('[data-block]').next( '.graybuttonadd').remove();
+            //$(this).parents('[data-block]').next( '.graybuttonadd').remove();
+            $(this).parents('[data-block]').next( '.graybuttonadd').fadeOut(2000);
            }
         );
            
