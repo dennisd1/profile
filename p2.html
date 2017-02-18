@@ -360,6 +360,7 @@
                    $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().css( "background", "red" );//last() added for 
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' )).show();
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
            
             $('[data-editable]' ).hover(    
