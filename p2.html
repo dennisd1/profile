@@ -366,12 +366,14 @@
                   });
            
            $('[data-block]').one("mouseover", function() {
-                  $(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  //$(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
                   //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
            });
           
                  $( document ).on( 'click','.graybuttonremove', function() {
-                    $(this).prev('[data-block]').remove();
+                      $(this).parents('[data-block]').remove(); 
+                    // $(this).prev('[data-block]').remove(); //after() prev()
                   //$(this).prev('[data-block]').css( "background", "yellow" );
 
             });
