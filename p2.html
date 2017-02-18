@@ -338,14 +338,9 @@
 
           $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
             $('.graybuttonadd').on('click', function() {
-            //var $clone = $(this).closest('[data-template]').clone();
-             //var $clone = $(event.target).parent('[data-template]');
-            //var $parent = $(event.target).parent('[data-appendable]');
-                  // console.log($clone);
-                   //console.log($parent);
-            //$('.appendme').append($(event.target).parent('[data-template]'));
-                   $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
-                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().css( "background", "red" );//last() added for 
+  
+            //       $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
+           //         $(this).prev( '[data-appendable]' ).children( '[data-template]').last().css( "background", "red" );//last() added for 
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' )).show();
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
