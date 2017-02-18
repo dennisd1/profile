@@ -368,9 +368,8 @@
           
                  $( document ).on( 'click','.graybuttonremove', function() {
                     //   $(this).parents('[data-block]').remove();
-                  //$(this).prev('[data-block]').css( "background", "yellow" );
-                  console.log("I am clicked");
-                  $(this).css( "color", "yellow" );
+                  $(this).prev('[data-block]').css( "background", "yellow" );
+
             });
            
            $('[data-editable]').on('click', function() {
