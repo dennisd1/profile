@@ -382,6 +382,7 @@
            
            $('[data-editable]').on('click', function() {
               $( this ).find( "span:last" ).remove();
+              $( this ).attr( "placeholder", "I am clicked" ); //вопрос
            }
         );
         </script>
