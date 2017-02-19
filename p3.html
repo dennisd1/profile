@@ -367,12 +367,14 @@
                    //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
                   });
            
-           $('[data-block]').one("mouseover", function() {
-                  $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
-                  $(this).children( '.graybuttonremove').fadeOut(2000);         //button to fade 
-                  //$(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
-                  //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
-           });
+           $('[data-block]')
+                  .mouseover( function() {
+                     $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                     })
+                 .mouseout(function() {
+                     $(this).children( '.graybuttonremove').remove();
+                     });
+
           
                  $( document ).on( 'click','.graybuttonremove', function() {
                       $(this).parents('[data-block]').remove(); 
