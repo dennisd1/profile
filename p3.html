@@ -42,7 +42,7 @@
               .borderless { 
               border: 0 !important;
               }
-              .bluebottom { 
+              .bluebottom {                                    /* Not used. .slide inside*/
               border-bottom: 1px solid #2185D0 !important;
               }
               .greyfapadding {
@@ -229,7 +229,7 @@
          <div class="row" data-template="true" data-block="true">
               <div class="six wide column slide">
                 <div class="listtitles" data-editable="true">Описание проекта</div>
-                <div class="graylegend bluebottom paddingbottom" data-editable="true">Год завершения проекта <br></div> 
+                <div class="graylegend paddingbottom" data-editable="true">Год завершения проекта <br></div> 
            </div>
            <div class="ten wide column">
                 <div class="normaltext " data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div> 
@@ -241,7 +241,7 @@
           <div class="row">
               <div class="six wide column">
                 <div class="listtitles" data-editable="true">Структурирование сложной корпоративной сделки</div>
-                <div class="graylegend bluebottom paddingbottom" data-editable="true">2010</div> 
+                <div class="graylegend paddingbottom" data-editable="true">2010</div> 
               </div>
               <div class="ten wide column">
                 <div class="normaltext" data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div>
@@ -369,6 +369,7 @@
            
            $('[data-block]').one("mouseover", function() {
                   $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  $(this).children( '.graybuttonremove').fadeOut(2000);         //button to fade 
                   //$(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
                   //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
            });
