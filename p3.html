@@ -1,0 +1,382 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+       <style type="text/css">
+              .graylegend { 
+                  color: #8e939b ;
+                  font-weight: bold;
+                  line-height: 1.6em;
+                 }
+              .listtitles { 
+              font-weight: bold;
+              line-height: 1.6em;
+              font-size: 14px;
+              }
+              .normaltext { 
+              line-height: 1.6em;
+              margin-bottom: 15px;
+              font-size: 14px;
+              }
+              .hugetext { 
+                  font-size: 4rem;
+                  font-weight: 400;
+                  line-height: 1em;
+                  color: #1b1c1d;
+                  text-transform: uppercase;
+                  text-align: right;
+              }
+              .righttext { 
+                  margin-left: -1.5em;
+               }
+               .sectiontitle { 
+                  font-size: 22px;
+                  font-weight: 400;
+                  line-height: 1em;
+                  color: #8e939b;
+                  margin-bottom: 15px;
+                  margin-top: 60px;
+              }
+              .borderless { 
+              border: 0 !important;
+              }
+              .bluebottom { 
+              border-bottom: 1px solid #2185D0 !important;
+              }
+              .greyfapadding {
+              color: #8e939b;
+              padding-top: -1px;
+              }
+              .rownarrow {
+              height: 14px;
+              }
+              .marginbottom {
+              margin-bottom: 30px;
+              }
+              .paddingbottom {
+              padding-bottom: 30px;
+              }
+              .graybuttonadd
+              {
+                     color: #8e939b ;
+                     position:relative;
+                     float:right;
+                     background-color: transparent; /*  */
+                     border: 0;
+              }
+               .graybuttonremove
+              {
+                     color: #8e939b ;
+                     position:relative;
+                     float:right;
+                     background-color: transparent; /*  */
+                     border: 0;
+              }
+       </style>
+
+<div class="ui left aligned container">
+              <div class="ui two column stackable grid">
+                       <div class="four wide column">
+                           <img class="ui fluid image" src = "https://upload.wikimedia.org/wikipedia/ru/thumb/0/0f/Serge_Eliss%C3%A9eff.png/263px-Serge_Eliss%C3%A9eff.png">
+                        </div>
+                        <div class="twelve wide column">
+                          <h1 class="headline" contenteditable="true">
+                              Петров Сергей Анатольевич
+                          </h1>
+                          <h4> Руководитель юридической службы Энигма Кэпитал </h4>
+                           <h5 class="ui header"> 
+                                   <div class="ui selection dropdown" style="border: 0 !important; padding-left: 0 !important; padding-right: 0 !important; min-width: 12em !important;">
+                                     <input type="hidden" name="city">
+                                     <!--<i class="dropdown icon"></i>-->
+                                     <div class="default text">Город</div>
+                                     <div class="menu">
+                                       <div class="item" data-value="1">Москва, Россия</div>
+                                       <div class="item" data-value="0">Санкт-Петербург, Россия</div>
+                                     </div>
+                                   </div>
+                                  <!--Москва, Россия-->
+                                  |   
+                                  <!--<div class="dropdown" style="border: none !important;" tabindex="0">
+                                         <option value="c12">Руководство юридической службой</option>
+                                         <option value="c13">Корпоративное право</option>
+                                         <option value="c14">Антикризисное управление</option>
+                                         <option value="c15">Претензионно-исковая работа</option>
+                                         <option value="c16">Взаимодействие с государственными органами</option>
+                                         <option value="c17">Управление правовыми рисками</option>
+                                  </div>-->
+                                  <div class="ui selection dropdown" style="border: none !important;">
+                                     <input type="hidden" name="profession">
+                                     <!--<i class="dropdown icon"></i>-->
+                                     <div class="default text">Профессиональная область</div>
+                                     <div class="menu">
+                                       <div class="item" data-value="1">Руководители юридических подразделений</div>
+                                       <div class="item" data-value="0">Руководители, внутренний аудит</div>
+                                     </div>
+                                   </div>
+                                  | 
+                                  Эксперт в области имущественных отношений</h5>
+                            <div class="ui two column stackable grid">
+                               <div class="row rownarrow">
+                                   <div class="four wide column">
+                                          <div class="graylegend">Текущее: </div>                                                                                                        
+                                   </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Энигма Кэпитал</div>
+                                    </div>
+                                </div>
+                                <div class="row rownarrow">
+                                    <div class="four wide column">
+                                          <div class="graylegend">Текущее: </div>                                                                                                        
+                                   </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Энигма Кэпитал</div>
+                                    </div>
+                                   </div>
+                                   <div class="row rownarrow marginbottom">
+                                     <div class="four wide column">
+                                          <div class="graylegend">Текущее: </div>                                                                                                        
+                                     </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Энигма Кэпитал</div>
+                                    </div>
+                                   </div>
+                                 </div>
+
+                               <p></p>
+                                 <div class="ui buttons">
+                                    <div class="ui blue button">Профиль</div>
+                                    <div class="ui blue floating dropdown icon button">
+                                      <i class="dropdown icon"></i>
+                                      <div class="menu">
+                                        <div class="item" data-value="drop">Редактировать</div>
+                                        <div class="item" data-value="horizontal flip">ТОП100</div>
+                                        <div class="item" data-value="fade up">Тематический раздел</div>
+                                       </div>
+                                      </div>
+                                      </div>
+                                        <div class="ui button">Сообщение</div> 
+                            
+                           
+                         </div>
+                        </div>
+
+       
+       <!--<h1 class="ui medium header">Основные сведения</h1>-->
+       <!--<div class="ui divider"></div>-->
+        <div class="sectiontitle">Основные сведения</div>
+       <div class="normaltext">Правовое сопровождение. Представление интересов в государственных и общественных организациях 
+       при рассмотрении правовых вопросов. Ведение дел компании в судах общей юрисдикции и в арбитражных судах. 
+              Договорное право. Корпоративное право.</div>
+       <h1></h1>
+              <div class="section" data-hideable="true">
+               <div class="ui stackable six column grid">
+                           <div class="two wide column">
+                                  <div class="hugetext" data-editable="true">
+                                        15 
+                                  </div>
+                           </div>
+                            <div class="three wide column">
+                                     <div class="righttext" data-editable="true">
+                                     лет стажа
+                                      </div>
+                             </div>
+                             <div class="two wide column">
+                                   <div class="hugetext" data-editable="true">
+                                      10 
+                                    </div>
+                           </div>
+                            <div class="three wide column">
+                                      <div class="righttext" data-editable="true">
+                                     лет в роли корпоративного юриста
+                                      </div>
+                             </div>
+                             <div class="two wide column">
+                                     <div class="hugetext" data-editable="true">
+                                      25 
+                                      </div>
+                           </div>
+                            <div class="four wide column">
+                                      <div class="righttext" data-editable="true">
+                                     проектов
+                                      </div>
+                             </div>
+                      </div>
+                 </div>
+              <div class="ui divider"></div>
+        <div class="sectiontitle">Я предлагаю (навыки, компетенции, проекты)</div>
+                        <div class="ui fluid dropdown selection multiple borderless" tabindex="0"><select multiple="" tabindex="0">
+                           <option value="">Навыки</option>
+                           <option value="c12">Руководство юридической службой</option>
+                           <option value="c13">Корпоративное право</option>
+                           <option value="c14">Антикризисное управление</option>
+                           <option value="c15">Претензионно-исковая работа</option>
+                           <option value="c16">Взаимодействие с государственными органами</option>
+                           <option value="c17">Управление правовыми рисками</option>
+                     </select><i class="dropdown icon"></i><a class="ui label transition visible" data-value="c12" style="display: inline-block !important;">Руководство юридической службой<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c13" style="display: inline-block !important;">Корпоративное право<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c15" style="display: inline-block !important;">Претензионно-исковая работа<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c16" style="display: inline-block !important;">Взаимодействие с государственными органами<i class="delete icon"></i></a><div class="default text">Навыки</div><div class="menu transition hidden" tabindex="-1"><div class="item active filtered" data-value="c12">Руководство юридической службой</div><div class="item active filtered" data-value="c13">Корпоративное право</div><div class="item" data-value="c14">Антикризисное управление</div><div class="item active filtered" data-value="c15">Претензионно-исковая работа</div><div class="item active filtered" data-value="c16">Взаимодействие с государственными органами</div><div class="item selected" data-value="c17">Управление правовыми рисками</div></div></div>
+          
+        <div class="sectiontitle">Я ищу</div>
+              <p>Опытных корпоративных юристов в команду. </p>
+       <div class="ui divider"></div> 
+       <div class="sectiontitle">Основные достижения</div>
+                      
+       <div class="ui two stackable column grid" data-appendable="true" >
+         <div class="row" data-template="true" data-block="true">
+              <div class="six wide column">
+                <div class="listtitles" data-editable="true">Описание проекта</div>
+                <div class="graylegend bluebottom paddingbottom" data-editable="true">Год завершения проекта <br></div> 
+           </div>
+           <div class="ten wide column">
+                <div class="normaltext " data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div> 
+                  <a href="https://www.yandex.ru/">
+                         <i class="fa fa-external-link greyfapadding" aria-hidden="true"></i>
+                  </a>     
+               </div>
+          </div>
+          <div class="row">
+              <div class="six wide column">
+                <div class="listtitles" data-editable="true">Структурирование сложной корпоративной сделки</div>
+                <div class="graylegend bluebottom paddingbottom" data-editable="true">2010</div> 
+              </div>
+              <div class="ten wide column">
+                <div class="normaltext" data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div>
+              </div>
+             </div>    
+       </div>
+                                
+   
+                        
+               <h1 class="sectiontitle">Профессиональный опыт</h1>
+                <!--<div class="ui divider"></div>-->
+
+                <div class="ui divided items" data-appendable="true">
+
+                    <div class="listitem" data-section="1" data-template="true" data-block="true">
+                        <div class="content">
+                            <div class="cv-title-normal" data-editable="true" style="padding: 0px; font-size: 140%; font-weight: bold; margin-bottom:4px;">
+                            Руководитель юридической службы
+                            </div>
+       <div class="cv-companyname-blue" data-editable="true" data-editable="true" style="padding: 0px; font-size: 125%; font-weight: bold; color: #0E6EB8; margin-bottom:2px;">
+                            Энигма Кэпитал
+                             </div>
+        <div class="cv-date-grey" data-editable="true" style="padding: 0px; font-size: 110%; font-weight: bold; color: #cacaca; margin-bottom:2px;">
+                                   11/2016-11/2017
+                              </div>  
+                            
+                               <div class="normaltext" data-editable="true">Юридическое обеспечение финансово-хозяйственной деятельности группы компаний, защита интересов собственников (внешняя/внутренняя).
+Управление правовыми рисками (выявление, минимизация).
+Управление договорной работой, претензионно-исковой работой, налогово-правовой работой, корпоративно-правовой работой, регистрационно-правовой работой, административно-правовой работой и т.д.
+Разработка/экспертиза хозяйственных договоров, внешнеэкономических контрактов, в т.ч. нестандартных, максимально защищающих интересы компании, локальных нормативных актов (Положение о договорной работе, о коммерческой тайне, ПВТР, об оплате труда и др.).
+Судебное представительство в арбитражных судах и судах общей юрисдикции (изучение материалов по делу, разработка правой позиции по делу с учетом судебной практики, разработка стратегии ведения процесса, подготовка всех процессуальных документов).
+Управление работой с ФССП и должниками по исполнению исполнительных документов (взаимодействие с приставами, оформление запросов, ходатайств, обжалование действий/бездействия ССП в административном и судебном порядке и т.п.).
+Снижение кадастровой стоимости земельных участков в административном и судебном порядке. Выкуп земельных участков. Оформление сделок с недвижимостью. 
+Подготовка правовых заключений по вопросам коммерческой деятельности компании. 
+Консультационная поддержка собственников и руководителей дочерних компаний по правоприменительным вопросам. 
+Взаимодействие с контролирующими и надзорными государственными органами (правовая оценка обоснованности запросов, подготовка ответов на запросы, требования). Обжалование административных предписаний/взысканий.
+Обеспечение проведения советов директоров и общего собрания акционеров. Подготовка протоколов и др.документов.
+Разработка учредительных документов, регистрация дочерних компаний, внесение изменений в ЕГРЮЛ.
+Решение правовых вопросов, связанных с размещением внутренней и наружной рекламы, с защитой персональных данных, регистрацией товарных знаков и др.
+Экспертиза, правовая оценка любых вопросов в области трудовых правоотношений.Разработка трудовых договоров, должностных инструкций.для топ-менеджеров и руководителей среднего звена.
+Участие в создании схем для оптимизации налогообложения и сбережения активов.</div>
+                        </div>
+                    </div>
+              </div>
+       <div class="ui divider"></div> 
+       <h1 class="sectiontitle">Образование</h1>
+                        <div class="ui two column grid" data-appendable="true">
+                             <div class="row">
+                                   <div class="two wide column">
+                                          <div class="graylegend">2000</div>                                                                                                          
+                                   </div>
+                                    <div class="fourteen wide column">
+                                          <div class="listtitles">Московская Государственная юридическая академия им. О.Е. Кутафина</div>
+                                          <div class="normaltext" data-editable="true">Юридический, Гражданско-правовая специализация </div>
+                                     </div>
+                              </div>
+                              <div class="row">
+                                   <div class="two wide column">
+                                           <div class="graylegend" data-editable="true" >1994</div> 
+                                    </div>
+                                    <div class="fourteen wide column">      
+                                           <div class="listtitles">Московский государственный областной педагогический университет</div>   
+                                          <div class="normaltext" data-editable="true">Исторический, Преподаватель истории, права и общественно политических дисциплин</div>
+                                     </div>
+                               </div>
+                                 <div class="row" data-template="true" data-block="true"> 
+                                   <div class="two wide column">
+                                           <div class="graylegend" data-editable="true" placeholder="Год окончания">Год окончания</div> 
+                                    </div>
+                                    <div class="fourteen wide column">      
+                                           <div class="listtitles" data-editable="true" placeholder="Название учебного заведения">Название</div>   
+                                          <div class="normaltext" data-editable="true" placeholder="Факультет, Специальность">Специальность</div>
+                                     </div>
+                               </div>  
+                       </div>
+
+   </div>
+ 
+    
+
+  
+    <script>
+     
+       
+       $('[data-editable]').on("input", function(){ //select all content editable documents
+               // html = document.documentElement.innerHTML;
+               $(this).data( "data-edited", true );
+              html = document.documentElement.innerHTML;
+                 localStorage.setItem('u1234567-eliseev', html);
+             });
+        </script>
+
+    <script>
+       $('.ui.dropdown').dropdown();                                                                     //activate dropdown
+       $('.message .close').on('click', function() {
+            $(this).closest('.message').transition('fade');
+        });
+       //content editables
+       $("p").attr("contentEditable", true); //set p as editable
+       $("span").attr("contentEditable", true);
+       //$("li").attr("contentEditable", true);  //blocked for select
+       $('[data-editable]').attr("contentEditable", true); 
+       $('[data-template]').hide(); 
+       
+          $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
+            $('.graybuttonadd').on('click', function() {
+  
+            //       $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
+           //         $(this).prev( '[data-appendable]' ).children( '[data-template]').last().css( "background", "red" );//last() added for 
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' )).show();
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
+            });
+           
+          
+          $('[data-editable]' ).hover(    
+                 function() {
+                   $(this).append("<span>&#128393</span>");
+                   //$(this).parents('[data-block]').css( "background", "yellow" );
+                   //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                 }, function() {
+                   $( this ).find( "span:last" ).remove();
+                   //$(this).parents('[data-block]').next( '.graybuttonadd').remove();
+                   //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
+                  });
+           
+           $('[data-block]').one("mouseover", function() {
+                  $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  //$(this).after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                  //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+           });
+          
+                 $( document ).on( 'click','.graybuttonremove', function() {
+                      $(this).parents('[data-block]').remove(); 
+                    // $(this).prev('[data-block]').remove(); //after() prev()
+                  //$(this).prev('[data-block]').css( "background", "yellow" );
+            });
+           
+           $('[data-editable]').on('click', function() {
+              //$( this ).find( "span:last" ).remove();                 //lets pen remain
+           }
+        );
+        </script>
