@@ -368,11 +368,11 @@
                   });
            
            $('[data-block]')
-                  .mouseover( function() {
+                 .on( "mouseenter", function() {
                      $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
                      })
-                 .mouseout(function() {
-                     //$(this).children( '.graybuttonremove').remove();      //Unstable
+                  .on( "mouseleave", function() {
+                     $(this).children( '.graybuttonremove').remove();      //Unstable
                      });
 
           
