@@ -233,9 +233,7 @@
            </div>
            <div class="ten wide column">
                 <div class="normaltext " data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div> 
-                  <a href="https://www.yandex.ru/">
-                         <i class="fa fa-external-link greyfapadding" aria-hidden="true"></i>
-                  </a>     
+                   <div class="ui basic button">Добавить</div>
                </div>
           </div>
           <div class="row">
