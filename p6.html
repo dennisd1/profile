@@ -427,12 +427,10 @@
            $('[data-editable]').on('click', function() {
               var elem=this;
               console.log(elem);
-              $(this).on('input', (e) => {       //save author
+              $(elem).on('input', (e) => {       //save author
                   console.log("I am changed");
-                  console.log(this);
-                  this.data("data-author", "author_name");
-           });
-                  
+                  console.log(elem);
+                  $(elem).data("data-author","author_name");           
               
               //$( this ).find( "span:last" ).remove();                 //lets pen remain
            });
