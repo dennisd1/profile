@@ -425,8 +425,13 @@
             });
            
            $('[data-editable]').on('click', function() {
-              console.log($(this));
-                  //$( this ).find( "span:last" ).remove();                 //lets pen remain
-           }
-        );
+              $(this).on('input', (e) => {       //save author
+                  console.log("I am changed");
+                  console.log($(this));
+                  $(this).data("data-author", "author_name");
+           });
+                  
+              
+              //$( this ).find( "span:last" ).remove();                 //lets pen remain
+           });
         </script>
