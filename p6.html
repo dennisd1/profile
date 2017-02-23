@@ -404,6 +404,10 @@
                    //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
                   });
            
+           $('[data-editable]').change(function() {        //save author
+             $(this).attr("data-author", author);
+           });
+           
            $('[data-block]')
                  .on( "mouseenter", function() {
                      $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
