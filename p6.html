@@ -407,7 +407,7 @@
            $('[data-editable]').on('input', (e) => {       //save author
                   console.log("I am changed");
                   console.log($(event.target));
-                  $(event.target).attr("data-author", "author_name");
+                  $(event.target).data("author", "author_name");
            });
            
            $('[data-block]')
