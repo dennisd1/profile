@@ -406,7 +406,7 @@
            
            $('[data-editable]').on('input', (e) => {       //save author
                   console.log("I am changed");
-                  console.log(this);
+                  console.log($(this).children());
                   $(this).data("data-author", "author_name");
            });
            
