@@ -404,7 +404,7 @@
                    //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
                   });
            
-           $('[data-editable]').change(function() {        //save author
+           $('[data-editable]').on('input', (e) => {       //save author
                   console.log("I am changed");
                   $(this).attr("data-author", author);
            });
