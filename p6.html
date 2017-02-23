@@ -430,7 +430,7 @@
               $(elem).on('input', (e) => {       //save author
                   console.log("I am changed");
                   console.log(elem);
-                  $(elem).data("data-author","author_name");           
+                  elem.data("data-author","author_name");           
                });
               //$( this ).find( "span:last" ).remove();                 //lets pen remain
            });
