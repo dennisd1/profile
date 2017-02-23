@@ -406,8 +406,8 @@
            
            $('[data-editable]').on('input', (e) => {       //save author
                   console.log("I am changed");
-                  console.log($(this));
-                  $(this).data("data-author", "author_name");
+                  console.log($(event.target));
+                  $(event.target).data("data-author", "author_name");
            });
            
            $('[data-block]')
@@ -425,12 +425,7 @@
             });
            
            $('[data-editable]').on('click', function() {
-              var elem=this;
-              $(this).on('input', (e) => {       //save author
-                  console.log("I am changed");
-                  console.log(elem);
-                  $(event.target).data("data-author","author_name");           
-               });
+
               //$( this ).find( "span:last" ).remove();                 //lets pen remain
            });
         </script>
