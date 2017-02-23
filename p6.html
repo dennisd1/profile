@@ -405,7 +405,8 @@
                   });
            
            $('[data-editable]').change(function() {        //save author
-             $(this).attr("data-author", author);
+                  console.log("I am changed");
+                  $(this).attr("data-author", author);
            });
            
            $('[data-block]')
