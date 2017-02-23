@@ -392,7 +392,7 @@
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
            
-          
+          //-----section on editing content-----------------------------------------------//
           $('[data-editable]' ).hover(    
                  function() {
                    $(this).append("<span>&#128393</span>");
@@ -408,6 +408,10 @@
                   console.log("I am changed");
                   $(event.target).attr('data-author', 'author_name');
            });
+           $(this).on('change', function() {
+               $(event.target).attr('data-author', 'author_name');
+           });
+           //-----end of section on editing content-----------------------------------------------//
            
            $('[data-block]')
                  .on( "mouseenter", function() {
