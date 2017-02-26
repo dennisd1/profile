@@ -389,7 +389,21 @@
   
     <script>
      
-       
+       //hallo
+           
+           jQuery(document).ready(function() {
+                jQuery('.editable').hallo({
+                  plugins: {
+                    'halloformat': {},
+                    'halloblock': {},
+                    'hallojustify': {},
+                    'hallolists': {},
+                    'halloreundo': {}
+                  }
+                });
+              });
+           
+           //end hallo
        $('[data-editable]').on("input", function(){ //select all content editable documents
                // html = document.documentElement.innerHTML;
                $(this).data( "data-edited", true );
