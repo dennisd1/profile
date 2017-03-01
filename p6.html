@@ -343,7 +343,7 @@
                                    <span class="graydate" data-editable="true">enigma-capital.ru</span>
                              
                             <div class="graydate" data-editable="true">11/2015-11/2016</div>  
-                            
+                     <!-- We need hallo.js for that or other open source for WYSIWYG-->                     
                                <div class="normaltext" data-editable="true">Юридическое обеспечение финансово-хозяйственной деятельности группы компаний, защита интересов собственников (внешняя/внутренняя).
 Управление правовыми рисками (выявление, минимизация).
 Управление договорной работой, претензионно-исковой работой, налогово-правовой работой, корпоративно-правовой работой, регистрационно-правовой работой, административно-правовой работой и т.д.
@@ -420,10 +420,13 @@
                        <div class="ui stackable grid" data-appendable="true" >
                               <div class="row" data-template="true" data-block="true">
                                    <div class="two wide column">
-                                          <div class="normaltext" data-editable="true"> Языки: </div>
+                                          <div class="graylegend" data-editable="true"> Знание языков: </div>
+                                          <div class="graylegend" data-editable="true"> Гражданство: </div>
+                                          
                                    </div>
                                    <div class="fourteen wide column">
-                                           <div class="normaltext slide" data-editable="true">Английский</div> 
+                                           <div class="normaltext" data-editable="true">Русский — родной; Английский - базовые знания</div>
+                                          <div class="normaltext" data-editable="true">Русский — родной; Россия</div> 
                                     </div>
                                </div>
                        </div>
@@ -451,11 +454,11 @@
             $(this).closest('.message').transition('fade');
         });
        //content editables
-       $("p").attr("contentEditable", true); //set p as editable
-       $("span").attr("contentEditable", true);
+       //$("p").attr("contentEditable", true); //set p as editable
+       //("span").attr("contentEditable", true);
        //$("li").attr("contentEditable", true);  //blocked for select
        $('[data-editable]').attr("contentEditable", true); 
-       $('[data-template]').hide(); 
+       $('[data-template]').hide(); //
        
           $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
             $('.graybuttonadd').on('click', function() {
@@ -479,8 +482,7 @@
                   });
            
            $('[data-editable]').on('input', (e) => {       //save author
-                  console.log("I am changed");
-                  $(event.target).attr('data-author', 'author_name');
+                 $(event.target).attr('data-author', 'author_name');
            });
            $(this).on('change', function() {
                $(event.target).attr('data-author', 'author_name');
