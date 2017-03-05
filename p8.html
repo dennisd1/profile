@@ -1,3 +1,4 @@
+<!--Only one change - to fa fa pen on hover-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css">
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -203,7 +204,7 @@
                                                  <div class="businesscard">
                                                         <div class="businessaddress" data-editable="true">Россия, Москва, Смоленский бульвар, 15</div>
                                                         <div class="businessphone" data-editable="true">+7(499)952-57-76</div>
-                                                       <iframe src="https://yandex.ru/?mode=search&text=Россия%2C%20Москва%2C%20Смоленский%20бульвар%2C%2015"></iframe>
+                                                       <iframe src="https://yandex.ru"></iframe>
                                                   </div>
                                                </div>
                                            </div>
@@ -479,7 +480,6 @@
           //-----section on editing content-----------------------------------------------//
           $('[data-editable]' ).hover(    
                  function() {
-                   //$(this).append("<span>&#128393</span>");
                    $(this).append('<span><i class="fa fa-pencil"></i></span>');
                    //$(this).parents('[data-block]').css( "background", "yellow" );
                    //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
