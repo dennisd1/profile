@@ -108,7 +108,7 @@
        </style>
 
 <div class="ui left aligned container">
-       <span class="settings"> </span> 
+       <span class="settings" data-loaded="true"> </span> 
               <div class="ui two column stackable grid">
                        <div class="four wide column">
                            <img class="ui fluid image" src = "https://upload.wikimedia.org/wikipedia/ru/thumb/0/0f/Serge_Eliss%C3%A9eff.png/263px-Serge_Eliss%C3%A9eff.png">
@@ -487,7 +487,7 @@
        $('[data-template]').hide(); //
        //-- Start settings module --// 
        if($('.settings').is('[data-loaded]')){
-           
+           console.log("data-loaded already loaded");
        } else {
                      $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
                      $('.settings').attr('data-loaded', true); //mark that loaded//avoid multiple load    
