@@ -468,6 +468,7 @@
         </script>
 
     <script>
+       $(.settings).attr("data-loaded", true); //mark that loaded
        $('.ui.dropdown').dropdown();
        $('.ui.rating').rating();//activate rating
        $('.message .close').on('click', function() {
@@ -480,7 +481,7 @@
        $('[data-editable]').attr("contentEditable", true); 
        $('[data-template]').hide(); //
        
-          $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
+          $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>'); //avoid multiple load
             $('.graybuttonadd').on('click', function() {
   
             //       $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
@@ -493,13 +494,9 @@
           $('[data-editable]' ).hover(    
                  function() {
                    $(this).append("<span>&#128393</span>");
-                   //$(this).parents('[data-block]').css( "background", "yellow" );
-                   //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
                  }, function() {
                    $( this ).find( "span:last" ).remove();
-                   //$(this).parents('[data-block]').next( '.graybuttonadd').remove();
-                   //$(this).parents('[data-block]').next( '.graybuttonremove').fadeOut(2000);
-                  });
+                 });
            
            $('[data-editable]').on('input', (e) => {       //save author
                  $(event.target).attr('data-author', 'author_name');
