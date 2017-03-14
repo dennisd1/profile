@@ -468,7 +468,7 @@
         </script>
 
     <script>
-       $(.settings).attr("data-loaded", true); //mark that loaded
+
        $('.ui.dropdown').dropdown();
        $('.ui.rating').rating();//activate rating
        $('.message .close').on('click', function() {
@@ -480,12 +480,13 @@
        //$("li").attr("contentEditable", true);  //blocked for select
        $('[data-editable]').attr("contentEditable", true); 
        $('[data-template]').hide(); //
-       
-          $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>'); //avoid multiple load
+       //-- Start settings module --// 
+         
+          $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
+          $(.settings).attr("data-loaded", true); //mark that loaded//avoid multiple load
+       //end settings module - //
             $('.graybuttonadd').on('click', function() {
   
-            //       $(this).prev( '[data-appendable]' ).css( "background", "yellow" );
-           //         $(this).prev( '[data-appendable]' ).children( '[data-template]').last().css( "background", "red" );//last() added for 
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' )).show();
                     $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
             });
