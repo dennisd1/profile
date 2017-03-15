@@ -1,0 +1,600 @@
+<!--Changed logic of Добавить button  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css">
+       <!--REMOVE THIS is you need standalong html <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>-->
+       <style type="text/css">
+              .graylegend { 
+                  color: #8e939b ;
+                  font-weight: bold;
+                  line-height: 1.6em;
+                 }
+              .graydate { 
+              padding: 0px;
+              font-size: 110%;
+              font-weight: bold;
+              color: #cacaca;
+              margin-bottom:2px;
+              }
+              .listtitles { 
+              font-weight: bold;
+              line-height: 1.6em;
+              font-size: 14px;
+              }
+              /*here goes review styles */
+              .orangetitle { 
+              font-weight: bold;
+              line-height: 1.6em;
+              font-size: 16px;
+              color: #e86138;
+              }
+              .stars.large {
+                  height: 1.5rem;
+                  width: 7.75rem;
+              }
+              .stars-8 {
+                  background-image: url(data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2276%20397%20124%2024%22%3E%3Cstyle%3E.st0%7Bfill%3A%238AD7F0%3B%7D%20.st1%7Bfill%3A%232398BD%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M78.1%20406.9l6.5-1.1%203.4-6.5%203.1%206.4%207%201.2-4.9%204.8%201%207-6.2-3-6.2%203%20.8-6.9zM103%20406.9l6.5-1.1%203.4-6.5%203.2%206.4%206.9%201.2-4.9%204.8%201.1%207-6.3-3-6.1%203%20.8-6.9zM128.4%20406.9l6.5-1.1%203.4-6.5%203.1%206.4%207%201.2-4.9%204.8%201.1%207-6.3-3-6.2%203%20.8-6.9zM153%20406.9l6.5-1.1%203.4-6.5%203.2%206.4%206.9%201.2-4.9%204.8%201.1%207-6.3-3-6.1%203%20.8-6.9z%22%2F%3E%3Cpath%20class%3D%22st1%22%20d%3D%22M100%20406.3l-8.3-1.2-3.7-7.5-3.7%207.5-8.3%201.2%206%205.8-1.4%208.3%207.4-3.9%207.4%203.9-1.4-8.3%206-5.8zm-12%208.4l-5.2%202.8%201-5.8-4.2-4.1%205.9-.9%202.6-5.3%202.6%205.3%205.9.9-4.2%204.1%201%205.8-5.4-2.8zM125%20406.3l-8.3-1.2-3.7-7.5-3.7%207.5-8.3%201.2%206%205.8-1.4%208.3%207.4-3.9%207.4%203.9-1.4-8.3%206-5.8zm-12%208.4l-5.2%202.8%201-5.8-4.2-4.1%205.9-.9%202.6-5.3%202.6%205.3%205.9.9-4.2%204.1%201%205.8-5.4-2.8zM150%20406.3l-8.3-1.2-3.7-7.5-3.7%207.5-8.3%201.2%206%205.8-1.4%208.3%207.4-3.9%207.4%203.9-1.4-8.3%206-5.8zm-12%208.4l-5.2%202.8%201-5.8-4.2-4.1%205.9-.9%202.6-5.3%202.6%205.3%205.9.9-4.2%204.1%201%205.8-5.4-2.8zM175%20406.3l-8.3-1.2-3.7-7.5-3.7%207.5-8.3%201.2%206%205.8-1.4%208.3%207.4-3.9%207.4%203.9-1.4-8.3%206-5.8zm-12%208.4l-5.2%202.8%201-5.8-4.2-4.1%205.9-.9%202.6-5.3%202.6%205.3%205.9.9-4.2%204.1%201%205.8-5.4-2.8zM200%20406.3l-8.3-1.2-3.7-7.5-3.7%207.5-8.3%201.2%206%205.8-1.4%208.3%207.4-3.9%207.4%203.9-1.4-8.3%206-5.8zm-12%208.4l-5.2%202.8%201-5.8-4.2-4.1%205.9-.9%202.6-5.3%202.6%205.3%205.9.9-4.2%204.1%201%205.8-5.4-2.8z%22%2F%3E%3C%2Fsvg%3E);
+              }
+              .normaltext { 
+              line-height: 1.6em;
+              margin-bottom: 15px;
+              font-size: 14px;
+              }
+              .hugetext { 
+                  font-size: 4rem;
+                  font-weight: 400;
+                  line-height: 1em;
+                  color: #1b1c1d;
+                  text-transform: uppercase;
+                  text-align: right;
+              }
+              .righttext { 
+                  margin-left: -1.5em;
+               }
+               .sectiontitle { 
+                  font-size: 22px;
+                  font-weight: 400;
+                  line-height: 1em;
+                  color: #8e939b;
+                  margin-bottom: 15px;
+                  margin-top: 60px;
+              }
+              .borderless { 
+              border: 0 !important;
+              }
+              .bluename {                                    
+                     font-size: 110%; 
+                     font-weight: bold; 
+                     color: #0E6EB8;
+              }
+              .bluenamebig {
+                     font-size: 125%; 
+                     font-weight: bold; 
+                     color: #0E6EB8;
+                     margin-bottom: 2px;
+              }
+              .greyfapadding {
+              color: #8e939b;
+              padding-top: -1px;
+              }
+              .rownarrow {
+              height: 14px;
+              }
+              .marginbottom {
+              margin-bottom: 30px;
+              }
+              .paddingbottom {
+              padding-bottom: 30px;
+              }
+              .graystripe
+              {
+              background-color: #eff0f1;
+              }
+              .graybuttonadd
+              {
+                     color: #8e939b ;
+                     position:relative;
+                     float:right;
+                     background-color: transparent; /*  */
+                     border: 0;
+              }
+               .graybuttonremove
+              {
+                     color: #8e939b ;
+                     position:relative;
+                     float:right;
+                     background-color: transparent; /*  */
+                     border: 0;
+              }
+               .graybuttondetails
+              {
+                     color: #8e939b ;
+                     /*position:relative;*/
+                     /*float:right;*/
+                     background-color: transparent; /*  */
+                     border: 0;
+              }
+              .slide
+              {
+                     background: -webkit-linear-gradient(left, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 100%);
+              }
+       </style>
+
+<div class="ui left aligned container">
+       <span class="settings" data-loaded="true"> </span> 
+              <div class="ui two column stackable grid">
+                       <div class="four wide column">
+                           <img class="ui fluid image" src="/uploads/default/original/1X/c87872eccd4b3fac7f2e9948b83670bc1838085f.jpg">
+                        </div>
+                        <div class="twelve wide column">
+                          <h1 class="headline" contenteditable="true">
+                              CASEBOOK
+                          </h1>
+                          <h4> Лидер в области судебной автоматизации </h4>
+                           <h5 class="ui header"> 
+                                   <!--<div class="ui selection dropdown" style="border: 0 !important; padding-left: 0 !important; padding-right: 0 !important; min-width: 12em !important;">
+                                     <input type="hidden" name="city">
+                                     <div class="default text">Город</div>
+                                     <div class="menu">
+                                       <div class="item" data-value="1">Москва, Россия</div>
+                                       <div class="item" data-value="0">Санкт-Петербург, Россия</div>
+                                     </div>
+                                   </div>-->
+                                  <!--Москва, Россия-->
+                                  |   
+                                  <div class="ui selection dropdown" style="border: none !important;" tabindex="0">
+                                     <input type="hidden" name="profession" value="1" data-author="author_name">
+                                     <!--<i class="dropdown icon"></i>-->
+                                     <div class="text">Информационно-справочные системы</div>
+                                     <div class="menu transition hidden" tabindex="-1">
+                                       <div class="item active selected" data-value="1">Информационно-справочные системы</div>
+                                       <div class="item" data-value="0">Интернет-компании</div>
+                                     </div>
+                                   </div>
+                                  | 
+                                  <span data-editable="true" contenteditable="true"> Автоматизация судопроизводства </span></h5>
+                            <!--<div class="ui two column stackable grid">
+                               <div class="row rownarrow">
+                                   <div class="four wide column">
+                                          <div class="graylegend">Текущее: </div>                                                                                                        
+                                   </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Энигма Кэпитал</div>
+                                    </div>
+                                </div>
+                                <div class="row rownarrow">
+                                    <div class="four wide column">
+                                          <div class="graylegend">Предыдущие: </div>                                                                                                        
+                                   </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Кэпитал Инвестмент </div>
+                                    </div>
+                                   </div>
+                                   <div class="row rownarrow marginbottom"> 
+                                     <div class="four wide column">
+                                          <div class="graylegend">Образование: </div>                                                                                                        
+                                     </div>
+                                    <div class="twelve wide column">
+                                          <div class="listtitles">Московская Государственная юридическая академия им. О.Е. Кутафина</div>
+                                    </div>
+                                   </div>
+                                 </div>--> 
+                           
+                                                <div class="ui buttons">
+                                                  <div class="ui blue button">Подробнее</div>
+                                                  <div class="ui blue floating dropdown icon button" tabindex="0">
+                                                           <i class="dropdown icon"></i>
+                                                           <div class="menu" tabindex="-1">
+                                                                    <div class="item" data-value="drop">Отзывы</div>
+                                                                    <div class="item" data-value="horizontal flip">Цены</div>
+                                                                    <div class="item" data-value="fade up">Обсуждение</div>
+                                                            </div>
+                                                   </div>
+                                                 </div>
+                               
+                                                    <div class="ui button">Написать отзыв</div>
+                                                         <button class="ui basic red button" data-optional="true">
+                                                          <i class="icon calendar"></i>
+                                                          Встречи группы
+                                                        </button>
+                                                            
+                                                    </div>
+                        </div>
+  
+              <div class="ui grid"> 
+                       <div class="four wide column">
+                       </div>
+                        <div class="twelve wide column">
+                             <button class="ui red button marginbottom" onclick="location.href='http://google.com';" data-optional="true">
+                                <i class="video play outline icon"></i>
+                                Посмотреть Демо
+                             </button>
+                                  <!--<div class="ui grid" data-block="true" data-appendable="true" > 
+                                          <div class="contactbuttons" data-template="true" data-block="true">
+                                                 <div class="ui red button" data-editable="true"><i class="phone icon"></i>+79267777777</div>
+                                                 <div class="ui button" data-editable="true">www.website.com</div>
+                                                 <div class="businesscard">
+                                                        <div class="businessaddress" data-editable="true">Россия, Москва, Смоленский бульвар, 15</div>
+                                                        <div class="businessphone" data-editable="true">+7(499)952-57-76</div>
+                                                       <iframe src="https://yandex.ru/?mode=search&text=Россия%2C%20Москва%2C%20Смоленский%20бульвар%2C%2015"></iframe>
+                                                  </div>
+                                               </div>
+                                           </div>-->
+                            </div>
+                   </div>
+       
+       <!--<h1 class="ui medium header">Основные сведения</h1>-->
+       <!--<div class="ui divider"></div>
+        <div class="sectiontitle">Основные сведения</div>
+       <div class="listtitles" data-editable="true">Группа компаний Право.ру с 2008 года занимается разработкой и внедрением сложных технологических решений для поиска и комплексного анализа судебной информации. Без ложной скромности говорим — благодаря нам правосудие стало электронным.
+Отправной точкой 8 лет назад стали информационно-правовой портал и справочно-правовая система «Право.ру».
+Следующий этап — создание «Картотеки арбитражных дел» и системы «Электронное правосудие» с возможностью подачи документов в суд в электронном виде и контроля за ходом судебного процесса через интернет.
+Сегодня мы автоматизируем работу целых юридических департаментов с проектами Casebook, Caselook и Casepro, которые стали прорывом на рынке и превратились в инструмент ежедневного использования для практикующих юристов.</div>
+       <h1></h1>
+              <div class="section" data-hideable="true">
+               <div class="ui stackable six column grid">
+                           <div class="two wide column">
+                                  <div class="hugetext" data-editable="true">
+                                        15 
+                                  </div>
+                           </div>
+                            <div class="three wide column">
+                                     <div class="righttext" data-editable="true">
+                                     лет стажа
+                                      </div>
+                             </div>
+                             <div class="two wide column">
+                                   <div class="hugetext" data-editable="true">
+                                      10 
+                                    </div>
+                           </div>
+                            <div class="three wide column">
+                                      <div class="righttext" data-editable="true">
+                                     лет в роли корпоративного юриста
+                                      </div>
+                             </div>
+                             <div class="two wide column">
+                                     <div class="hugetext" data-editable="true">
+                                      25 
+                                      </div>
+                           </div>
+                            <div class="four wide column">
+                                      <div class="righttext" data-editable="true">
+                                     проектов
+                                      </div>
+                             </div>
+                      </div>
+                 </div>-->
+       <!--<div class="ui divider"></div>
+       <div class="sectiontitle">Продукты</div>  <!--дополнительный раздел-->
+                <!--<p>Направьте отзыв:</p>-->
+                       <!--<div class="ui stackable grid" data-appendable="true" >
+                              <div class="row" data-template="true" data-block="true">
+                                   <div class="four wide column">
+                                          <img class="ui medium image" src='/uploads/default/original/1X/c87872eccd4b3fac7f2e9948b83670bc1838085f.jpg'>
+                                   </div>
+                                   <div class="twelve wide column">
+                                          <div class="bluename" data-editable="true">Casebook</div>
+                                          <div class="listtitles" data-editable="true">Система контроля </div>                                  
+                                          <div class="normaltext slide" data-editable="true">Обсуждение продукта
+                                              <td class="posters">
+                                                 <a href="/users/postmaster" data-user-card="Postmaster" class=""><img alt="" width="25" height="25" src="/user_avatar/corp.vot.expert/postmaster/50/431_1.png" class="avatar" title="Postmaster - Автор"></a>
+                                                 <a href="/users/didkovsky" data-user-card="Didkovsky" class=""><img alt="" width="25" height="25" src="/user_avatar/corp.vot.expert/didkovsky/50/509_1.png" class="avatar" title="Didkovsky - Частый автор"></a>
+                                                 <a href="/users/youright" data-user-card="youright" class="latest"><img alt="" width="25" height="25" src="/letter_avatar_proxy/v2/letter/y/b9e5f3/50.png" class="avatar latest" title="youright - Последний автор"></a>
+                                               </td>
+                                          </div> 
+                                    </div>
+                               </div>
+                       </div>-->
+        <div class="ui divider"></div>
+       <div class="sectiontitle">Отзывы</div>
+                <!--<p>Направьте отзыв:</p>-->
+                       <div class="ui stackable grid" data-appendable="true">
+                              <div class="row" data-template="true" data-block="true" style="display: none;">
+                                   <div class="two wide column">
+                                          <img class="ui tiny image" src="/uploads/default/original/1X/c7760b483144c8e1e9a4ebb1963d7154ee5ce2aa.jpg"> 
+                                          <div class="bluename" data-editable="true" contenteditable="true">Семенов Михаил Борисович</div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Вице-президент, Энигма кэпитал</div>
+                                   </div>
+                                   <div class="fourteen wide column">
+                                           <div class="orangetitle" data-editable="true" contenteditable="true">Это прекрасный продукт для автоматизации судебного отдела</div>
+                                           <div class="stars large stars-8"></div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Что вам нравится больше всего?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                           <div class="listtitles" data-editable="true" contenteditable="true">Что вам не нравится?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                          
+                                    </div>
+                               </div>
+                       <div class="row" data-block="true" style="">
+                                   <div class="two wide column">
+                                          <img class="ui tiny image" src="/uploads/default/original/1X/c7760b483144c8e1e9a4ebb1963d7154ee5ce2aa.jpg"> 
+                                          <div class="bluename" data-editable="true" contenteditable="true">Семенов Михаил Борисович</div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Вице-президент, Энигма кэпитал</div>
+                                   </div>
+                                   <div class="fourteen wide column">
+                                           <div class="orangetitle" data-editable="true" contenteditable="true">Это прекрасный продукт для автоматизации судебного отдела</div>
+                                           <div class="stars large stars-8"></div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Что вам нравится больше всего?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                           <div class="listtitles" data-editable="true" contenteditable="true">Что вам не нравится?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                          
+                                    </div>
+                               </div><div class="row" data-block="true" style="">
+                                   <div class="two wide column">
+                                          <img class="ui tiny image" src="/uploads/default/original/1X/c7760b483144c8e1e9a4ebb1963d7154ee5ce2aa.jpg"> 
+                                          <div class="bluename" data-editable="true" contenteditable="true">Семенов Михаил Борисович</div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Вице-президент, Энигма кэпитал</div>
+                                   </div>
+                                   <div class="fourteen wide column">
+                                           <div class="orangetitle" data-editable="true" contenteditable="true">Это прекрасный продукт для автоматизации судебного отдела</div>
+                                           <div class="stars large stars-8"></div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Что вам нравится больше всего?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                           <div class="listtitles" data-editable="true" contenteditable="true">Что вам не нравится?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                          
+                                    </div>
+                               </div><div class="row" data-block="true" style="">
+                                   <div class="two wide column">
+                                          <img class="ui tiny image" src="/uploads/default/original/1X/c7760b483144c8e1e9a4ebb1963d7154ee5ce2aa.jpg"> 
+                                          <div class="bluename" data-editable="true" contenteditable="true">Семенов Михаил Борисович</div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Вице-президент, Энигма кэпитал</div>
+                                   </div>
+                                   <div class="fourteen wide column">
+                                           <div class="orangetitle" data-editable="true" contenteditable="true">Это прекрасный продукт для автоматизации судебного отдела</div>
+                                           <div class="stars large stars-8"></div>
+                                          <div class="listtitles" data-editable="true" contenteditable="true">Что вам нравится больше всего?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                           <div class="listtitles" data-editable="true" contenteditable="true">Что вам не нравится?</div>
+                                           <div class="normaltext" data-editable="true" contenteditable="true">Текст здесь</div>
+                                          
+                                    </div>
+                               </div></div><button class="graybuttonadd" data-add="true">Добавить</button>       
+        <!--<div class="ui divider"></div> 
+        <div class="sectiontitle">Мы предлагаем (навыки, компетенции, проекты)</div>
+                        <div class="ui fluid dropdown selection multiple borderless" tabindex="0"><select multiple="" tabindex="0">
+                           <option value="">Навыки</option>
+                           <option value="c12">Руководство юридической службой</option>
+                           <option value="c13">Корпоративное право</option>
+                           <option value="c14">Антикризисное управление</option>
+                           <option value="c15">Претензионно-исковая работа</option>
+                           <option value="c16">Взаимодействие с государственными органами</option>
+                           <option value="c17">Управление правовыми рисками</option>
+                     </select><i class="dropdown icon"></i><a class="ui label transition visible" data-value="c12" style="display: inline-block !important;">Руководство юридической службой<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c13" style="display: inline-block !important;">Корпоративное право<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c15" style="display: inline-block !important;">Претензионно-исковая работа<i class="delete icon"></i></a><a class="ui label transition visible" data-value="c16" style="display: inline-block !important;">Взаимодействие с государственными органами<i class="delete icon"></i></a><div class="default text">Навыки</div><div class="menu transition hidden" tabindex="-1"><div class="item active filtered" data-value="c12">Руководство юридической службой</div><div class="item active filtered" data-value="c13">Корпоративное право</div><div class="item" data-value="c14">Антикризисное управление</div><div class="item active filtered" data-value="c15">Претензионно-исковая работа</div><div class="item active filtered" data-value="c16">Взаимодействие с государственными органами</div><div class="item selected" data-value="c17">Управление правовыми рисками</div></div></div>
+          
+        <div class="sectiontitle">Мы ищем</div>
+              <p>Опытных корпоративных юристов в команду. </p>
+                       <div class="ui two stackable column grid" data-appendable="true" >
+                              <div class="row" data-template="true" data-block="true">
+                                   <div class="six wide column slide">
+                                          <div class="listtitles" data-editable="true">Руководитель отдела</div>
+                                          <div class="graylegend paddingbottom" data-editable="true">Москва <br></div> 
+                                   </div>
+                                   <div class="ten wide column">
+                                          <div class="normaltext " data-editable="true">Рукововодство отделом, Омск; </div> 
+                                          <button class="graybuttondetails">Подробнее »</button>
+                                    </div>
+                               </div>
+                               <div class="row" data-block="true">
+                                   <div class="six wide column slide">
+                                          <div class="listtitles" data-editable="true">Описание </div>
+                                          <div class="graylegend paddingbottom" data-editable="true">Место, сроки<br></div> 
+                                   </div>
+                                   <div class="ten wide column">
+                                          <div class="normaltext " data-editable="true">Описание</div> 
+                                          <button class="graybuttondetails">Подробнее</button>
+                                    </div>
+                               </div>
+                         </div>
+       <div class="ui divider"></div> 
+       <div class="sectiontitle">Основные достижения</div>
+                      
+       <div class="ui two stackable column grid" data-appendable="true" >
+         <div class="row" data-template="true" data-block="true">
+              <div class="six wide column slide">
+                <div class="listtitles" data-editable="true">Описание проекта</div>
+                <div class="graylegend paddingbottom" data-editable="true">Год завершения проекта <br></div> 
+           </div>
+           <div class="ten wide column">
+                <div class="normaltext " data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div> 
+                   <button class="graybuttondetails">Подробнее »</button>
+               </div>
+          </div>
+          <div class="row">
+              <div class="six wide column">
+                <div class="listtitles" data-editable="true">Структурирование сложной корпоративной сделки</div>
+                <div class="graylegend paddingbottom" data-editable="true">2010</div> 
+              </div>
+              <div class="ten wide column">
+                <div class="normaltext" data-editable="true">Продажа завода Красфарма, Красноярский край (крупный производитель химико-фармацевтической продукции в РФ); </div>
+              </div>
+             </div>    
+       </div>
+                                
+   
+                <!--        
+               <h1 class="sectiontitle">Профессиональный опыт</h1>
+                <div class="ui divided items" data-appendable="true">
+                    <div class="listitem" data-section="1" data-template="true" data-block="true">
+                        <div class="content">
+                            <div class="cv-title-normal" data-editable="true" style="padding: 0px; font-size: 140%; font-weight: bold; margin-bottom:4px;">
+                            Руководитель юридической службы
+                            </div>
+                               <span class="bluenamebig" data-editable="true">Энигма Кэпитал </span>
+                                   <span class="graydate" data-editable="true">enigma-capital.ru</span>
+                             
+                            <div class="graydate" data-editable="true">11/2015-11/2016</div>  
+                               
+                               <div class="normaltext" data-editable="true">Юридическое обеспечение финансово-хозяйственной деятельности группы компаний, защита интересов собственников (внешняя/внутренняя).
+Управление правовыми рисками (выявление, минимизация).
+Управление договорной работой, претензионно-исковой работой, налогово-правовой работой, корпоративно-правовой работой, регистрационно-правовой работой, административно-правовой работой и т.д.
+Разработка/экспертиза хозяйственных договоров, внешнеэкономических контрактов, в т.ч. нестандартных, максимально защищающих интересы компании, локальных нормативных актов (Положение о договорной работе, о коммерческой тайне, ПВТР, об оплате труда и др.).
+Судебное представительство в арбитражных судах и судах общей юрисдикции (изучение материалов по делу, разработка правой позиции по делу с учетом судебной практики, разработка стратегии ведения процесса, подготовка всех процессуальных документов).
+Управление работой с ФССП и должниками по исполнению исполнительных документов (взаимодействие с приставами, оформление запросов, ходатайств, обжалование действий/бездействия ССП в административном и судебном порядке и т.п.).
+Снижение кадастровой стоимости земельных участков в административном и судебном порядке. Выкуп земельных участков. Оформление сделок с недвижимостью. 
+Подготовка правовых заключений по вопросам коммерческой деятельности компании. 
+Консультационная поддержка собственников и руководителей дочерних компаний по правоприменительным вопросам. 
+Взаимодействие с контролирующими и надзорными государственными органами (правовая оценка обоснованности запросов, подготовка ответов на запросы, требования). Обжалование административных предписаний/взысканий.
+Обеспечение проведения советов директоров и общего собрания акционеров. Подготовка протоколов и др.документов.
+Разработка учредительных документов, регистрация дочерних компаний, внесение изменений в ЕГРЮЛ.
+Решение правовых вопросов, связанных с размещением внутренней и наружной рекламы, с защитой персональных данных, регистрацией товарных знаков и др.
+Экспертиза, правовая оценка любых вопросов в области трудовых правоотношений.Разработка трудовых договоров, должностных инструкций.для топ-менеджеров и руководителей среднего звена.
+Участие в создании схем для оптимизации налогообложения и сбережения активов.</div>
+                        </div>
+                    </div>
+              </div>
+       <div class="ui divider"></div> 
+       <h1 class="sectiontitle">Образование</h1>
+                        <div class="ui two column grid" data-appendable="true">
+                             <div class="row">
+                                   <div class="two wide column">
+                                          <div class="graylegend">2000</div>                                                                                                          
+                                   </div>
+                                    <div class="fourteen wide column">
+                                          <div class="listtitles">Московская Государственная юридическая академия им. О.Е. Кутафина</div>
+                                          <div class="normaltext" data-editable="true">Юридический, Гражданско-правовая специализация </div>
+                                     </div>
+                              </div>
+                              <div class="row">
+                                   <div class="two wide column">
+                                           <div class="graylegend" data-editable="true" >1994</div> 
+                                    </div>
+                                    <div class="fourteen wide column">      
+                                           <div class="listtitles">Московский государственный областной педагогический университет</div>   
+                                          <div class="normaltext" data-editable="true">Исторический, Преподаватель истории, права и общественно политических дисциплин</div>
+                                     </div>
+                               </div>
+                                 <div class="row" data-template="true" data-block="true"> 
+                                   <div class="two wide column">
+                                           <div class="graylegend" data-editable="true" placeholder="Год окончания">Год окончания</div> 
+                                    </div>
+                                    <div class="fourteen wide column">      
+                                           <div class="listtitles" data-editable="true" placeholder="Название учебного заведения">Название</div>   
+                                          <div class="normaltext" data-editable="true" placeholder="Факультет, Специальность">Специальность</div>
+                                     </div>
+                               </div>  
+                       </div>
+       <div class="ui divider"></div> 
+       <h1 class="sectiontitle">Повышение квалификации, курсы</h1>
+                        <div class="ui two column grid" data-appendable="true">
+                              <div class="row" data-template="true" data-block="true"> 
+                                   <div class="two wide column">
+                                           <div class="graylegend" data-editable="true" placeholder="Год окончания">Год окончания</div> 
+                                    </div>
+                                    <div class="fourteen wide column">      
+                                           <div class="listtitles" data-editable="true" placeholder="Название курса/учебного заведения">Название курса</div>   
+                                          <div class="normaltext" data-editable="true" placeholder="Преподаватель/учебное заведение">Преподаватель/учебное заведение</div>
+                                     </div>
+                               </div>
+                               <div class="row" data-block="true">
+                                   <div class="two wide column">
+                                          <div class="graylegend" data-editable="true">2016</div>                                                                                                          
+                                   </div>
+                                    <div class="fourteen wide column">
+                                          <div class="listtitles" data-editable="true">Исполнение обязательств. Новый пленум ВС РФ N 54</div>
+                                          <div class="normaltext" data-editable="true">А. Карапетов</div>
+                                     </div>
+                              </div>
+                       </div>
+    <div class="ui divider"></div> 
+    <h1 class="sectiontitle">Дополнительная информация</h1>    
+                       <div class="ui stackable grid" data-appendable="true" >
+                              <div data-template="true" data-block="true">
+                                 <div class="row">
+                                   <div class="two wide column">
+                                          <div class="graylegend" data-editable="true"> Знание языков: </div>
+                                   </div>
+                                   <div class="fourteen wide column">
+                                           <div class="normaltext" data-editable="true">Русский — родной; Английский - базовые знания</div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                          <div class="two wide column">
+                                             <div class="graylegend" data-editable="true"> Гражданство: </div>
+                                          </div>
+                                           <div class="fourteen wide column">
+                                                  <div class="normaltext" data-editable="true">Русский — родной; Россия</div>
+                                           </div>
+                                   </div>
+                               </div>
+                       </div>-->
+   
+
+   </div>
+ 
+    
+
+  
+    <script>
+     
+       
+       $('[data-editable]').on("input", function(){ //select all content editable documents
+               // html = document.documentElement.innerHTML;
+               $(this).data( "data-edited", true );
+              html = document.documentElement.innerHTML;
+                 localStorage.setItem('profile', html);
+             });
+        </script>
+
+    <script>
+       $('.ui.dropdown').dropdown();
+       $('.ui.rating').rating();//activate rating
+       $('.message .close').on('click', function() {
+            $(this).closest('.message').transition('fade');
+        });
+       //content editables
+       //$("p").attr("contentEditable", true); //set p as editable
+       //("span").attr("contentEditable", true);
+       //$("li").attr("contentEditable", true);  //blocked for select
+       $('[data-editable]').attr("contentEditable", true); 
+     $('.button').attr(onclick, location.href='http://google.com');     //new fucn append with links
+       $('[data-template]').hide(); //
+       //-- Start settings module --// 
+       if($('.settings').is('[data-loaded]')){
+       } else {
+                     $('[data-appendable]').after('<button class="graybuttonadd" data-add="true">Добавить</button>');
+                     $('.settings').attr('data-loaded', true); //mark that loaded//avoid multiple load    
+           }
+       //end settings module - //
+            $('.graybuttonadd').on('click', function() {
+  
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().clone(true).appendTo( $(this).prev( '[data-appendable]' )).show();
+                    $(this).prev( '[data-appendable]' ).children( '[data-template]').last().removeAttr( "data-template" );
+            });
+           
+          //-----section on editing content-----------------------------------------------//
+          $('[data-editable]' ).hover(    
+                 function() {
+                   $(this).append("<span>&#128393</span>");
+                 }, function() {
+                   $( this ).find( "span:last" ).remove();
+                 });
+           
+           $('[data-editable]').on('input', (e) => {       //save author
+                 $(event.target).attr('data-author', 'author_name');
+           });
+           $(this).on('change', function() {
+               $(event.target).attr('data-author', 'author_name');
+           });
+           //-----end of section on editing content-----------------------------------------------//
+           
+           $('[data-block]')
+                 .on( "mouseenter", function() {
+                     $(this).append( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
+                     })
+                  .on( "mouseleave", function() {
+                     $(this).children( '.graybuttonremove').remove();      //Unstable
+                     });
+          
+                 $( document ).on( 'click','.graybuttonremove', function() {
+                      $(this).parents('[data-block]').remove(); 
+                    // $(this).prev('[data-block]').remove(); //after() prev()
+                  //$(this).prev('[data-block]').css( "background", "yellow" );
+            });
+           
+           $('[data-editable]').on('click', function() {
+              //$( this ).find( "span:last" ).remove();                 //lets pen remain
+           });
+        </script>
