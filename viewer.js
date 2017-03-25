@@ -7765,7 +7765,7 @@ exports.ViewHistory = ViewHistory;
 
 "use strict";
 
-var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
+var DEFAULT_URL = 'testcv.pdf';
 ;
 var pdfjsWebApp;
 {
