@@ -121,7 +121,7 @@
             editable: _this.options.editable,
             label: label,
             command: "insert" + type + "List",
-            icon: "icon-list-" + (label.toLowerCase()),
+            icon: "fa fa-list-" + (label.toLowerCase()), //changed
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
