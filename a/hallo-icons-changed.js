@@ -2018,7 +2018,7 @@
             editable: _this.options.editable,
             label: alignment,
             command: "justify" + alignment,
-            icon: "icon-align-" + (alignment.toLowerCase()),
+            icon: "fa fa-align-" + (alignment.toLowerCase()),
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
