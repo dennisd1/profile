@@ -836,7 +836,7 @@
             uuid: _this.options.uuid,
             editable: _this.options.editable,
             label: label,
-            icon: cmd === 'undo' ? 'icon-undo' : 'icon-repeat',
+            icon: cmd === 'undo' ? 'fa fa-undo' : 'fa fa-repeat', //changed
             command: cmd,
             queryState: false,
             cssClass: _this.options.buttonCssClass
