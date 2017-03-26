@@ -745,7 +745,7 @@
           uuid: this.options.uuid,
           editable: this.options.editable,
           label: 'block',
-          icon: 'icon-text-height',
+          icon: 'fa fa-text-height',
           target: target,
           cssClass: this.options.buttonCssClass
         });
