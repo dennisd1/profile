@@ -2114,7 +2114,7 @@
         var hoverclass, id, opts, _base, _ref,
           _this = this;
         if ((_ref = (_base = this.options).icon) == null) {
-          _base.icon = "icon-" + (this.options.label.toLowerCase());
+          _base.icon = "fa fa-" + (this.options.label.toLowerCase()); //changed _base.icon = "icon-" + (this.options.label.toLowerCase());
         }
         id = "" + this.options.uuid + "-" + this.options.label;
         opts = this.options;
