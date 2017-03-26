@@ -42,7 +42,7 @@
       $buttonHolder = $('<span>');
       $buttonHolder.hallobutton({
         label: this.texts.title,
-        icon: 'icon-list-alt',
+        icon: 'fa fa-list-alt', //changed from original
         editable: this.options.editable,
         command: null,
         queryState: false,
