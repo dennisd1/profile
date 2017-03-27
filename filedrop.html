@@ -1,8 +1,8 @@
 <!--Changed logic of Добавить button  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css">
-       <!--REMOVE THIS is you need standalong html <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
        <link rel="stylesheet" href="http://kreda.com/a/community.css">
             
 
@@ -10,7 +10,12 @@
        <span class="settings" data-loaded="true"> </span> 
               <div class="ui two column stackable grid">
                        <div class="four wide column">
-                           <img class="ui fluid image" src="http://community.yoch.tv/uploads/default/original/1X/c87872eccd4b3fac7f2e9948b83670bc1838085f.jpg">
+                            <div id="dropzone">   <!--new dropzone-->
+                              <div>dropzone</div>
+                                   <img class="ui fluid image" src="http://community.yoch.tv/uploads/default/original/1X/c87872eccd4b3fac7f2e9948b83670bc1838085f.jpg">
+                              <input type="file" accept="image/png, application/pdf" />
+                            </div>
+                           
                         </div>
                         <div class="twelve wide column">
                           <h1 class="headline editable isModified" contenteditable="true"><div style="text-align: left;"><span style="font-size: 2rem;">CAS<i>EB</i>OOK ffd</span></div><div style="text-align: left;"><span style="font-size: 2rem;">text</span></div><div style="text-align: left;"><ol><li>text<br></li></ol></div><div style="text-align: left;"><span style="font-size: 2rem;"><br></span></div></h1>
