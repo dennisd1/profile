@@ -363,9 +363,9 @@ PDFJS.getDocument('testcv.pdf').then(function (doc) {
     });
 });
     window.objs = [];
-page.getOperatorList().then(function (ops) {
+window.page.getOperatorList().then(function (ops) {
     for (var i=0; i < ops.fnArray; i++) {
-        if (ops.fnArray[i] == PDFJS.OPS.painJpegXObject) {
+        if (ops.fnArray[i] == PDFJS.OPS.paintJpegXObject) {
             window.objs.push(ops.argsArray[i][0]);
         }
     }
