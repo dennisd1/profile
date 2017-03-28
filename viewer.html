@@ -366,7 +366,7 @@ PDFJS.getDocument('testcv.pdf').then(function (doc) {
 page.getOperatorList().then(function (ops) {
     for (var i=0; i < ops.fnArray; i++) {
         if (ops.fnArray[i] == PDFJS.OPS.painJpegXObject) {
-            window.objs.push(ops.argsArray[i][0];)
+            window.objs.push(ops.argsArray[i][0]);
         }
     }
 });
