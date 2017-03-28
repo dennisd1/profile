@@ -355,7 +355,15 @@ See https://github.com/adobe-type-tools/cmap-resources
     </div> <!-- outerContainer -->
     <div id="printContainer"></div>
 <!--added extraction-->
+<button id="buttontosave" class="ui blue button">Копировать</button>
+<button id="buttontoedit" class="ui blue button">Редактировать</button>
+<div id="divtoappend"></div>
+
 <script>
+    $("#buttontosave").click(function() {
+                    htmlbody=$('textLayer').html();
+        console.log("I am clicked");
+    });
 //here comes JQUERY extraction
      document.addEventListener("pagerendered", function(e){
               console.log('loaded');
