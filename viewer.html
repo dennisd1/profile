@@ -363,7 +363,9 @@ See https://github.com/adobe-type-tools/cmap-resources
          //html = jQuery(".textLayer").html();
          //console.log(html);
       });
- $('div[style*="left"]').hover(    
+    
+ $('.textLayer').children().css( "background-color", "red" );
+ $('div[style*="left"]').hover(    //doent work
                  function() {
                      console.log("I am hovered");
                     $(this).append("<span>&#128393</span>");
