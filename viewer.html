@@ -360,7 +360,8 @@ See https://github.com/adobe-type-tools/cmap-resources
      document.addEventListener("pagerendered", function(e){
               console.log('loaded');
          $('.textLayer').attr("contentEditable", true);
-         console.log($('.textLayer').text());
+         text = $('.textLayer').text();
+         console.log(text);
       });
 
 
