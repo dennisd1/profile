@@ -359,7 +359,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 //here comes JQUERY extraction
      document.addEventListener("pagerendered", function(e){
               console.log('loaded');
-         $('.textLayer').attr("contentEditable", true);
+         console.log($('.textLayer').text());
       });
 
 
