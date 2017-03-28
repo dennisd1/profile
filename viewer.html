@@ -363,9 +363,10 @@ See https://github.com/adobe-type-tools/cmap-resources
          //html = jQuery(".textLayer").html();
          //console.log(html);
       });
- $("div[style*='left:']").hover(    
+ $('div[style*="left"]').hover(    
                  function() {
-                   $(this).append("<span>&#128393</span>");
+                     console.log("I am hovered");
+                    $(this).append("<span>&#128393</span>");
                    //$(this).parents('[data-block]').css( "background", "yellow" );
                    //$(this).parents('[data-block]').after( '<button class="graybuttonremove" data-remove="true">Удалить</button>');
                  }, function() {
