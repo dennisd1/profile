@@ -360,8 +360,8 @@ PDFJS.getDocument('testcv.pdf').then(function (doc) {
     doc.getPage(1).then(function (page) {
         window.page = page;
         console.log("page+"page);
-    })
-})
+    });
+});
     window.objs = [];
 page.getOperatorList().then(function (ops) {
     for (var i=0; i < ops.fnArray; i++) {
@@ -369,7 +369,7 @@ page.getOperatorList().then(function (ops) {
             window.objs.push(ops.argsArray[i][0];)
         }
     }
-})
+});
     console.log(window.args.map(function (a) { page.objs.get(a) }));
 </script>
 <!--endof extracton-->
