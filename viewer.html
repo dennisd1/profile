@@ -361,6 +361,8 @@ PDFJS.getDocument('testcv.pdf').then(function (doc) {
         window.page = page;
         console.log('I am logged');
          window.objs = [];
+            list = page.getOperatorList();
+            console.log(list);
             page.getOperatorList().then(function (ops) {
                 for (var i=0; i < ops.fnArray; i++) {
                     if (ops.fnArray[i] == PDFJS.OPS.paintJpegXObject) {
