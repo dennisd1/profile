@@ -356,26 +356,11 @@ See https://github.com/adobe-type-tools/cmap-resources
     <div id="printContainer"></div>
 <!--added extraction-->
 <script>
-PDFJS.getDocument('testcv.pdf').then(function (doc) {
-    doc.getPage(1).then(function (page) {
-        window.page = page;
-        console.log('I am logged');
-         window.objs = [];
-            list = page.getOperatorList();
-            console.log(list);
-            page.getOperatorList().then(function (ops) {
-                for (var i=0; i < ops.fnArray; i++) {
-                    if (ops.fnArray[i] == PDFJS.OPS.paintJpegXObject) {
-                        window.objs.push(ops.argsArray[i][0]);
-                        console.log(ops.argsArray[i][0]);
-                        
-                    }
-                }
-        });
-           //console.log(window.args.map(function (a) { page.objs.get(a) }));
-    });
-});
-    
+//here comes JQUERY extraction
+     document.addEventListener("pagerendered", function(e){
+              console.log(document.getElementsByClassName('.textLayer'));
+            });
+
 
 </script>
 <!--endof extracton-->
