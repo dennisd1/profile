@@ -364,6 +364,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 $( ".textLayer" ).each(function() {
                    htmlbody=$(this).html();
                     $('#divtoappend').append(htmlbody);
+                     $('div').css('position','absolute'); //append with position: absolute
                    console.log(htmlbody);
                 });
         //here comes canvas
