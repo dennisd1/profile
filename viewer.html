@@ -364,7 +364,9 @@ See https://github.com/adobe-type-tools/cmap-resources
                $( ".textLayer" ).each(function() {
                    htmlbody=$(this).html();
                     $('#divtoappend').append(htmlbody);
-                    console.log(htmlbody);
+                    image = $('[type="image"]').html(); //this might not work
+                    $('#divtoappend').append(image); //this might not work
+                   console.log(htmlbody);
                 });
     });
     
