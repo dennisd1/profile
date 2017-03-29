@@ -361,10 +361,19 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 <script>
     $("#buttontosave").click(function() {
-                    htmlbody=$('.textLayer').html();
+               $( ".textLayer" ).each(function() {
+                   htmlbody=$('this').html();
                     $('#divtoappend').append(htmlbody);
-        console.log(htmlbody);
+                    console.log(htmlbody);
+                });
     });
+    
+ //   $("#buttontosave").click(function() {
+ //                   htmlbody=$('.textLayer').html();
+ //                   $('#divtoappend').append(htmlbody);
+ //       console.log(htmlbody);
+ //   });
+    
 //here comes JQUERY extraction
      document.addEventListener("pagerendered", function(e){
               console.log('loaded');
@@ -374,7 +383,7 @@ See https://github.com/adobe-type-tools/cmap-resources
          //console.log(html);
       });
     
- $('.textLayer').children().css( "background-color", "red" );
+
  $('div[style*="left"]').hover(    //doent work
                  function() {
                      console.log("I am hovered");
