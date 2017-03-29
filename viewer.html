@@ -362,7 +362,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 <script>
     $("#buttontosave").click(function() {
                $( ".textLayer" ).each(function() {
-                   htmlbody=$('this').html();
+                   htmlbody=$(this).html();
                     $('#divtoappend').append(htmlbody);
                     console.log(htmlbody);
                 });
