@@ -361,12 +361,19 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 <script>
     $("#buttontosave").click(function() {
-                $( ".textLayer" ).each(function() {
-                    $('.textLayer').children().css('position','absolute'); 
-                     //$('div').css('position','absolute'); //append with position: absolute
-                    htmlbody=$(this).html();
-                    $('#divtoappend').append(htmlbody);
-                   console.log(htmlbody);
+                 $( ".page" ).each(function() {          //lextLayer options
+                      htmlbody=$(this).html();
+                      $('#divtoappend').append(htmlbody);
+                      console.log(htmlbody);
+        
+        
+        
+                // $( ".textLayer" ).each(function() {          //lextLayer options
+                //    $('.textLayer').children().css('position','absolute'); 
+                //     //$('div').css('position','absolute'); //append with position: absolute
+                //    htmlbody=$(this).html();
+                //    $('#divtoappend').append(htmlbody);
+               //    console.log(htmlbody);
                 });
         //here comes canvas
         var canvas = $('#page1');
@@ -375,11 +382,7 @@ See https://github.com/adobe-type-tools/cmap-resources
         //end 
     });
     
- //   $("#buttontosave").click(function() {
- //                   htmlbody=$('.textLayer').html();
- //                   $('#divtoappend').append(htmlbody);
- //       console.log(htmlbody);
- //   });
+
     
 //here comes JQUERY extraction
      document.addEventListener("pagerendered", function(e){
