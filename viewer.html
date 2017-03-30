@@ -364,6 +364,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 $( ".textLayer" ).each(function() {
                     $('.textLayer').children().css('position','absolute'); 
                      //$('div').css('position','absolute'); //append with position: absolute
+                    htmlbody=$(this).html();
                     $('#divtoappend').append(htmlbody);
                    console.log(htmlbody);
                 });
